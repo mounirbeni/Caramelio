@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll-reveal animations
   const revealTargets = document.querySelectorAll(
-    '.about-text, .about-visual, .menu-card, .dish-col, .bakery-text, .bakery-visual, .review-card, .location-info, .location-map'
+    '.reserve-info, .reserve-card, .about-text, .about-visual, .menu-card, .dish-col, .bakery-text, .bakery-visual, .review-card, .location-info, .location-map'
   );
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries) => {
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Active nav link highlighting
-  const sections = ['about', 'breakfast', 'menu', 'bakery', 'reviews', 'location']
+  const sections = ['reserve', 'about', 'breakfast', 'menu', 'bakery', 'reviews', 'location']
     .map(id => document.getElementById(id))
     .filter(Boolean);
   const navLinks = Array.from(nav.querySelectorAll('a[href^="#"]'));
@@ -69,5 +69,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
 
     sections.forEach(section => navObserver.observe(section));
+  }
+
+  // Reservation form — sends the request via WhatsApp (no backend available)
+  const reserveForm = document.getElementById('reserveForm');
+  if (reserveForm) {
+    const dateInput = document.getElementById('rsv-date');
+    if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+
+    reserveForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!reserveForm.checkValidity()) {
+        reserveForm.reportValidity();
+        return;
+      }
+      const data = new FormData(reserveForm);
+      const name = data.get('name').trim();
+      const phone = data.get('phone').trim();
+      const guests = data.get('guests');
+      const date = data.get('date');
+      const time = data.get('time');
+      const notes = data.get('notes').trim();
+
+      let message = `Hello Caramelio! I'd like to reserve a table.\n`;
+      message += `Name: ${name}\nPhone: ${phone}\nGuests: ${guests}\nDate: ${date}\nTime: ${time}`;
+      if (notes) message += `\nNotes: ${notes}`;
+
+      const whatsappUrl = `https://wa.me/212665707049?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank', 'noopener');
+    });
   }
 });

@@ -31,6 +31,8 @@
 </head>
 <body>
 
+<div class="gold-rule" aria-hidden="true"></div>
+
 <svg style="display:none" aria-hidden="true">
   <symbol id="icon-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
     <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/>
@@ -90,6 +92,7 @@
   <div class="container header-inner">
     <a href="#top" class="logo">Caramelio<span class="logo-dot">.</span></a>
     <nav class="nav" id="nav">
+      <a href="#reserve" class="nav-link-highlight">Reserve</a>
       <a href="#about">About</a>
       <a href="#breakfast">Breakfast</a>
       <a href="#menu">Menu</a>
@@ -98,7 +101,7 @@
       <a href="#location">Location</a>
       <a href="#order" class="nav-order-link">Order Online</a>
     </nav>
-    <a href="#order" class="btn btn-primary header-cta">Order Online</a>
+    <a href="#reserve" class="btn btn-gold header-cta">Reserve a Table</a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -116,14 +119,72 @@
       <h1>Warm mornings, <br>sweet everything.</h1>
       <p class="hero-sub">A two-story hideaway in Targa, Marrakech — fresh bakery, generous breakfasts, and Moroccan &amp; international dishes served all day, indoors or on the terrace.</p>
       <div class="hero-actions">
-        <a href="#breakfast" class="btn btn-primary">View the Menu</a>
-        <a href="#location" class="btn btn-ghost">Get Directions</a>
+        <a href="#reserve" class="btn btn-primary">Reserve a Table</a>
+        <a href="#breakfast" class="btn btn-ghost">View the Menu</a>
       </div>
+      <a href="#location" class="hero-directions">Get Directions →</a>
       <div class="hero-stats">
         <div><strong>2</strong><span>Floors + Terrace</span></div>
         <div><strong>3</strong><span>Meals a Day</span></div>
         <div><strong>100%</strong><span>Fresh Baked</span></div>
       </div>
+    </div>
+  </section>
+
+  <!-- RESERVATION -->
+  <section class="reserve" id="reserve">
+    <div class="container reserve-inner">
+      <div class="reserve-info">
+        <p class="eyebrow eyebrow-gold">Reservations</p>
+        <h2>Reserve Your Table</h2>
+        <div class="divider divider-left divider-gold" aria-hidden="true"></div>
+        <p>Whether it's a quiet breakfast, a family lunch, or an evening on the terrace — tell us you're coming and we'll have your table ready.</p>
+        <div class="reserve-meta">
+          <div class="reserve-meta-row">
+            <span class="reserve-meta-icon"><svg class="icon"><use href="#icon-clock"/></svg></span>
+            <div><strong>Serving</strong><br>Breakfast · Lunch · Dinner, daily</div>
+          </div>
+          <div class="reserve-meta-row">
+            <span class="reserve-meta-icon"><svg class="icon"><use href="#icon-phone"/></svg></span>
+            <div><strong>Prefer to call?</strong><br><a href="tel:+212665707049">+212 6657-07049</a></div>
+          </div>
+          <div class="reserve-meta-row">
+            <span class="reserve-meta-icon"><svg class="icon"><use href="#icon-pin"/></svg></span>
+            <div><strong>Large groups</strong><br>For parties of 10 or more, please call ahead</div>
+          </div>
+        </div>
+      </div>
+
+      <form class="reserve-card" id="reserveForm" novalidate>
+        <div class="form-row">
+          <label for="rsv-name">Full Name
+            <input type="text" id="rsv-name" name="name" required placeholder="Your name" autocomplete="name">
+          </label>
+        </div>
+        <div class="form-row two-col">
+          <label for="rsv-phone">Phone
+            <input type="tel" id="rsv-phone" name="phone" required placeholder="+212 6XX-XXXXXX" autocomplete="tel">
+          </label>
+          <label for="rsv-guests">Guests
+            <input type="number" id="rsv-guests" name="guests" min="1" max="20" value="2" required>
+          </label>
+        </div>
+        <div class="form-row two-col">
+          <label for="rsv-date">Date
+            <input type="date" id="rsv-date" name="date" required>
+          </label>
+          <label for="rsv-time">Time
+            <input type="time" id="rsv-time" name="time" required>
+          </label>
+        </div>
+        <div class="form-row">
+          <label for="rsv-notes">Special Requests <span class="optional">(optional)</span>
+            <textarea id="rsv-notes" name="notes" rows="2" placeholder="Terrace seating, allergies, celebration..."></textarea>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-gold reserve-submit">Send Reservation Request</button>
+        <p class="reserve-hint">Opens WhatsApp with your details pre-filled — just hit send and we'll confirm shortly.</p>
+      </form>
     </div>
   </section>
 
@@ -303,11 +364,12 @@
           </div>
           <div class="info-row">
             <span class="info-icon"><svg class="icon"><use href="#icon-clock"/></svg></span>
-            <div><strong>Hours</strong><br>Open daily for breakfast, lunch &amp; dinner</div>
+            <div><strong>Hours</strong><br>Open daily — Breakfast, Lunch &amp; Dinner</div>
           </div>
         </div>
 
         <div class="order-links">
+          <a href="#reserve" class="btn btn-gold">Reserve a Table</a>
           <a href="https://glovoapp.com/en/ma/marrakech/stores/caramelio-mar" target="_blank" rel="noopener" class="btn btn-primary">Order on Glovo</a>
           <a href="https://yumlo.ma/en/marrakech/caramelio-mar" target="_blank" rel="noopener" class="btn btn-outline">Order on Yumlo</a>
         </div>
@@ -347,6 +409,7 @@
     </div>
     <div class="footer-col">
       <h4>Explore</h4>
+      <a href="#reserve">Reserve a Table</a>
       <a href="#about">About</a>
       <a href="#breakfast">Breakfast</a>
       <a href="#menu">Menu</a>
