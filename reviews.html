@@ -42,6 +42,25 @@
     <path d="M7 8.5c-2 0-3.5 1.6-3.5 3.7 0 1.9 1.4 3.3 3.2 3.3.3 2-1 3.7-3 4.3"/>
     <path d="M17 8.5c-2 0-3.5 1.6-3.5 3.7 0 1.9 1.4 3.3 3.2 3.3.3 2-1 3.7-3 4.3"/>
   </symbol>
+  <symbol id="icon-google" viewBox="0 0 48 48">
+    <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/>
+    <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.1 18.9 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+    <path fill="#4CAF50" d="M24 44c5.5 0 10.5-2.1 14.3-5.6l-6.6-5.6C29.6 34.7 27 36 24 36c-5.3 0-9.7-3.1-11.3-7.5l-6.5 5C9.6 39.6 16.3 44 24 44z"/>
+    <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.2 5.8l6.6 5.6C39.9 38 44 32.5 44 24c0-1.3-.1-2.7-.4-3.5z"/>
+  </symbol>
+  <symbol id="icon-tripadvisor" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="22" fill="#34E0A1"/>
+    <path d="M15 15.5c-2.6 0-5.1 1.2-6.4 3.4M33 15.5c2.6 0 5.1 1.2 6.4 3.4" stroke="#00352A" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <circle cx="14.5" cy="25" r="7" fill="#fff" stroke="#00352A" stroke-width="1.6"/>
+    <circle cx="33.5" cy="25" r="7" fill="#fff" stroke="#00352A" stroke-width="1.6"/>
+    <circle cx="14.5" cy="25" r="2.6" fill="#00352A"/>
+    <circle cx="33.5" cy="25" r="2.6" fill="#00352A"/>
+    <path d="M21.5 22.5h5" stroke="#00352A" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-glovo" viewBox="0 0 48 48">
+    <circle cx="24" cy="24" r="22" fill="#00A082"/>
+    <path d="M24 11l10 13-10 13-10-13z" fill="#FFC244"/>
+  </symbol>
 </svg>
 
 <div class="topbar">
@@ -88,18 +107,21 @@
     <div class="container">
       <div class="ratings-grid">
         <a href="https://www.google.com/maps/search/?api=1&query=Caramelio+Targa+Marrakech" target="_blank" rel="noopener" class="rating-card">
+          <svg class="rating-card-icon" aria-hidden="true"><use href="#icon-google"/></svg>
           <div class="rating-card-platform">Google Maps</div>
           <div class="rating-card-score">4.0</div>
           <div class="rating-card-stars" aria-hidden="true">★★★★☆</div>
           <span class="rating-card-link">See reviews →</span>
         </a>
         <a href="https://www.tripadvisor.com/Restaurant_Review-g293734-d24995100-Reviews-Caramelio-Marrakech_Marrakech_Safi.html" target="_blank" rel="noopener" class="rating-card">
+          <svg class="rating-card-icon" aria-hidden="true"><use href="#icon-tripadvisor"/></svg>
           <div class="rating-card-platform">Tripadvisor</div>
           <div class="rating-card-score">3.8</div>
           <div class="rating-card-stars" aria-hidden="true">★★★★☆</div>
           <span class="rating-card-link">See reviews →</span>
         </a>
         <a href="https://glovoapp.com/en/ma/marrakech/stores/caramelio-mar" target="_blank" rel="noopener" class="rating-card">
+          <svg class="rating-card-icon" aria-hidden="true"><use href="#icon-glovo"/></svg>
           <div class="rating-card-platform">Glovo</div>
           <div class="rating-card-score">94%</div>
           <p class="rating-card-caption">Positive Rating</p>

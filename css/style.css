@@ -768,6 +768,7 @@ section { padding: 110px 0; }
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .rating-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.rating-card-icon { width: 34px; height: 34px; margin: 0 auto 12px; display: block; }
 .rating-card-platform {
   font-size: 0.76rem;
   font-weight: 700;
