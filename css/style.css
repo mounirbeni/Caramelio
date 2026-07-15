@@ -608,6 +608,13 @@ section { padding: 110px 0; }
   border: none;
   background: linear-gradient(155deg, #f4e6cd 0%, #e4c48e 50%, #b9803f 100%);
 }
+/* Each category gets its own color mood instead of one identical gradient everywhere */
+[data-theme="breakfast"] { background: linear-gradient(155deg, #f4e6cd 0%, #e4c48e 50%, #b9803f 100%); }
+[data-theme="lunch"] { background: linear-gradient(155deg, #f6e3c3 0%, #e3a35f 50%, #a2551a 100%); }
+[data-theme="snacks"] { background: linear-gradient(155deg, #f2ddc9 0%, #d98c62 50%, #9c4a2c 100%); }
+[data-theme="drinks"] { background: linear-gradient(155deg, #f8f0d8 0%, #e8cf8e 50%, #c9a13f 100%); }
+[data-theme="extras"] { background: linear-gradient(155deg, #efe9dd 0%, #d3c6ab 50%, #a8967a 100%); }
+[data-theme="dinner"] { background: linear-gradient(155deg, #e6cfb0 0%, #b07d45 50%, #5c3312 100%); }
 .menu-category-cover .photo-slot-label,
 .dish-col-photo .photo-slot-label {
   flex-direction: row;
