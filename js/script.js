@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll-reveal animations
   const revealTargets = document.querySelectorAll(
-    '.reserve-info, .reserve-card, .about-text, .about-visual, .hub-card, .menu-card, .dish-col, .gallery-item, .bakery-text, .bakery-visual, .rating-card, .review-card, .location-info, .location-map'
+    '.reserve-info, .reserve-card, .about-text, .about-visual, .hub-card, .dish-list, .dish-col, .gallery-item, .bakery-text, .bakery-visual, .rating-card, .review-card, .location-info, .location-map'
   );
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries) => {
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.menu-category-count').forEach(countEl => {
     const scope = countEl.closest('.dish-col') || countEl.closest('section');
     if (!scope) return;
-    const count = scope.querySelectorAll('.dish-list li, .menu-card').length;
+    const count = scope.querySelectorAll('.dish-list li').length;
     countEl.textContent = count > 0 ? `${count} ${count === 1 ? 'Option' : 'Options'}` : 'Coming Soon';
   });
 
