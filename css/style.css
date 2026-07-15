@@ -462,7 +462,8 @@ section { padding: 110px 0; }
 .reserve-card textarea { resize: vertical; min-height: 64px; }
 .reserve-submit { width: 100%; text-align: center; margin-top: 4px; }
 .reserve-hint { margin-top: 14px; font-size: 0.8rem; color: var(--ink-soft); text-align: center; }
-.reserve-card.form-sent .reserve-hint { color: var(--caramel-dark); font-weight: 600; }
+.reserve-hint-success { color: var(--caramel-dark); font-weight: 600; }
+.reserve-hint-error { color: #b3261e; font-weight: 600; }
 
 /* About */
 .about-inner {

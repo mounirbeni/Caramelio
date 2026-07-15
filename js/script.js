@@ -68,40 +68,65 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tab.dataset.page === currentPage) tab.classList.add('active');
   });
 
-  // Reservation form — sends the request via WhatsApp (no backend available)
+  // Reservation form — submits straight to the reservations database
   const reserveForm = document.getElementById('reserveForm');
   if (reserveForm) {
     const dateInput = document.getElementById('rsv-date');
     if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
 
-    reserveForm.addEventListener('submit', (e) => {
+    const submitBtn = reserveForm.querySelector('.reserve-submit');
+    const hintEl = reserveForm.querySelector('.reserve-hint');
+    const defaultHint = hintEl ? hintEl.textContent : '';
+    const defaultBtnLabel = submitBtn ? submitBtn.textContent : '';
+
+    reserveForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!reserveForm.checkValidity()) {
         reserveForm.reportValidity();
         return;
       }
       const data = new FormData(reserveForm);
-      const name = data.get('name').trim();
-      const phone = data.get('phone').trim();
-      const guests = data.get('guests');
-      const date = data.get('date');
-      const time = data.get('time');
-      const notes = data.get('notes').trim();
+      const payload = {
+        name: data.get('name').trim(),
+        phone: data.get('phone').trim(),
+        guests: data.get('guests'),
+        date: data.get('date'),
+        time: data.get('time'),
+        notes: data.get('notes').trim(),
+      };
 
-      let message = `Hello Caramelio! I'd like to reserve a table.\n`;
-      message += `Name: ${name}\nPhone: ${phone}\nGuests: ${guests}\nDate: ${date}\nTime: ${time}`;
-      if (notes) message += `\nNotes: ${notes}`;
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+      if (hintEl) { hintEl.textContent = ''; hintEl.classList.remove('reserve-hint-error', 'reserve-hint-success'); }
 
-      const whatsappUrl = `https://wa.me/212665707049?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank', 'noopener');
+      try {
+        const res = await fetch('/api/reservations', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}));
+          throw new Error(body.error || 'Something went wrong. Please try again or call us.');
+        }
 
-      // Best-effort copy for the reservations dashboard — WhatsApp above is the reliable channel,
-      // so a failure here (e.g. database not connected yet) must never block or surface to the guest.
-      fetch('/api/reservations', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, guests, date, time, notes }),
-      }).catch(() => {});
+        reserveForm.reset();
+        if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+        if (submitBtn) submitBtn.textContent = 'Request Sent ✓';
+        if (hintEl) {
+          hintEl.textContent = "Thank you! We've received your request and will confirm shortly.";
+          hintEl.classList.add('reserve-hint-success');
+        }
+        setTimeout(() => {
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = defaultBtnLabel; }
+          if (hintEl) { hintEl.textContent = defaultHint; hintEl.classList.remove('reserve-hint-success'); }
+        }, 4000);
+      } catch (err) {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = defaultBtnLabel; }
+        if (hintEl) {
+          hintEl.textContent = err.message || 'Something went wrong. Please try again or call us.';
+          hintEl.classList.add('reserve-hint-error');
+        }
+      }
     });
   }
 });
