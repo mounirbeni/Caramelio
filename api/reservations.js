@@ -1,7 +1,8 @@
-const { kv } = require('@vercel/kv');
+const { Redis } = require('@upstash/redis');
 
 const LIST_KEY = 'reservations';
 const MAX_RETURNED = 200;
+const redis = Redis.fromEnv();
 
 function isNonEmptyString(v, maxLen) {
   return typeof v === 'string' && v.trim().length > 0 && v.trim().length <= maxLen;
@@ -39,7 +40,7 @@ module.exports = async (req, res) => {
     };
 
     try {
-      await kv.rpush(LIST_KEY, JSON.stringify(record));
+      await redis.rpush(LIST_KEY, JSON.stringify(record));
     } catch (err) {
       res.status(500).json({ error: 'Could not save reservation. Database is not connected yet.' });
       return;
@@ -64,7 +65,7 @@ module.exports = async (req, res) => {
     }
 
     try {
-      const raw = await kv.lrange(LIST_KEY, -MAX_RETURNED, -1);
+      const raw = await redis.lrange(LIST_KEY, -MAX_RETURNED, -1);
       const reservations = raw
         .map((item) => {
           try {
