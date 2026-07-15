@@ -18,6 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // Register the service worker so the site is installable and opens app-like (no browser chrome)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    });
+  }
+
   // Header shadow state on scroll
   const whatsapp = document.querySelector('.whatsapp-float');
   const onScroll = () => {
@@ -50,20 +57,28 @@ document.addEventListener('DOMContentLoaded', () => {
     revealTargets.forEach(el => el.classList.add('is-visible'));
   }
 
-  // Active nav link highlighting
+  // Active nav link + bottom tab bar highlighting
   const sections = ['reserve', 'about', 'breakfast', 'menu', 'bakery', 'reviews', 'location']
     .map(id => document.getElementById(id))
     .filter(Boolean);
   const navLinks = Array.from(nav.querySelectorAll('a[href^="#"]'));
+  const tabItems = Array.from(document.querySelectorAll('.tab-item[data-sections]'));
 
   if ('IntersectionObserver' in window && sections.length) {
     const navObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
         const link = navLinks.find(a => a.getAttribute('href') === `#${entry.target.id}`);
-        if (!link) return;
-        if (entry.isIntersecting) {
+        if (link) {
           navLinks.forEach(a => a.classList.remove('active'));
           link.classList.add('active');
+        }
+
+        const tab = tabItems.find(t => t.dataset.sections.split(',').includes(entry.target.id));
+        if (tab) {
+          tabItems.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
         }
       });
     }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });

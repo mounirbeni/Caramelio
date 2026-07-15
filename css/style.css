@@ -43,7 +43,11 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
 }
+
+a, button { touch-action: manipulation; }
 
 /* Subtle paper grain for a tactile, premium feel */
 body::before {
@@ -748,6 +752,9 @@ section { padding: 110px 0; }
 .whatsapp-float svg { width: 28px; height: 28px; }
 .whatsapp-float:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 14px 30px rgba(37,211,102,0.55); }
 
+/* App-style bottom tab bar (mobile only) */
+.app-tabbar { display: none; }
+
 /* Footer */
 .site-footer {
   background: var(--choc);
@@ -807,6 +814,7 @@ section { padding: 110px 0; }
 }
 
 @media (max-width: 760px) {
+  .topbar { display: none; }
   .nav { display: none; }
   .header-cta { display: none; }
   .nav-toggle { display: flex; }
@@ -833,8 +841,71 @@ section { padding: 110px 0; }
   .hero-stats { gap: 0; }
   .hero-arch { display: none; }
   .footer-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .whatsapp-float { right: 16px; bottom: 16px; width: 50px; height: 50px; }
-  .whatsapp-float svg { width: 24px; height: 24px; }
+  .site-footer { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+
+  /* Bottom tab bar replaces the floating WhatsApp button as the primary quick-action surface */
+  .whatsapp-float { display: none; }
+  body { padding-bottom: calc(62px + env(safe-area-inset-bottom)); }
+  .app-tabbar {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 400;
+    background: rgba(253, 248, 240, 0.97);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(42,28,18,0.08);
+    box-shadow: 0 -8px 24px rgba(42,28,18,0.07);
+    padding: 7px 6px calc(7px + env(safe-area-inset-bottom));
+  }
+  .tab-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 6px 2px;
+    border-radius: 12px;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+  .tab-item .icon { width: 21px; height: 21px; margin: 0; vertical-align: 0; }
+  .tab-item.active { color: var(--caramel-dark); background: rgba(162,85,26,0.08); }
+
+  /* Swipeable card carousels, app-style */
+  .menu-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 6px;
+    margin: 0 -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .menu-grid::-webkit-scrollbar { display: none; }
+  .menu-grid .menu-card { flex: 0 0 78%; scroll-snap-align: start; }
+
+  .reviews-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 6px;
+    margin: 0 -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .reviews-grid::-webkit-scrollbar { display: none; }
+  .reviews-grid .review-card { flex: 0 0 82%; scroll-snap-align: start; }
 }
 
 @media (prefers-reduced-motion: reduce) {
