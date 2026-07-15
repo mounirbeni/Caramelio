@@ -597,6 +597,21 @@ section { padding: 110px 0; }
   padding: 12px 24px 80px;
 }
 
+/* One cover photo per menu category — not one per dish */
+.menu-category-cover {
+  aspect-ratio: 21 / 6;
+  border-radius: var(--radius);
+  margin-bottom: 32px;
+}
+@media (max-width: 700px) {
+  .menu-category-cover { aspect-ratio: 16 / 9; }
+}
+.dish-col-photo {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  margin-bottom: 18px;
+}
+
 /* Menu grid (breakfast) */
 .menu-grid {
   display: grid;
@@ -627,11 +642,6 @@ section { padding: 110px 0; }
 .menu-card:hover::before { transform: scaleX(1); }
 .menu-card.featured { border: 2px solid var(--gold); }
 .menu-card.featured::before { transform: scaleX(1); }
-.menu-card-photo {
-  margin: -28px -26px 18px;
-  aspect-ratio: 16 / 10;
-  border-radius: var(--radius) var(--radius) 0 0;
-}
 .ribbon {
   position: absolute;
   top: 14px;
