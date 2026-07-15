@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll-reveal animations
   const revealTargets = document.querySelectorAll(
-    '.reserve-info, .reserve-card, .about-text, .about-visual, .menu-card, .dish-col, .bakery-text, .bakery-visual, .review-card, .location-info, .location-map'
+    '.reserve-info, .reserve-card, .about-text, .about-visual, .menu-card, .dish-col, .gallery-item, .bakery-text, .bakery-visual, .review-card, .location-info, .location-map'
   );
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries) => {
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Active nav link + bottom tab bar highlighting
-  const sections = ['reserve', 'about', 'breakfast', 'menu', 'bakery', 'reviews', 'location']
+  const sections = ['reserve', 'about', 'breakfast', 'menu', 'gallery', 'bakery', 'reviews', 'location']
     .map(id => document.getElementById(id))
     .filter(Boolean);
   const navLinks = Array.from(nav.querySelectorAll('a[href^="#"]'));

@@ -519,10 +519,43 @@ section { padding: 110px 0; }
   vertical-align: 0;
   stroke-width: 1.3;
 }
-.card-1 { background: linear-gradient(145deg, #f3d9b1, #e9bd82); margin-top: -20px; }
-.card-2 { background: linear-gradient(145deg, #d9c3a5, #c7a97f); }
-.card-3 { background: linear-gradient(145deg, #f7c9c0, #eea698); }
-.card-4 { background: linear-gradient(145deg, #ffdca0, #ffbf69); margin-top: -20px; }
+/* Photo placeholder frames — swap the inner markup for a real <img> once photos are supplied */
+.photo-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(162,85,26,0.35);
+  background: repeating-linear-gradient(135deg, rgba(162,85,26,0.05) 0 10px, rgba(162,85,26,0.1) 10px 20px);
+}
+.photo-slot-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px;
+  text-align: center;
+}
+.photo-slot-label .icon { width: 26px; height: 26px; margin: 0; vertical-align: 0; opacity: 0.75; }
+.photo-slot-label strong { font-size: 0.8rem; font-weight: 600; color: var(--caramel-dark); }
+.photo-slot-label span { font-size: 0.72rem; font-weight: 600; color: var(--ink-soft); line-height: 1.3; }
+
+.photo-needed-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(42,28,18,0.55);
+  color: var(--cream);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px dashed rgba(253,246,236,0.5);
+}
+.photo-needed-badge .icon { width: 15px; height: 15px; margin: 0; vertical-align: 0; }
 
 /* Menu grid (breakfast) */
 .menu-grid {
@@ -552,8 +585,13 @@ section { padding: 110px 0; }
 }
 .menu-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .menu-card:hover::before { transform: scaleX(1); }
-.menu-card.featured { border: 2px solid var(--gold); padding-top: 44px; }
+.menu-card.featured { border: 2px solid var(--gold); }
 .menu-card.featured::before { transform: scaleX(1); }
+.menu-card-photo {
+  margin: -28px -26px 18px;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
 .ribbon {
   position: absolute;
   top: 14px;
@@ -605,6 +643,17 @@ section { padding: 110px 0; }
   font-size: 0.92rem;
   color: var(--ink);
 }
+
+/* Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+.gallery-item {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+}
 .dish-list li small { color: var(--ink-soft); }
 .dish-list em { font-style: normal; color: var(--caramel-dark); font-weight: 600; white-space: nowrap; }
 
@@ -651,10 +700,13 @@ section { padding: 110px 0; }
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
-.card-5, .card-6, .card-7 { color: var(--gold-soft); }
-.card-5 { background: linear-gradient(145deg, #3d2a1c, #4f3624); }
-.card-6 { background: linear-gradient(145deg, #4f3624, #614030); margin-top: 24px; }
-.card-7 { background: linear-gradient(145deg, #3d2a1c, #4f3624); }
+.bakery-visual .visual-card:nth-child(2) { margin-top: 24px; }
+.bakery .photo-slot {
+  border-color: rgba(232,201,136,0.4);
+  background: repeating-linear-gradient(135deg, rgba(232,201,136,0.05) 0 10px, rgba(232,201,136,0.1) 10px 20px);
+}
+.bakery .photo-slot-label strong { color: var(--gold-soft); }
+.bakery .photo-slot-label span { color: rgba(253,246,236,0.65); }
 
 /* Reviews */
 .reviews-grid {
@@ -914,6 +966,21 @@ a[href^="tel:"] { white-space: nowrap; }
   }
   .reviews-grid::-webkit-scrollbar { display: none; }
   .reviews-grid .review-card { flex: 0 0 82%; scroll-snap-align: start; }
+
+  .gallery-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 6px;
+    margin: 0 -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .gallery-grid::-webkit-scrollbar { display: none; }
+  .gallery-item { flex: 0 0 78%; scroll-snap-align: start; aspect-ratio: 4 / 3; }
 }
 
 @media (prefers-reduced-motion: reduce) {
