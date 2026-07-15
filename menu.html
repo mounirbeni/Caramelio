@@ -84,8 +84,20 @@
     <p>Signature breakfast combos, plus Moroccan and international dishes served all day.</p>
   </div>
 
+  <!-- CATEGORY FILTERS -->
+  <div class="container">
+    <div class="menu-filters" id="menuFilters" role="tablist" aria-label="Filter the menu by category">
+      <button type="button" class="filter-chip active" data-filter="all" role="tab" aria-selected="true">All Dishes</button>
+      <button type="button" class="filter-chip" data-filter="breakfast" role="tab" aria-selected="false">Breakfast</button>
+      <button type="button" class="filter-chip" data-filter="moroccan" role="tab" aria-selected="false">Moroccan Specialties</button>
+      <button type="button" class="filter-chip" data-filter="pasta" role="tab" aria-selected="false">Pasta &amp; Baked</button>
+      <button type="button" class="filter-chip" data-filter="fast-casual" role="tab" aria-selected="false">Fast Casual</button>
+      <button type="button" class="filter-chip" data-filter="juices" role="tab" aria-selected="false">Juices &amp; Drinks</button>
+    </div>
+  </div>
+
   <!-- BREAKFAST -->
-  <section class="section-alt" id="breakfast">
+  <section class="section-alt" id="breakfast" data-filter-section>
     <div class="container">
       <p class="eyebrow center">Morning Menu</p>
       <h2 class="center">Breakfast Selections</h2>
@@ -93,35 +105,35 @@
       <p class="section-sub center">Our signature combos — each served with a hot drink and fresh juice.</p>
 
       <div class="menu-grid">
-        <div class="menu-card">
+        <div class="menu-card" data-category="breakfast">
           <div class="menu-card-photo photo-slot" data-photo="menu-express-breakfast">
             <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Express Breakfast</span></div>
           </div>
           <div class="menu-card-head"><h3>Express Breakfast</h3><span class="price">62 MAD</span></div>
           <p>A variety basket of breads and viennoiseries, spread plate, corn flakes, hot drink, and orange or carrot juice.</p>
         </div>
-        <div class="menu-card">
+        <div class="menu-card" data-category="breakfast">
           <div class="menu-card-photo photo-slot" data-photo="menu-beldi-breakfast">
             <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Beldi Breakfast</span></div>
           </div>
           <div class="menu-card-head"><h3>Beldi Breakfast</h3><span class="price">76 MAD</span></div>
           <p>Traditional Msemen, Harcha &amp; Beghrir pancakes with a spread plate, hard-boiled egg, corn flakes, house yogurt, hot drink and juice.</p>
         </div>
-        <div class="menu-card">
+        <div class="menu-card" data-category="breakfast">
           <div class="menu-card-photo photo-slot" data-photo="menu-fassi-breakfast">
             <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Fassi Breakfast</span></div>
           </div>
           <div class="menu-card-head"><h3>Fassi Breakfast</h3><span class="price">86 MAD</span></div>
           <p>Traditional Khliâa egg tagine, two pieces of Msemen, spread plate, house yogurt, hot drink and juice.</p>
         </div>
-        <div class="menu-card">
+        <div class="menu-card" data-category="breakfast">
           <div class="menu-card-photo photo-slot" data-photo="menu-chamali-breakfast">
             <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Chamali Breakfast</span></div>
           </div>
           <div class="menu-card-head"><h3>Chamali Breakfast</h3><span class="price">93 MAD</span></div>
           <p>Omelet with a northern-style platter — avocado, Jben cheese, olives, cold cuts, red cheese, olive oil — plus hot drink, yogurt and juice.</p>
         </div>
-        <div class="menu-card featured">
+        <div class="menu-card featured" data-category="breakfast">
           <span class="ribbon">Best Seller</span>
           <div class="menu-card-photo photo-slot" data-photo="menu-english-breakfast">
             <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>English Breakfast</span></div>
@@ -134,7 +146,7 @@
   </section>
 
   <!-- ALL DAY MENU -->
-  <section id="all-day">
+  <section id="all-day" data-filter-section>
     <div class="container">
       <p class="eyebrow center">All-Day Dining</p>
       <h2 class="center">Moroccan &amp; International Favorites</h2>
@@ -142,7 +154,7 @@
       <p class="section-sub center">From baked pasta to Pastilla, salads, pizzas and fresh-pressed juice.</p>
 
       <div class="dish-columns">
-        <div class="dish-col">
+        <div class="dish-col" data-category="pasta">
           <h3>Pasticcio</h3>
           <ul class="dish-list">
             <li><span>Chicken Pasticcio</span><em>58 MAD</em></li>
@@ -150,7 +162,7 @@
             <li><span>Pasticcio Caramelio <small>(chicken, cordon bleu &amp; beef)</small></span><em>85 MAD</em></li>
           </ul>
         </div>
-        <div class="dish-col">
+        <div class="dish-col" data-category="moroccan">
           <h3>Moroccan Specialties</h3>
           <ul class="dish-list">
             <li><span>Chicken Pastilla</span></li>
@@ -158,7 +170,7 @@
             <li><span>Traditional Meat &amp; Vegetable Tagines</span></li>
           </ul>
         </div>
-        <div class="dish-col">
+        <div class="dish-col" data-category="fast-casual">
           <h3>Fast Casual</h3>
           <ul class="dish-list">
             <li><span>Salade Caramelio</span><em>~85 MAD</em></li>
@@ -166,7 +178,7 @@
             <li><span>Burgers &amp; Sandwiches</span><em>58–71 MAD</em></li>
           </ul>
         </div>
-        <div class="dish-col">
+        <div class="dish-col" data-category="juices">
           <h3>Fresh Juices</h3>
           <ul class="dish-list">
             <li><span>Pineapple, Strawberry, Avocado, Mango, Orange</span><em>28–47 MAD</em></li>
@@ -175,6 +187,8 @@
       </div>
     </div>
   </section>
+
+  <p class="container menu-empty-state" id="menuEmptyState" hidden>No dishes in this category yet — check back soon or ask our team.</p>
 
 </main>
 

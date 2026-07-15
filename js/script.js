@@ -68,6 +68,42 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tab.dataset.page === currentPage) tab.classList.add('active');
   });
 
+  // Menu category filter chips
+  const menuFilters = document.getElementById('menuFilters');
+  if (menuFilters) {
+    const chips = menuFilters.querySelectorAll('.filter-chip');
+    const categorized = document.querySelectorAll('[data-category]');
+    const filterSections = document.querySelectorAll('[data-filter-section]');
+    const emptyState = document.getElementById('menuEmptyState');
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const category = chip.dataset.filter;
+
+        chips.forEach(c => {
+          c.classList.remove('active');
+          c.setAttribute('aria-selected', 'false');
+        });
+        chip.classList.add('active');
+        chip.setAttribute('aria-selected', 'true');
+
+        let visibleCount = 0;
+        categorized.forEach(item => {
+          const matches = category === 'all' || item.dataset.category === category;
+          item.classList.toggle('is-hidden', !matches);
+          if (matches) visibleCount += 1;
+        });
+
+        filterSections.forEach(section => {
+          const hasVisibleItem = section.querySelectorAll('[data-category]:not(.is-hidden)').length > 0;
+          section.classList.toggle('is-hidden', !hasVisibleItem);
+        });
+
+        if (emptyState) emptyState.hidden = visibleCount > 0;
+      });
+    });
+  }
+
   // Reservation form — submits straight to the reservations database
   const reserveForm = document.getElementById('reserveForm');
   if (reserveForm) {
