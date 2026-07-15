@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     window.visualViewport.addEventListener('resize', pinTabbar);
     window.visualViewport.addEventListener('scroll', pinTabbar);
+    window.addEventListener('scroll', pinTabbar, { passive: true });
+    window.addEventListener('orientationchange', pinTabbar);
     pinTabbar();
   }
 
