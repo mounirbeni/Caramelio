@@ -35,6 +35,9 @@
   <symbol id="icon-utensils" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
     <path d="M7 3v5a2 2 0 1 1-4 0V3"/><path d="M5 8v13"/><path d="M17 3c-1.3 1-2 2.6-2 4.5 0 2 1 3.5 2 4.5v9"/>
   </symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="8.4"/><path d="M12 7.6V12l3 2"/>
+  </symbol>
   <symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor" stroke="none">
     <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2 22l5.28-1.39a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.35-.5.05-1.02.24-3.42-.71-2.89-1.15-4.75-4.06-4.9-4.25-.14-.19-1.17-1.56-1.17-2.98s.73-2.11 1-2.4c.24-.27.53-.34.71-.34.18 0 .36 0 .51.01.17.01.39-.06.6.46.24.58.8 2 .87 2.15.07.15.12.32.02.51-.1.19-.15.3-.29.46-.15.17-.31.37-.44.5-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.29.14.46.12.63-.07.17-.19.72-.83.91-1.12.19-.29.38-.24.63-.14.26.1 1.65.78 1.94.92.29.14.48.22.55.34.07.13.07.72-.17 1.4z"/>
   </symbol>
@@ -106,6 +109,11 @@
 
       <div class="menu-category-cover photo-slot" data-photo="menu-cover-breakfast">
         <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Breakfast — Cover Photo</span></div>
+        <div class="menu-category-overlay">
+          <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>Morning</span>
+          <h3 class="menu-category-overlay-title">Breakfast</h3>
+          <span class="menu-category-count"></span>
+        </div>
       </div>
 
       <div class="menu-grid">
@@ -146,8 +154,12 @@
         <div class="dish-col" data-filter-group>
           <div class="dish-col-photo photo-slot" data-photo="menu-cover-pasta">
             <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Pasticcio — Cover Photo</span></div>
+            <div class="menu-category-overlay">
+              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>All Day</span>
+              <h3 class="menu-category-overlay-title">Pasticcio</h3>
+              <span class="menu-category-count"></span>
+            </div>
           </div>
-          <h3>Pasticcio</h3>
           <ul class="dish-list">
             <li data-category="lunch dinner"><span>Chicken Pasticcio</span><em>58 MAD</em></li>
             <li data-category="lunch dinner"><span>Ground Beef Pasticcio</span><em>65 MAD</em></li>
@@ -157,8 +169,12 @@
         <div class="dish-col" data-filter-group>
           <div class="dish-col-photo photo-slot" data-photo="menu-cover-moroccan">
             <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Moroccan Specialties — Cover Photo</span></div>
+            <div class="menu-category-overlay">
+              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>All Day</span>
+              <h3 class="menu-category-overlay-title">Moroccan Specialties</h3>
+              <span class="menu-category-count"></span>
+            </div>
           </div>
-          <h3>Moroccan Specialties</h3>
           <ul class="dish-list">
             <li data-category="lunch dinner"><span>Chicken Pastilla</span></li>
             <li data-category="dinner"><span>Seafood Pastilla</span></li>
@@ -168,8 +184,12 @@
         <div class="dish-col" data-filter-group>
           <div class="dish-col-photo photo-slot" data-photo="menu-cover-fast-casual">
             <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Fast Casual — Cover Photo</span></div>
+            <div class="menu-category-overlay">
+              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>All Day</span>
+              <h3 class="menu-category-overlay-title">Fast Casual</h3>
+              <span class="menu-category-count"></span>
+            </div>
           </div>
-          <h3>Fast Casual</h3>
           <ul class="dish-list">
             <li data-category="lunch snacks"><span>Salade Caramelio</span><em>~85 MAD</em></li>
             <li data-category="lunch dinner"><span>Wood-Fired Pizzas</span></li>
@@ -179,8 +199,12 @@
         <div class="dish-col" data-filter-group>
           <div class="dish-col-photo photo-slot" data-photo="menu-cover-juices">
             <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Juices &amp; Drinks — Cover Photo</span></div>
+            <div class="menu-category-overlay">
+              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>All Day</span>
+              <h3 class="menu-category-overlay-title">Fresh Juices</h3>
+              <span class="menu-category-count"></span>
+            </div>
           </div>
-          <h3>Fresh Juices</h3>
           <ul class="dish-list">
             <li data-category="extra"><span>Pineapple, Strawberry, Avocado, Mango, Orange</span><em>28–47 MAD</em></li>
           </ul>

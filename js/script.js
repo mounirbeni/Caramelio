@@ -68,6 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tab.dataset.page === currentPage) tab.classList.add('active');
   });
 
+  // Menu category cover photos — show how many dishes are in each category
+  document.querySelectorAll('.menu-category-count').forEach(countEl => {
+    const scope = countEl.closest('.dish-col') || countEl.closest('section');
+    if (!scope) return;
+    const count = scope.querySelectorAll('.dish-list li, .menu-card').length;
+    countEl.textContent = `${count} ${count === 1 ? 'Option' : 'Options'}`;
+  });
+
   // Menu category filter chips
   const menuFilters = document.getElementById('menuFilters');
   if (menuFilters) {
