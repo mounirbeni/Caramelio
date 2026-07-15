@@ -25,6 +25,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Keep the fixed bottom tab bar pinned to the true visible screen on iOS Safari,
+  // where `position: fixed; bottom: 0` is anchored to the layout viewport and can
+  // drift mid-page while the address bar shows/hides during scroll.
+  const tabbar = document.getElementById('appTabbar');
+  if (tabbar && window.visualViewport) {
+    const pinTabbar = () => {
+      const vv = window.visualViewport;
+      const gap = window.innerHeight - (vv.height + vv.offsetTop);
+      tabbar.style.transform = gap > 0.5 ? `translate3d(0, -${gap}px, 0)` : '';
+    };
+    window.visualViewport.addEventListener('resize', pinTabbar);
+    window.visualViewport.addEventListener('scroll', pinTabbar);
+    pinTabbar();
+  }
+
   // Header shadow state on scroll
   const whatsapp = document.querySelector('.whatsapp-float');
   const onScroll = () => {
