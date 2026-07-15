@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll-reveal animations
   const revealTargets = document.querySelectorAll(
-    '.reserve-info, .reserve-card, .about-text, .about-visual, .menu-card, .dish-col, .gallery-item, .bakery-text, .bakery-visual, .review-card, .location-info, .location-map'
+    '.reserve-info, .reserve-card, .about-text, .about-visual, .hub-card, .menu-card, .dish-col, .gallery-item, .bakery-text, .bakery-visual, .review-card, .location-info, .location-map'
   );
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries) => {
@@ -57,34 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
     revealTargets.forEach(el => el.classList.add('is-visible'));
   }
 
-  // Active nav link + bottom tab bar highlighting
-  const sections = ['reserve', 'about', 'breakfast', 'menu', 'gallery', 'bakery', 'reviews', 'location']
-    .map(id => document.getElementById(id))
-    .filter(Boolean);
-  const navLinks = Array.from(nav.querySelectorAll('a[href^="#"]'));
-  const tabItems = Array.from(document.querySelectorAll('.tab-item[data-sections]'));
+  // Active nav link + bottom tab bar highlighting, based on the current page
+  const currentPage = location.pathname.split('/').pop() || 'index.html';
 
-  if ('IntersectionObserver' in window && sections.length) {
-    const navObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
+  nav.querySelectorAll('a[href]').forEach(link => {
+    if (link.getAttribute('href') === currentPage) link.classList.add('active');
+  });
 
-        const link = navLinks.find(a => a.getAttribute('href') === `#${entry.target.id}`);
-        if (link) {
-          navLinks.forEach(a => a.classList.remove('active'));
-          link.classList.add('active');
-        }
-
-        const tab = tabItems.find(t => t.dataset.sections.split(',').includes(entry.target.id));
-        if (tab) {
-          tabItems.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-
-    sections.forEach(section => navObserver.observe(section));
-  }
+  document.querySelectorAll('.tab-item[data-page]').forEach(tab => {
+    if (tab.dataset.page === currentPage) tab.classList.add('active');
+  });
 
   // Reservation form — sends the request via WhatsApp (no backend available)
   const reserveForm = document.getElementById('reserveForm');
