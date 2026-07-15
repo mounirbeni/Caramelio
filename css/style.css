@@ -695,6 +695,7 @@ section { padding: 110px 0; }
 .location h2 { font-size: clamp(1.9rem, 3vw, 2.5rem); }
 .info-rows { margin: 26px 0 30px; display: flex; flex-direction: column; gap: 20px; }
 .info-row { display: flex; gap: 16px; align-items: flex-start; }
+a[href^="tel:"] { white-space: nowrap; }
 .info-icon {
   flex-shrink: 0;
   width: 42px;
@@ -811,14 +812,8 @@ section { padding: 110px 0; }
   .bakery-visual { order: -1; max-width: 360px; margin: 0 auto; }
   .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .footer-brand-col { grid-column: 1 / -1; }
-}
 
-@media (max-width: 520px) {
-  .form-row.two-col { grid-template-columns: minmax(0, 1fr); }
-}
-
-@media (max-width: 760px) {
-  .topbar { display: none; }
+  /* Desktop nav + gold CTA no longer fit the header at tablet widths — switch to the hamburger menu here too */
   .nav { display: none; }
   .header-cta { display: none; }
   .nav-toggle { display: flex; }
@@ -840,6 +835,14 @@ section { padding: 110px 0; }
     from { opacity: 0; transform: translateY(-8px); }
     to { opacity: 1; transform: none; }
   }
+}
+
+@media (max-width: 520px) {
+  .form-row.two-col { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 760px) {
+  .topbar { display: none; }
   section { padding: 68px 0; }
   .hero { min-height: auto; padding: 44px 0; }
   .hero-stats { gap: 0; }
