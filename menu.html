@@ -87,12 +87,12 @@
   <!-- CATEGORY FILTERS -->
   <div class="container">
     <div class="menu-filters" id="menuFilters" role="tablist" aria-label="Filter the menu by category">
-      <button type="button" class="filter-chip active" data-filter="all" role="tab" aria-selected="true">All Dishes</button>
+      <button type="button" class="filter-chip active" data-filter="all" role="tab" aria-selected="true">All</button>
       <button type="button" class="filter-chip" data-filter="breakfast" role="tab" aria-selected="false">Breakfast</button>
-      <button type="button" class="filter-chip" data-filter="moroccan" role="tab" aria-selected="false">Moroccan Specialties</button>
-      <button type="button" class="filter-chip" data-filter="pasta" role="tab" aria-selected="false">Pasta &amp; Baked</button>
-      <button type="button" class="filter-chip" data-filter="fast-casual" role="tab" aria-selected="false">Fast Casual</button>
-      <button type="button" class="filter-chip" data-filter="juices" role="tab" aria-selected="false">Juices &amp; Drinks</button>
+      <button type="button" class="filter-chip" data-filter="lunch" role="tab" aria-selected="false">Lunch</button>
+      <button type="button" class="filter-chip" data-filter="snacks" role="tab" aria-selected="false">Snacks</button>
+      <button type="button" class="filter-chip" data-filter="dinner" role="tab" aria-selected="false">Dinner</button>
+      <button type="button" class="filter-chip" data-filter="extra" role="tab" aria-selected="false">Extra</button>
     </div>
   </div>
 
@@ -143,46 +143,46 @@
       <p class="section-sub center">From baked pasta to Pastilla, salads, pizzas and fresh-pressed juice.</p>
 
       <div class="dish-columns">
-        <div class="dish-col" data-category="pasta">
+        <div class="dish-col" data-filter-group>
           <div class="dish-col-photo photo-slot" data-photo="menu-cover-pasta">
             <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Pasticcio — Cover Photo</span></div>
           </div>
           <h3>Pasticcio</h3>
           <ul class="dish-list">
-            <li><span>Chicken Pasticcio</span><em>58 MAD</em></li>
-            <li><span>Ground Beef Pasticcio</span><em>65 MAD</em></li>
-            <li><span>Pasticcio Caramelio <small>(chicken, cordon bleu &amp; beef)</small></span><em>85 MAD</em></li>
+            <li data-category="lunch dinner"><span>Chicken Pasticcio</span><em>58 MAD</em></li>
+            <li data-category="lunch dinner"><span>Ground Beef Pasticcio</span><em>65 MAD</em></li>
+            <li data-category="dinner"><span>Pasticcio Caramelio <small>(chicken, cordon bleu &amp; beef)</small></span><em>85 MAD</em></li>
           </ul>
         </div>
-        <div class="dish-col" data-category="moroccan">
+        <div class="dish-col" data-filter-group>
           <div class="dish-col-photo photo-slot" data-photo="menu-cover-moroccan">
             <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Moroccan Specialties — Cover Photo</span></div>
           </div>
           <h3>Moroccan Specialties</h3>
           <ul class="dish-list">
-            <li><span>Chicken Pastilla</span></li>
-            <li><span>Seafood Pastilla</span></li>
-            <li><span>Traditional Meat &amp; Vegetable Tagines</span></li>
+            <li data-category="lunch dinner"><span>Chicken Pastilla</span></li>
+            <li data-category="dinner"><span>Seafood Pastilla</span></li>
+            <li data-category="lunch dinner"><span>Traditional Meat &amp; Vegetable Tagines</span></li>
           </ul>
         </div>
-        <div class="dish-col" data-category="fast-casual">
+        <div class="dish-col" data-filter-group>
           <div class="dish-col-photo photo-slot" data-photo="menu-cover-fast-casual">
             <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Fast Casual — Cover Photo</span></div>
           </div>
           <h3>Fast Casual</h3>
           <ul class="dish-list">
-            <li><span>Salade Caramelio</span><em>~85 MAD</em></li>
-            <li><span>Wood-Fired Pizzas</span></li>
-            <li><span>Burgers &amp; Sandwiches</span><em>58–71 MAD</em></li>
+            <li data-category="lunch snacks"><span>Salade Caramelio</span><em>~85 MAD</em></li>
+            <li data-category="lunch dinner"><span>Wood-Fired Pizzas</span></li>
+            <li data-category="snacks lunch"><span>Burgers &amp; Sandwiches</span><em>58–71 MAD</em></li>
           </ul>
         </div>
-        <div class="dish-col" data-category="juices">
+        <div class="dish-col" data-filter-group>
           <div class="dish-col-photo photo-slot" data-photo="menu-cover-juices">
             <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Juices &amp; Drinks — Cover Photo</span></div>
           </div>
           <h3>Fresh Juices</h3>
           <ul class="dish-list">
-            <li><span>Pineapple, Strawberry, Avocado, Mango, Orange</span><em>28–47 MAD</em></li>
+            <li data-category="extra"><span>Pineapple, Strawberry, Avocado, Mango, Orange</span><em>28–47 MAD</em></li>
           </ul>
         </div>
       </div>

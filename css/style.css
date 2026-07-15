@@ -588,6 +588,7 @@ section { padding: 110px 0; }
   box-shadow: 0 10px 20px rgba(162,85,26,0.3);
 }
 [data-category].is-hidden,
+[data-filter-group].is-hidden,
 [data-filter-section].is-hidden {
   display: none !important;
 }

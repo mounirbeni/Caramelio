@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (menuFilters) {
     const chips = menuFilters.querySelectorAll('.filter-chip');
     const categorized = document.querySelectorAll('[data-category]');
+    const filterGroups = document.querySelectorAll('[data-filter-group]');
     const filterSections = document.querySelectorAll('[data-filter-section]');
     const emptyState = document.getElementById('menuEmptyState');
 
@@ -89,9 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let visibleCount = 0;
         categorized.forEach(item => {
-          const matches = category === 'all' || item.dataset.category === category;
+          const itemCategories = (item.dataset.category || '').split(/\s+/);
+          const matches = category === 'all' || itemCategories.includes(category);
           item.classList.toggle('is-hidden', !matches);
           if (matches) visibleCount += 1;
+        });
+
+        filterGroups.forEach(group => {
+          const hasVisibleItem = group.querySelectorAll('[data-category]:not(.is-hidden)').length > 0;
+          group.classList.toggle('is-hidden', !hasVisibleItem);
         });
 
         filterSections.forEach(section => {
