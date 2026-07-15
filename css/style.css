@@ -609,12 +609,28 @@ section { padding: 110px 0; }
   background: linear-gradient(155deg, #f4e6cd 0%, #e4c48e 50%, #b9803f 100%);
 }
 /* Each category gets its own color mood instead of one identical gradient everywhere */
-[data-theme="breakfast"] { background: linear-gradient(155deg, #f4e6cd 0%, #e4c48e 50%, #b9803f 100%); }
-[data-theme="lunch"] { background: linear-gradient(155deg, #f6e3c3 0%, #e3a35f 50%, #a2551a 100%); }
-[data-theme="snacks"] { background: linear-gradient(155deg, #f2ddc9 0%, #d98c62 50%, #9c4a2c 100%); }
-[data-theme="drinks"] { background: linear-gradient(155deg, #f8f0d8 0%, #e8cf8e 50%, #c9a13f 100%); }
-[data-theme="extras"] { background: linear-gradient(155deg, #efe9dd 0%, #d3c6ab 50%, #a8967a 100%); }
-[data-theme="dinner"] { background: linear-gradient(155deg, #e6cfb0 0%, #b07d45 50%, #5c3312 100%); }
+.menu-category-cover[data-theme="breakfast"], .dish-col-photo[data-theme="breakfast"] { background: linear-gradient(155deg, #f4e6cd 0%, #e4c48e 50%, #b9803f 100%); }
+.menu-category-cover[data-theme="lunch"], .dish-col-photo[data-theme="lunch"] { background: linear-gradient(155deg, #f6e3c3 0%, #e3a35f 50%, #a2551a 100%); }
+.menu-category-cover[data-theme="snacks"], .dish-col-photo[data-theme="snacks"] { background: linear-gradient(155deg, #f2ddc9 0%, #d98c62 50%, #9c4a2c 100%); }
+.menu-category-cover[data-theme="drinks"], .dish-col-photo[data-theme="drinks"] { background: linear-gradient(155deg, #f8f0d8 0%, #e8cf8e 50%, #c9a13f 100%); }
+.menu-category-cover[data-theme="extras"], .dish-col-photo[data-theme="extras"] { background: linear-gradient(155deg, #efe9dd 0%, #d3c6ab 50%, #a8967a 100%); }
+.menu-category-cover[data-theme="dinner"], .dish-col-photo[data-theme="dinner"] { background: linear-gradient(155deg, #e6cfb0 0%, #b07d45 50%, #5c3312 100%); }
+
+/* The list beneath each cover picks up a soft tint of the same category color */
+section[data-theme="breakfast"] { background: #f8ecd7; }
+.dish-col[data-theme="lunch"] { background: #faead2; }
+.dish-col[data-theme="snacks"] { background: #f7e5da; }
+.dish-col[data-theme="drinks"] { background: #fbf5e3; }
+.dish-col[data-theme="extras"] { background: #f4efe7; }
+.dish-col[data-theme="dinner"] { background: #f2e2c9; }
+.dish-col[data-theme] {
+  border-radius: var(--radius);
+  padding: 0 16px 16px;
+}
+.dish-col[data-theme] .dish-col-photo {
+  margin: 0 -16px 18px;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
 .menu-category-cover .photo-slot-label,
 .dish-col-photo .photo-slot-label {
   flex-direction: row;
