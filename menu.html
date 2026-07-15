@@ -94,8 +94,9 @@
       <button type="button" class="filter-chip" data-filter="breakfast" role="tab" aria-selected="false">Breakfast</button>
       <button type="button" class="filter-chip" data-filter="lunch" role="tab" aria-selected="false">Lunch</button>
       <button type="button" class="filter-chip" data-filter="snacks" role="tab" aria-selected="false">Snacks</button>
+      <button type="button" class="filter-chip" data-filter="drinks" role="tab" aria-selected="false">Drinks</button>
+      <button type="button" class="filter-chip" data-filter="extras" role="tab" aria-selected="false">Extras</button>
       <button type="button" class="filter-chip" data-filter="dinner" role="tab" aria-selected="false">Dinner</button>
-      <button type="button" class="filter-chip" data-filter="extra" role="tab" aria-selected="false">Extra</button>
     </div>
   </div>
 
@@ -146,67 +147,85 @@
   <section id="all-day" data-filter-section>
     <div class="container">
       <p class="eyebrow center">All-Day Dining</p>
-      <h2 class="center">Moroccan &amp; International Favorites</h2>
+      <h2 class="center">Lunch, Snacks, Drinks &amp; Dinner</h2>
       <div class="divider" aria-hidden="true"></div>
-      <p class="section-sub center">From baked pasta to Pastilla, salads, pizzas and fresh-pressed juice.</p>
+      <p class="section-sub center">Browse by category — some dishes are available at more than one time of day.</p>
 
       <div class="dish-columns">
         <div class="dish-col" data-filter-group>
-          <div class="dish-col-photo photo-slot" data-photo="menu-cover-pasta">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Pasticcio — Cover Photo</span></div>
+          <div class="dish-col-photo photo-slot" data-photo="menu-cover-lunch">
+            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Lunch — Cover Photo</span></div>
             <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>All Day</span>
-              <h3 class="menu-category-overlay-title">Pasticcio</h3>
+              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>Midday</span>
+              <h3 class="menu-category-overlay-title">Lunch</h3>
               <span class="menu-category-count"></span>
             </div>
           </div>
           <ul class="dish-list">
-            <li data-category="lunch dinner"><span>Chicken Pasticcio</span><em>58 MAD</em></li>
-            <li data-category="lunch dinner"><span>Ground Beef Pasticcio</span><em>65 MAD</em></li>
+            <li data-category="lunch"><span>Chicken Pasticcio</span><em>58 MAD</em></li>
+            <li data-category="lunch"><span>Ground Beef Pasticcio</span><em>65 MAD</em></li>
+            <li data-category="lunch"><span>Chicken Pastilla</span></li>
+            <li data-category="lunch"><span>Traditional Meat &amp; Vegetable Tagines</span></li>
+            <li data-category="lunch"><span>Salade Caramelio</span><em>~85 MAD</em></li>
+            <li data-category="lunch"><span>Wood-Fired Pizzas</span></li>
+            <li data-category="lunch"><span>Burgers &amp; Sandwiches</span><em>58–71 MAD</em></li>
+          </ul>
+        </div>
+        <div class="dish-col" data-filter-group>
+          <div class="dish-col-photo photo-slot" data-photo="menu-cover-snacks">
+            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Snacks — Cover Photo</span></div>
+            <div class="menu-category-overlay">
+              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>All Day</span>
+              <h3 class="menu-category-overlay-title">Snacks</h3>
+              <span class="menu-category-count"></span>
+            </div>
+          </div>
+          <ul class="dish-list">
+            <li data-category="snacks"><span>Salade Caramelio</span><em>~85 MAD</em></li>
+            <li data-category="snacks"><span>Burgers &amp; Sandwiches</span><em>58–71 MAD</em></li>
+          </ul>
+        </div>
+        <div class="dish-col" data-filter-group>
+          <div class="dish-col-photo photo-slot" data-photo="menu-cover-drinks">
+            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Drinks — Cover Photo</span></div>
+            <div class="menu-category-overlay">
+              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>All Day</span>
+              <h3 class="menu-category-overlay-title">Drinks</h3>
+              <span class="menu-category-count"></span>
+            </div>
+          </div>
+          <ul class="dish-list">
+            <li data-category="drinks"><span>Pineapple, Strawberry, Avocado, Mango, Orange</span><em>28–47 MAD</em></li>
+          </ul>
+        </div>
+        <div class="dish-col" data-filter-group>
+          <div class="dish-col-photo photo-slot" data-photo="menu-cover-extras">
+            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Extras — Cover Photo</span></div>
+            <div class="menu-category-overlay">
+              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>All Day</span>
+              <h3 class="menu-category-overlay-title">Extras</h3>
+              <span class="menu-category-count"></span>
+            </div>
+          </div>
+          <p class="dish-col-empty" data-category="extras">More options coming soon.</p>
+        </div>
+        <div class="dish-col" data-filter-group>
+          <div class="dish-col-photo photo-slot" data-photo="menu-cover-dinner">
+            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Dinner — Cover Photo</span></div>
+            <div class="menu-category-overlay">
+              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>Evening</span>
+              <h3 class="menu-category-overlay-title">Dinner</h3>
+              <span class="menu-category-count"></span>
+            </div>
+          </div>
+          <ul class="dish-list">
+            <li data-category="dinner"><span>Chicken Pasticcio</span><em>58 MAD</em></li>
+            <li data-category="dinner"><span>Ground Beef Pasticcio</span><em>65 MAD</em></li>
             <li data-category="dinner"><span>Pasticcio Caramelio <small>(chicken, cordon bleu &amp; beef)</small></span><em>85 MAD</em></li>
-          </ul>
-        </div>
-        <div class="dish-col" data-filter-group>
-          <div class="dish-col-photo photo-slot" data-photo="menu-cover-moroccan">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Moroccan Specialties — Cover Photo</span></div>
-            <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>All Day</span>
-              <h3 class="menu-category-overlay-title">Moroccan Specialties</h3>
-              <span class="menu-category-count"></span>
-            </div>
-          </div>
-          <ul class="dish-list">
-            <li data-category="lunch dinner"><span>Chicken Pastilla</span></li>
+            <li data-category="dinner"><span>Chicken Pastilla</span></li>
             <li data-category="dinner"><span>Seafood Pastilla</span></li>
-            <li data-category="lunch dinner"><span>Traditional Meat &amp; Vegetable Tagines</span></li>
-          </ul>
-        </div>
-        <div class="dish-col" data-filter-group>
-          <div class="dish-col-photo photo-slot" data-photo="menu-cover-fast-casual">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Fast Casual — Cover Photo</span></div>
-            <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>All Day</span>
-              <h3 class="menu-category-overlay-title">Fast Casual</h3>
-              <span class="menu-category-count"></span>
-            </div>
-          </div>
-          <ul class="dish-list">
-            <li data-category="lunch snacks"><span>Salade Caramelio</span><em>~85 MAD</em></li>
-            <li data-category="lunch dinner"><span>Wood-Fired Pizzas</span></li>
-            <li data-category="snacks lunch"><span>Burgers &amp; Sandwiches</span><em>58–71 MAD</em></li>
-          </ul>
-        </div>
-        <div class="dish-col" data-filter-group>
-          <div class="dish-col-photo photo-slot" data-photo="menu-cover-juices">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Juices &amp; Drinks — Cover Photo</span></div>
-            <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>All Day</span>
-              <h3 class="menu-category-overlay-title">Fresh Juices</h3>
-              <span class="menu-category-count"></span>
-            </div>
-          </div>
-          <ul class="dish-list">
-            <li data-category="extra"><span>Pineapple, Strawberry, Avocado, Mango, Orange</span><em>28–47 MAD</em></li>
+            <li data-category="dinner"><span>Traditional Meat &amp; Vegetable Tagines</span></li>
+            <li data-category="dinner"><span>Wood-Fired Pizzas</span></li>
           </ul>
         </div>
       </div>

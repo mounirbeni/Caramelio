@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const scope = countEl.closest('.dish-col') || countEl.closest('section');
     if (!scope) return;
     const count = scope.querySelectorAll('.dish-list li, .menu-card').length;
-    countEl.textContent = `${count} ${count === 1 ? 'Option' : 'Options'}`;
+    countEl.textContent = count > 0 ? `${count} ${count === 1 ? 'Option' : 'Options'}` : 'Coming Soon';
   });
 
   // Menu category filter chips

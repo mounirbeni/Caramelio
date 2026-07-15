@@ -662,6 +662,12 @@ section { padding: 110px 0; }
 @media (max-width: 700px) {
   .menu-category-overlay-title { font-size: 1.15rem; }
 }
+.dish-col-empty {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-style: italic;
+  padding: 10px 0;
+}
 
 /* Menu grid (breakfast) */
 .menu-grid {
