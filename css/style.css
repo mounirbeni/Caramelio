@@ -1062,6 +1062,114 @@ a[href^="tel:"] { white-space: nowrap; }
   .gallery-item { flex: 0 0 78%; scroll-snap-align: start; aspect-ratio: 4 / 3; }
 }
 
+/* Reservations dashboard */
+.dashboard-body { min-height: 100vh; display: flex; flex-direction: column; }
+.dash-header {
+  background: var(--choc);
+  border-bottom: 1px solid rgba(198,154,62,0.3);
+}
+.dash-header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dash-logo {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--white);
+}
+.dash-logo small {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-soft);
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.dash-logout {
+  background: none;
+  border: 1px solid rgba(253,246,236,0.35);
+  color: var(--cream);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.dash-logout:hover { background: rgba(253,246,236,0.1); border-color: rgba(253,246,236,0.6); }
+
+.dash-main { flex: 1; background: var(--cream); padding: 48px 24px; }
+
+.dash-login { display: flex; justify-content: center; padding-top: 40px; }
+.dash-login[hidden] { display: none; }
+.dash-login-card {
+  width: 100%;
+  max-width: 360px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px 32px;
+  text-align: center;
+}
+.dash-login-card h1 { font-size: 1.6rem; margin-bottom: 8px; }
+.dash-login-card p { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 20px; }
+.dash-login-card input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 12px 14px;
+  border: 1.5px solid rgba(42,28,18,0.14);
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+.dash-login-card input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(198,154,62,0.18); }
+.dash-login-card .btn { width: 100%; }
+.dash-login-error { color: #b3261e; font-size: 0.85rem; margin-top: 14px; min-height: 1.2em; }
+
+.dash-content { max-width: 900px; margin: 0 auto; }
+.dash-toolbar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.dash-filter {
+  flex: 1;
+  min-width: 200px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  padding: 11px 16px;
+  border: 1.5px solid rgba(42,28,18,0.14);
+  border-radius: 999px;
+  background: var(--white);
+}
+.dash-filter:focus { outline: none; border-color: var(--gold); }
+.dash-status { color: var(--ink-soft); font-size: 0.85rem; margin-bottom: 20px; }
+
+.dash-list { display: flex; flex-direction: column; gap: 14px; }
+.dash-empty { color: var(--ink-soft); text-align: center; padding: 40px 0; }
+.dash-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px 24px;
+  border-left: 3px solid var(--gold);
+}
+.dash-card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.dash-card-head strong { font-family: var(--font-head); font-size: 1.15rem; color: var(--choc); }
+.dash-card-guests { color: var(--caramel-dark); font-weight: 600; font-size: 0.85rem; white-space: nowrap; }
+.dash-card-meta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 6px; font-size: 0.9rem; color: var(--ink-soft); }
+.dash-card-meta a { color: var(--caramel-dark); text-decoration: none; font-weight: 500; }
+.dash-card-meta a:hover { text-decoration: underline; }
+.dash-card-notes { margin-top: 10px; font-size: 0.88rem; color: var(--ink); background: var(--cream-2); border-radius: 8px; padding: 10px 12px; }
+.dash-card-submitted { display: block; margin-top: 10px; font-size: 0.76rem; color: var(--ink-soft); opacity: 0.8; }
+
+@media (max-width: 520px) {
+  .dash-card-head { flex-direction: column; gap: 4px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }

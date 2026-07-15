@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservations Dashboard — Caramelio</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23a2551a'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='56' font-weight='700' fill='%23fdf6ec' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+
+<div class="gold-rule" aria-hidden="true"></div>
+
+<header class="dash-header">
+  <div class="dash-header-inner">
+    <span class="dash-logo">Caramelio<span class="logo-dot">.</span> <small>Reservations</small></span>
+    <button type="button" class="dash-logout" id="dashLogout" hidden>Log out</button>
+  </div>
+</header>
+
+<main class="dash-main">
+
+  <!-- LOGIN -->
+  <section class="dash-login" id="dashLogin">
+    <form class="dash-login-card" id="dashLoginForm">
+      <h1>Reservations</h1>
+      <p>Enter the admin password to view reservations.</p>
+      <input type="password" id="dashPassword" placeholder="Password" autocomplete="current-password" required>
+      <button type="submit" class="btn btn-primary">View Reservations</button>
+      <p class="dash-login-error" id="dashLoginError" role="alert"></p>
+    </form>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section class="dash-content" id="dashContent" hidden>
+    <div class="dash-toolbar">
+      <input type="search" id="dashFilter" class="dash-filter" placeholder="Filter by name or phone…">
+      <button type="button" class="btn btn-outline" id="dashRefresh">Refresh</button>
+    </div>
+    <p class="dash-status" id="dashStatus"></p>
+    <div class="dash-list" id="dashList"></div>
+  </section>
+
+</main>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>

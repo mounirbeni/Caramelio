@@ -1,4 +1,4 @@
-const CACHE_NAME = 'caramelio-shell-v2';
+const CACHE_NAME = 'caramelio-shell-v3';
 const SHELL_FILES = [
   './',
   './index.html',
@@ -9,6 +9,7 @@ const SHELL_FILES = [
   './reviews.html',
   './reserve.html',
   './location.html',
+  './dashboard.html',
   './css/style.css',
   './js/script.js',
   './manifest.json'
@@ -32,6 +33,9 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+  // Reservation data is dynamic and contains guest PII — never let the service worker
+  // intercept or cache it, so the dashboard always sees live data straight from the network.
+  if (new URL(event.request.url).pathname.startsWith('/api/')) return;
   event.respondWith(
     caches.match(event.request).then((cached) => {
       const network = fetch(event.request)

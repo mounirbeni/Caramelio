@@ -94,6 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const whatsappUrl = `https://wa.me/212665707049?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank', 'noopener');
+
+      // Best-effort copy for the reservations dashboard — WhatsApp above is the reliable channel,
+      // so a failure here (e.g. database not connected yet) must never block or surface to the guest.
+      fetch('/api/reservations', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone, guests, date, time, notes }),
+      }).catch(() => {});
     });
   }
 });
