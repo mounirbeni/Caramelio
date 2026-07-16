@@ -229,11 +229,6 @@ h2.center { text-align: center; margin-bottom: 0; }
 .site-header.scrolled {
   box-shadow: 0 8px 24px rgba(42,28,18,0.08);
 }
-/* Compensates for the topbar + header now being taken out of normal flow.
-   The values are measured in JS (js/script.js) and written to these custom
-   properties; they default to 0 so pages that don't run that script (like
-   the dashboard) are unaffected. */
-main { padding-top: calc(var(--topbar-h) + var(--header-h)); }
 .header-inner {
   display: flex;
   align-items: center;
