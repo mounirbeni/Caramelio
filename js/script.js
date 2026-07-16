@@ -34,16 +34,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Register the service worker so the site is installable and opens app-like (no browser chrome)
   if ('serviceWorker' in navigator) {
+    // A brand new visit (or one right after clearing site data) has no
+    // controller yet — the service worker claiming it for the very first
+    // time is normal and must NOT trigger a reload, or every fresh page
+    // load would immediately reload itself and race with (and wipe out)
+    // whatever the page had just rendered, like the booking-status check.
+    const hadControllerAlready = !!navigator.serviceWorker.controller;
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('sw.js').catch(() => {});
     });
-    // A new service worker taking control normally only affects the *next*
-    // navigation, meaning a fix can silently need two manual reloads before
-    // a visitor actually sees it. Reloading once when control changes makes
-    // the newest version take effect immediately instead.
+    // A new service worker REPLACING one that was already controlling this
+    // page normally only affects the *next* navigation, meaning a fix can
+    // silently need two manual reloads before a visitor actually sees it.
+    // Reload once — but only for that replacement case, never on first claim.
     let refreshedForNewWorker = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (refreshedForNewWorker) return;
+      if (refreshedForNewWorker || !hadControllerAlready) return;
       refreshedForNewWorker = true;
       window.location.reload();
     });
@@ -203,9 +209,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = i18n ? i18n.t('reserve.form.submit') : 'Send Reservation Request'; }
     };
 
-    // Checked on load and again whenever the tab regains focus/visibility,
-    // so a page left open from before an admin toggle self-corrects instead
-    // of showing a stale closed/open state until the visitor manually reloads.
+    // Checked on load, again whenever the tab regains focus/visibility, and
+    // then every 15s while the page stays open — so a page left open from
+    // before an admin toggle self-corrects even if this specific device/
+    // gesture never fires a visibilitychange event (inconsistent across iOS
+    // Safari tab-switching methods), instead of requiring a manual reload.
     const checkBookingStatus = () => {
       fetch(`/api/booking-status?t=${Date.now()}`, { cache: 'no-store' })
         .then(res => res.ok ? res.json() : null)
@@ -219,6 +227,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'visible') checkBookingStatus();
     });
+    setInterval(() => {
+      if (document.visibilityState === 'visible') checkBookingStatus();
+    }, 15000);
 
     reserveForm.addEventListener('submit', async (e) => {
       e.preventDefault();
