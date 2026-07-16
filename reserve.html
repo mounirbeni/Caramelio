@@ -116,6 +116,16 @@
           </label>
         </div>
         <div class="form-row">
+          <label for="rsv-seating"><span data-i18n="reserve.form.seating">Seating Preference</span>
+            <select id="rsv-seating" name="seating">
+              <option value="any" data-i18n="reserve.form.seating.any">No Preference</option>
+              <option value="floor1" data-i18n="reserve.form.seating.floor1">First Floor</option>
+              <option value="floor2" data-i18n="reserve.form.seating.floor2">Second Floor</option>
+              <option value="terrace" data-i18n="reserve.form.seating.terrace">Terrace</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-row">
           <label for="rsv-notes"><span data-i18n="reserve.form.notes">Special Requests</span> <span class="optional" data-i18n="reserve.form.optional">(optional)</span>
             <textarea id="rsv-notes" name="notes" rows="2" placeholder="Terrace seating, allergies, celebration..." data-i18n-placeholder="reserve.form.notesPlaceholder"></textarea>
           </label>

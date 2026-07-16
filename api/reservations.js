@@ -4,6 +4,8 @@ const LIST_KEY = 'reservations';
 const MAX_RETURNED = 200;
 const redis = Redis.fromEnv();
 
+const SEATING_OPTIONS = ['any', 'floor1', 'floor2', 'terrace'];
+
 function isNonEmptyString(v, maxLen) {
   return typeof v === 'string' && v.trim().length > 0 && v.trim().length <= maxLen;
 }
@@ -16,6 +18,7 @@ function validate(body) {
   if (!isNonEmptyString(body.time, 20)) return 'Time is required';
   const guests = Number(body.guests);
   if (!Number.isInteger(guests) || guests < 1 || guests > 50) return 'Guests must be a number between 1 and 50';
+  if (body.seating != null && !SEATING_OPTIONS.includes(body.seating)) return 'Invalid seating preference';
   if (body.notes != null && (typeof body.notes !== 'string' || body.notes.length > 500)) return 'Notes are too long';
   return null;
 }
@@ -35,6 +38,7 @@ module.exports = async (req, res) => {
       guests: Number(req.body.guests),
       date: req.body.date.trim(),
       time: req.body.time.trim(),
+      seating: SEATING_OPTIONS.includes(req.body.seating) ? req.body.seating : 'any',
       notes: req.body.notes ? req.body.notes.trim() : '',
       submittedAt: new Date().toISOString(),
     };

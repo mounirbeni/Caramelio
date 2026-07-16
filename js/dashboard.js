@@ -12,6 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let reservations = [];
 
+  const SEATING_LABELS = {
+    any: 'No preference',
+    floor1: 'First floor',
+    floor2: 'Second floor',
+    terrace: 'Terrace',
+  };
+
   function showDashboard() {
     loginSection.hidden = true;
     contentSection.hidden = false;
@@ -68,6 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
       phone.textContent = r.phone;
       meta.appendChild(dateTime);
       meta.appendChild(phone);
+      if (r.seating && SEATING_LABELS[r.seating]) {
+        const seating = document.createElement('span');
+        seating.textContent = SEATING_LABELS[r.seating];
+        meta.appendChild(seating);
+      }
 
       card.appendChild(head);
       card.appendChild(meta);

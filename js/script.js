@@ -186,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         guests: data.get('guests'),
         date: data.get('date'),
         time: data.get('time'),
+        seating: data.get('seating'),
         notes: data.get('notes').trim(),
       };
 
