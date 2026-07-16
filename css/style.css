@@ -824,6 +824,22 @@ section[data-theme="breakfast"] { background: #f8ecd7; }
   color: var(--ink-soft);
   line-height: 1.5;
 }
+.dish-subhead {
+  font-family: var(--font-head);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--caramel-dark);
+  margin: 20px 0 4px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(42,28,18,0.14);
+}
+.dish-subhead:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
 .dish-badge {
   display: inline-block;
   vertical-align: middle;
