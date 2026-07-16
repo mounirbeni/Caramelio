@@ -3,14 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const nav = document.getElementById('nav');
 
-  // The topbar and header are fixed (not sticky — see css/style.css) so the page
-  // content needs real padding-top to match their combined height, since fixed
-  // elements no longer reserve their own space in the document flow.
-  const topbarEl = document.querySelector('.topbar');
+  // The header is fixed (not sticky — see css/style.css) so .scroll-area
+  // needs its real height, since a fixed element no longer reserves its own
+  // space in the document flow.
   const updateFixedOffsets = () => {
-    const topbarH = topbarEl ? topbarEl.offsetHeight : 0;
     const headerH = header ? header.offsetHeight : 0;
-    document.documentElement.style.setProperty('--topbar-h', `${topbarH}px`);
     document.documentElement.style.setProperty('--header-h', `${headerH}px`);
   };
   updateFixedOffsets();

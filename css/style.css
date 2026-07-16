@@ -16,7 +16,6 @@
   --shadow-lg: 0 20px 50px rgba(42, 28, 18, 0.16);
   --font-head: 'Playfair Display', serif;
   --font-body: 'Poppins', sans-serif;
-  --topbar-h: 0px;
   --header-h: 0px;
 }
 
@@ -50,15 +49,15 @@ body {
   overscroll-behavior-y: none;
 }
 
-/* The header/topbar/tab bar are fixed chrome outside the document flow; all
+/* The header/tab bar are fixed chrome outside the document flow; all
    page content scrolls inside this single bounded container instead of the
    body itself. Unlike fixed-position compositing, a plain overflow:auto box
    can't "tear" and show stale content through the chrome during fast
    momentum scroll — it's clipped by ordinary CSS overflow, not a compositor
-   race. See js/script.js for how --topbar-h/--header-h are measured. */
+   race. See js/script.js for how --header-h is measured. */
 .scroll-area {
   position: fixed;
-  top: calc(var(--topbar-h) + var(--header-h));
+  top: var(--header-h);
   left: 0;
   right: 0;
   bottom: 0;
@@ -177,44 +176,13 @@ h2.center { text-align: center; margin-bottom: 0; }
   box-shadow: 0 12px 26px rgba(198,154,62,0.35);
 }
 
-/* Topbar — fixed (not sticky) alongside the header; WebKit's sticky compositing
-   can tear and ghost stale content above it during fast momentum scroll, which
-   a permanently-composited fixed layer avoids. */
-.topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1001;
-  background: var(--choc);
-  color: rgba(253,246,236,0.8);
-  font-size: 0.82rem;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  isolation: isolate;
-}
-.topbar-inner {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 9px 24px;
-}
-.topbar a { color: inherit; text-decoration: none; transition: color 0.15s ease; }
-.topbar a:hover { color: var(--gold-soft); }
-.topbar-sep { opacity: 0.35; }
-.topbar .icon { width: 13px; height: 13px; vertical-align: -2px; margin-right: 2px; opacity: 0.85; }
-.topbar-social { margin-left: auto; }
-.topbar-sep-social { margin-left: auto; display: none; }
-@media (min-width: 561px) {
-  .topbar-sep-social { display: inline; margin-left: auto; }
-  .topbar-social { margin-left: 0; }
-}
-
-/* Header — fixed (not sticky) for the same reason as the topbar above, and fully
-   opaque on purpose: a solid layer can't let anything show through it. */
+/* Header — fixed (not sticky); WebKit's sticky compositing can tear and ghost
+   stale content above it during fast momentum scroll, which a permanently-
+   composited fixed layer avoids. Fully opaque on purpose: a solid layer
+   can't let anything show through it. */
 .site-header {
   position: fixed;
-  top: var(--topbar-h);
+  top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
@@ -1149,7 +1117,6 @@ a[href^="tel:"] { white-space: nowrap; }
 }
 
 @media (max-width: 760px) {
-  .topbar { display: none; }
   section { padding: 68px 0; }
   .hero { min-height: auto; padding: 44px 0; }
   .hero-stats { gap: 0; }
