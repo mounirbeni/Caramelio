@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll-reveal animations
   const revealTargets = document.querySelectorAll(
-    '.reserve-info, .reserve-card, .about-text, .about-visual, .hub-card, .dish-list, .dish-col, .gallery-item, .bakery-text, .bakery-visual, .rating-card, .review-card, .location-info, .location-map'
+    '.page-header, .reserve-info, .reserve-card, .about-text, .about-visual, .hub-card, .dish-list, .dish-col, .menu-category-cover, .gallery-item, .bakery-text, .bakery-visual, .badge, .check-list li, .rating-card, .review-card, .location-info, .location-map, .info-row'
   );
   if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries) => {

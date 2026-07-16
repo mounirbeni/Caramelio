@@ -43,6 +43,7 @@
 </script>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <div class="gold-rule" aria-hidden="true"></div>
 
@@ -115,25 +116,25 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="hero-arch" aria-hidden="true"></div>
+    <div class="hero-bg" aria-hidden="true" data-parallax="0.15"></div>
+    <div class="hero-arch" aria-hidden="true" data-parallax="0.06"></div>
     <div class="photo-needed-badge" data-photo="hero-background">
       <svg class="icon"><use href="#icon-camera"/></svg>
       <span data-i18n="photo.hero">Photo needed here — wide terrace/entrance shot</span>
     </div>
     <div class="container hero-inner">
-      <p class="eyebrow eyebrow-light" data-i18n="hero.eyebrow">Café · Bakery · Restaurant</p>
-      <h1 data-i18n="hero.title" data-i18n-html>Warm mornings, <br>sweet everything.</h1>
-      <p class="hero-sub" data-i18n="hero.sub">A two-story hideaway in Targa, Marrakech — fresh bakery, generous breakfasts, and Moroccan &amp; international dishes served all day, indoors or on the terrace.</p>
-      <div class="hero-actions">
+      <p class="eyebrow eyebrow-light" data-i18n="hero.eyebrow" data-hero-in>Café · Bakery · Restaurant</p>
+      <h1 data-i18n="hero.title" data-i18n-html data-hero-in>Warm mornings, <br>sweet everything.</h1>
+      <p class="hero-sub" data-i18n="hero.sub" data-hero-in>A two-story hideaway in Targa, Marrakech — fresh bakery, generous breakfasts, and Moroccan &amp; international dishes served all day, indoors or on the terrace.</p>
+      <div class="hero-actions" data-hero-in>
         <a href="reserve.html" class="btn btn-primary" data-i18n="hero.reserve">Reserve a Table</a>
         <a href="menu.html" class="btn btn-ghost" data-i18n="hero.viewMenu">View the Menu</a>
       </div>
-      <a href="location.html" class="hero-directions" data-i18n="hero.directions">Get Directions →</a>
-      <div class="hero-stats">
-        <div><strong>2</strong><span data-i18n="hero.stat1">Floors + Terrace</span></div>
-        <div><strong>3</strong><span data-i18n="hero.stat2">Meals a Day</span></div>
-        <div><strong>100%</strong><span data-i18n="hero.stat3">Fresh Baked</span></div>
+      <a href="location.html" class="hero-directions" data-i18n="hero.directions" data-hero-in>Get Directions →</a>
+      <div class="hero-stats" data-hero-in>
+        <div><strong data-count-to="2">2</strong><span data-i18n="hero.stat1">Floors + Terrace</span></div>
+        <div><strong data-count-to="3">3</strong><span data-i18n="hero.stat2">Meals a Day</span></div>
+        <div><strong data-count-to="100" data-count-suffix="%">100%</strong><span data-i18n="hero.stat3">Fresh Baked</span></div>
       </div>
     </div>
   </section>
@@ -278,6 +279,7 @@
 </nav>
 
 <script src="js/i18n.js"></script>
+<script src="js/motion.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

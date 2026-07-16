@@ -175,6 +175,30 @@ h2.center { text-align: center; margin-bottom: 0; }
   transform: translateY(-3px);
   box-shadow: 0 12px 26px rgba(198,154,62,0.35);
 }
+.btn:active { transform: scale(0.96); }
+
+/* Thin gold bar across the very top of the viewport tracking scroll
+   progress through the current page's .scroll-area. */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--caramel), var(--gold));
+  z-index: 1200;
+  pointer-events: none;
+  transition: width 0.15s ease-out;
+}
+
+/* Hero entrance — staggered fade-up played once on load (see js/motion.js);
+   each element's transition-delay is set inline for the stagger. */
+[data-hero-in] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s cubic-bezier(.2,.6,.2,1), transform 0.8s cubic-bezier(.2,.6,.2,1);
+}
+[data-hero-in].hero-in-visible { opacity: 1; transform: none; }
 
 /* Header — fixed (not sticky); WebKit's sticky compositing can tear and ghost
    stale content above it during fast momentum scroll, which a permanently-
@@ -1470,6 +1494,6 @@ a[href^="tel:"] { white-space: nowrap; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal, [data-hero-in] { opacity: 1; transform: none; transition: none; }
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

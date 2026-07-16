@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
 <div class="gold-rule" aria-hidden="true"></div>
 
@@ -83,21 +84,21 @@
         <a href="https://www.google.com/maps/search/?api=1&query=Caramelio+Targa+Marrakech" target="_blank" rel="noopener" class="rating-card">
           <img class="rating-card-icon" src="icons/brands/google.jpg" alt="Google" width="34" height="34" loading="lazy">
           <div class="rating-card-platform" data-i18n="reviews.google">Google Maps</div>
-          <div class="rating-card-score">4.0</div>
+          <div class="rating-card-score" data-count-to="4" data-count-decimals="1">4.0</div>
           <div class="rating-card-stars" aria-hidden="true">★★★★☆</div>
           <span class="rating-card-link" data-i18n="reviews.seeReviews">See reviews →</span>
         </a>
         <a href="https://www.tripadvisor.com/Restaurant_Review-g293734-d24995100-Reviews-Caramelio-Marrakech_Marrakech_Safi.html" target="_blank" rel="noopener" class="rating-card">
           <img class="rating-card-icon" src="icons/brands/tripadvisor.jpg" alt="Tripadvisor" width="34" height="34" loading="lazy">
           <div class="rating-card-platform" data-i18n="reviews.tripadvisor">Tripadvisor</div>
-          <div class="rating-card-score">3.8</div>
+          <div class="rating-card-score" data-count-to="3.8" data-count-decimals="1">3.8</div>
           <div class="rating-card-stars" aria-hidden="true">★★★★☆</div>
           <span class="rating-card-link" data-i18n="reviews.seeReviews">See reviews →</span>
         </a>
         <a href="https://glovoapp.com/en/ma/marrakech/stores/caramelio-mar" target="_blank" rel="noopener" class="rating-card">
           <img class="rating-card-icon" src="icons/brands/glovo.png" alt="Glovo" width="34" height="34" loading="lazy">
           <div class="rating-card-platform" data-i18n="reviews.glovo">Glovo</div>
-          <div class="rating-card-score">94%</div>
+          <div class="rating-card-score" data-count-to="94" data-count-suffix="%">94%</div>
           <p class="rating-card-caption" data-i18n="reviews.positiveRating">Positive Rating</p>
           <span class="rating-card-link" data-i18n="reviews.orderNow">Order now →</span>
         </a>
@@ -187,6 +188,7 @@
 </nav>
 
 <script src="js/i18n.js"></script>
+<script src="js/motion.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
