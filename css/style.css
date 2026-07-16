@@ -36,7 +36,8 @@
 }
 .icon-xs { width: 13px; height: 13px; vertical-align: -2px; }
 
-html { scroll-behavior: smooth; }
+html { height: 100%; }
+body:not(.dashboard-body) { height: 100%; overflow: hidden; }
 
 body {
   font-family: var(--font-body);
@@ -47,6 +48,28 @@ body {
   position: relative;
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior-y: none;
+}
+
+/* The header/topbar/tab bar are fixed chrome outside the document flow; all
+   page content scrolls inside this single bounded container instead of the
+   body itself. Unlike fixed-position compositing, a plain overflow:auto box
+   can't "tear" and show stale content through the chrome during fast
+   momentum scroll — it's clipped by ordinary CSS overflow, not a compositor
+   race. See js/script.js for how --topbar-h/--header-h are measured. */
+.scroll-area {
+  position: fixed;
+  top: calc(var(--topbar-h) + var(--header-h));
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  scroll-behavior: smooth;
+}
+@media (max-width: 760px) {
+  .scroll-area { bottom: calc(62px + env(safe-area-inset-bottom)); }
 }
 
 a, button { touch-action: manipulation; }
@@ -1108,11 +1131,9 @@ a[href^="tel:"] { white-space: nowrap; }
   .hero-stats { gap: 0; }
   .hero-arch { display: none; }
   .footer-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
-  .site-footer { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
 
   /* Bottom tab bar replaces the floating WhatsApp button as the primary quick-action surface */
   .whatsapp-float { display: none; }
-  body { padding-bottom: calc(62px + env(safe-area-inset-bottom)); }
   .app-tabbar {
     display: flex;
     position: fixed;

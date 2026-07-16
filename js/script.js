@@ -59,14 +59,20 @@ document.addEventListener('DOMContentLoaded', () => {
     pinTabbar();
   }
 
+  // Page content now scrolls inside .scroll-area (see css/style.css) instead of
+  // the document/body, so scroll-driven behavior below listens on that element.
+  const scrollArea = document.getElementById('scrollArea');
+
   // Header shadow state on scroll
   const whatsapp = document.querySelector('.whatsapp-float');
-  const onScroll = () => {
-    header.classList.toggle('scrolled', window.scrollY > 10);
-    if (whatsapp) whatsapp.classList.toggle('visible', window.scrollY > window.innerHeight * 0.6);
-  };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+  if (scrollArea) {
+    const onScroll = () => {
+      header.classList.toggle('scrolled', scrollArea.scrollTop > 10);
+      if (whatsapp) whatsapp.classList.toggle('visible', scrollArea.scrollTop > scrollArea.clientHeight * 0.6);
+    };
+    onScroll();
+    scrollArea.addEventListener('scroll', onScroll, { passive: true });
+  }
 
   // Scroll-reveal animations
   const revealTargets = document.querySelectorAll(
@@ -80,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    }, { root: scrollArea || null, threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     revealTargets.forEach((el, i) => {
       el.classList.add('reveal');
