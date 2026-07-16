@@ -698,6 +698,7 @@ section { padding: 110px 0; }
 .menu-category-cover[data-theme="drinks"], .dish-col-photo[data-theme="drinks"], .highlight-card-photo[data-theme="drinks"] { background: linear-gradient(155deg, #f8f0d8 0%, #e8cf8e 50%, #c9a13f 100%); }
 .menu-category-cover[data-theme="extras"], .dish-col-photo[data-theme="extras"], .highlight-card-photo[data-theme="extras"] { background: linear-gradient(155deg, #efe9dd 0%, #d3c6ab 50%, #a8967a 100%); }
 .menu-category-cover[data-theme="dinner"], .dish-col-photo[data-theme="dinner"], .highlight-card-photo[data-theme="dinner"] { background: linear-gradient(155deg, #e6cfb0 0%, #b07d45 50%, #5c3312 100%); }
+.menu-category-cover[data-theme="desserts"], .dish-col-photo[data-theme="desserts"], .highlight-card-photo[data-theme="desserts"] { background: linear-gradient(155deg, #f7dfe0 0%, #e2a3ab 50%, #9c4f5e 100%); }
 
 /* The list beneath each cover picks up a soft tint of the same category color */
 section[data-theme="breakfast"] { background: #f8ecd7; }
@@ -706,6 +707,7 @@ section[data-theme="breakfast"] { background: #f8ecd7; }
 .dish-col[data-theme="drinks"] { background: #fbf5e3; }
 .dish-col[data-theme="extras"] { background: #f4efe7; }
 .dish-col[data-theme="dinner"] { background: #f2e2c9; }
+.dish-col[data-theme="desserts"] { background: #faeaea; }
 .dish-col[data-theme] {
   border-radius: var(--radius);
   padding: 0 16px 16px;
