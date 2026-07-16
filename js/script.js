@@ -109,12 +109,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Menu category cover photos — show how many dishes are in each category
-  document.querySelectorAll('.menu-category-count').forEach(countEl => {
-    const scope = countEl.closest('.dish-col') || countEl.closest('section');
-    if (!scope) return;
-    const count = scope.querySelectorAll('.dish-list li').length;
-    countEl.textContent = count > 0 ? `${count} ${count === 1 ? 'Option' : 'Options'}` : 'Coming Soon';
-  });
+  const i18n = window.CaramelioI18n;
+  const updateMenuCounts = () => {
+    document.querySelectorAll('.menu-category-count').forEach(countEl => {
+      const scope = countEl.closest('.dish-col') || countEl.closest('section');
+      if (!scope) return;
+      const count = scope.querySelectorAll('.dish-list li').length;
+      if (!i18n) return;
+      countEl.textContent = count === 0 ? i18n.t('menu.count.comingSoon')
+        : count === 1 ? i18n.t('menu.count.option')
+        : i18n.t('menu.count.options', { n: count });
+    });
+  };
+  updateMenuCounts();
+  document.addEventListener('caramelio:langchange', updateMenuCounts);
 
   // Menu category filter chips
   const menuFilters = document.getElementById('menuFilters');
@@ -167,8 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const submitBtn = reserveForm.querySelector('.reserve-submit');
     const hintEl = reserveForm.querySelector('.reserve-hint');
-    const defaultHint = hintEl ? hintEl.textContent : '';
-    const defaultBtnLabel = submitBtn ? submitBtn.textContent : '';
 
     reserveForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -186,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         notes: data.get('notes').trim(),
       };
 
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = i18n ? i18n.t('reserve.form.sending') : 'Sending…'; }
       if (hintEl) { hintEl.textContent = ''; hintEl.classList.remove('reserve-hint-error', 'reserve-hint-success'); }
 
       try {
@@ -197,24 +203,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         if (!res.ok) {
           const body = await res.json().catch(() => ({}));
-          throw new Error(body.error || 'Something went wrong. Please try again or call us.');
+          throw new Error(body.error || (i18n ? i18n.t('reserve.form.errorDefault') : 'Something went wrong. Please try again or call us.'));
         }
 
         reserveForm.reset();
         if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
-        if (submitBtn) submitBtn.textContent = 'Request Sent ✓';
+        if (submitBtn) submitBtn.textContent = i18n ? i18n.t('reserve.form.sent') : 'Request Sent ✓';
         if (hintEl) {
-          hintEl.textContent = "Thank you! We've received your request and will confirm shortly.";
+          hintEl.textContent = i18n ? i18n.t('reserve.form.successHint') : "Thank you! We've received your request and will confirm shortly.";
           hintEl.classList.add('reserve-hint-success');
         }
         setTimeout(() => {
-          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = defaultBtnLabel; }
-          if (hintEl) { hintEl.textContent = defaultHint; hintEl.classList.remove('reserve-hint-success'); }
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = i18n ? i18n.t('reserve.form.submit') : 'Send Reservation Request'; }
+          if (hintEl) { hintEl.textContent = i18n ? i18n.t('reserve.form.hint') : "We'll confirm your reservation shortly."; hintEl.classList.remove('reserve-hint-success'); }
         }, 4000);
       } catch (err) {
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = defaultBtnLabel; }
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = i18n ? i18n.t('reserve.form.submit') : 'Send Reservation Request'; }
         if (hintEl) {
-          hintEl.textContent = err.message || 'Something went wrong. Please try again or call us.';
+          hintEl.textContent = err.message || (i18n ? i18n.t('reserve.form.errorDefault') : 'Something went wrong. Please try again or call us.');
           hintEl.classList.add('reserve-hint-error');
         }
       }

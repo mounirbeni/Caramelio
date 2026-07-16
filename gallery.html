@@ -60,15 +60,19 @@
   <div class="container header-inner">
     <a href="index.html" class="logo">Caramelio<span class="logo-dot">.</span></a>
     <nav class="nav" id="nav">
-      <a href="reserve.html" class="nav-link-highlight">Reserve</a>
-      <a href="about.html">About</a>
-      <a href="menu.html">Menu</a>
-      <a href="gallery.html" class="active">Gallery</a>
-      <a href="bakery.html">Bakery</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="location.html">Location</a>
+      <a href="reserve.html" class="nav-link-highlight" data-i18n="nav.reserve">Reserve</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="menu.html" data-i18n="nav.menu">Menu</a>
+      <a href="gallery.html" class="active" data-i18n="nav.gallery">Gallery</a>
+      <a href="bakery.html" data-i18n="nav.bakery">Bakery</a>
+      <a href="reviews.html" data-i18n="nav.reviews">Reviews</a>
+      <a href="location.html" data-i18n="nav.location">Location</a>
     </nav>
-    <a href="reserve.html" class="btn btn-gold header-cta">Reserve a Table</a>
+    <a href="reserve.html" class="btn btn-gold header-cta" data-i18n="header.cta">Reserve a Table</a>
+    <div class="lang-toggle" id="langToggle" role="group" data-i18n-aria-label="lang.aria" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-lang="fr">FR</button>
+    </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -79,10 +83,10 @@
 <main>
 
   <div class="container page-header">
-    <p class="eyebrow center">A Look Inside</p>
-    <h1>Gallery</h1>
+    <p class="eyebrow center" data-i18n="gallery.eyebrow">A Look Inside</p>
+    <h1 data-i18n="gallery.title">Gallery</h1>
     <div class="divider" aria-hidden="true"></div>
-    <p>Real photos of Caramelio go here — the terrace, the kitchen, and the food.</p>
+    <p data-i18n="gallery.sub">Real photos of Caramelio go here — the terrace, the kitchen, and the food.</p>
   </div>
 
   <!-- GALLERY -->
@@ -90,22 +94,22 @@
     <div class="container">
       <div class="gallery-grid">
         <div class="gallery-item photo-slot" data-photo="gallery-terrace-golden-hour">
-          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong>Photo needed</strong><span>Terrace at Golden Hour</span></div>
+          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong data-i18n="photo.needed">Photo needed</strong><span data-i18n="gallery.terrace">Terrace at Golden Hour</span></div>
         </div>
         <div class="gallery-item photo-slot" data-photo="gallery-signature-dish">
-          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong>Photo needed</strong><span>Chef's Specialty Dish</span></div>
+          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong data-i18n="photo.needed">Photo needed</strong><span data-i18n="gallery.dish">Chef's Specialty Dish</span></div>
         </div>
         <div class="gallery-item photo-slot" data-photo="gallery-fresh-juice">
-          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong>Photo needed</strong><span>Fresh Juice Bar</span></div>
+          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong data-i18n="photo.needed">Photo needed</strong><span data-i18n="gallery.juice">Fresh Juice Bar</span></div>
         </div>
         <div class="gallery-item photo-slot" data-photo="gallery-cozy-corner">
-          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong>Photo needed</strong><span>Cozy Corner</span></div>
+          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong data-i18n="photo.needed">Photo needed</strong><span data-i18n="gallery.corner">Cozy Corner</span></div>
         </div>
         <div class="gallery-item photo-slot" data-photo="gallery-breakfast-moment">
-          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong>Photo needed</strong><span>Breakfast Moment</span></div>
+          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong data-i18n="photo.needed">Photo needed</strong><span data-i18n="gallery.breakfast">Breakfast Moment</span></div>
         </div>
         <div class="gallery-item photo-slot" data-photo="gallery-behind-counter">
-          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong>Photo needed</strong><span>Behind the Counter</span></div>
+          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong data-i18n="photo.needed">Photo needed</strong><span data-i18n="gallery.counter">Behind the Counter</span></div>
         </div>
       </div>
     </div>
@@ -116,53 +120,54 @@
   <div class="container footer-grid">
     <div class="footer-col footer-brand-col">
       <div class="footer-brand">Caramelio<span class="logo-dot">.</span></div>
-      <p class="footer-tagline">Café, bakery &amp; restaurant in Targa, Marrakech — warm mornings and sweet everything, all day long.</p>
+      <p class="footer-tagline" data-i18n="footer.tagline">Café, bakery &amp; restaurant in Targa, Marrakech — warm mornings and sweet everything, all day long.</p>
       <div class="social-links footer-social">
         <a href="https://www.instagram.com/carameliotarga/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.facebook.com/carameliotarga/" target="_blank" rel="noopener">Facebook</a>
       </div>
     </div>
     <div class="footer-col">
-      <h4>Explore</h4>
-      <a href="reserve.html">Reserve a Table</a>
-      <a href="about.html">About</a>
-      <a href="menu.html">Menu</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="bakery.html">Bakery</a>
-      <a href="reviews.html">Reviews</a>
+      <h4 data-i18n="footer.explore">Explore</h4>
+      <a href="reserve.html" data-i18n="footer.reserve">Reserve a Table</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="menu.html" data-i18n="nav.menu">Menu</a>
+      <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+      <a href="bakery.html" data-i18n="nav.bakery">Bakery</a>
+      <a href="reviews.html" data-i18n="nav.reviews">Reviews</a>
     </div>
     <div class="footer-col">
-      <h4>Visit</h4>
+      <h4 data-i18n="footer.visit">Visit</h4>
       <a href="location.html">Targa, Marrakech</a>
       <a href="tel:+212524490595">+212 5244-90595</a>
       <a href="tel:+212665707049">+212 6657-07049</a>
-      <a href="location.html">Order Online</a>
+      <a href="location.html" data-i18n="footer.orderOnline">Order Online</a>
     </div>
   </div>
   <div class="container footer-bottom">
-    <p>© <span id="year"></span> Caramelio. All rights reserved.</p>
+    <p>© <span id="year"></span> Caramelio. <span data-i18n="footer.rights">All rights reserved.</span></p>
   </div>
 </footer>
 </div>
-<a href="https://wa.me/212665707049" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/212665707049" target="_blank" rel="noopener" class="whatsapp-float" data-i18n-aria-label="whatsapp.aria" aria-label="Chat on WhatsApp">
   <svg aria-hidden="true"><use href="#icon-whatsapp"/></svg>
 </a>
 
 <nav class="app-tabbar" id="appTabbar" aria-label="Quick actions">
   <a href="reserve.html" class="tab-item" data-page="reserve.html">
-    <svg class="icon"><use href="#icon-calendar"/></svg><span>Reserve</span>
+    <svg class="icon"><use href="#icon-calendar"/></svg><span data-i18n="tab.reserve">Reserve</span>
   </a>
   <a href="menu.html" class="tab-item" data-page="menu.html">
-    <svg class="icon"><use href="#icon-utensils"/></svg><span>Menu</span>
+    <svg class="icon"><use href="#icon-utensils"/></svg><span data-i18n="tab.menu">Menu</span>
   </a>
   <a href="https://wa.me/212665707049" target="_blank" rel="noopener" class="tab-item">
-    <svg class="icon"><use href="#icon-whatsapp"/></svg><span>Chat</span>
+    <svg class="icon"><use href="#icon-whatsapp"/></svg><span data-i18n="tab.chat">Chat</span>
   </a>
   <a href="location.html" class="tab-item" data-page="location.html">
-    <svg class="icon"><use href="#icon-pin"/></svg><span>Location</span>
+    <svg class="icon"><use href="#icon-pin"/></svg><span data-i18n="tab.location">Location</span>
   </a>
 </nav>
 
+<script src="js/i18n.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

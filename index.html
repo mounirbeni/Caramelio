@@ -103,15 +103,19 @@
   <div class="container header-inner">
     <a href="index.html" class="logo">Caramelio<span class="logo-dot">.</span></a>
     <nav class="nav" id="nav">
-      <a href="reserve.html" class="nav-link-highlight">Reserve</a>
-      <a href="about.html">About</a>
-      <a href="menu.html">Menu</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="bakery.html">Bakery</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="location.html">Location</a>
+      <a href="reserve.html" class="nav-link-highlight" data-i18n="nav.reserve">Reserve</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="menu.html" data-i18n="nav.menu">Menu</a>
+      <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+      <a href="bakery.html" data-i18n="nav.bakery">Bakery</a>
+      <a href="reviews.html" data-i18n="nav.reviews">Reviews</a>
+      <a href="location.html" data-i18n="nav.location">Location</a>
     </nav>
-    <a href="reserve.html" class="btn btn-gold header-cta">Reserve a Table</a>
+    <a href="reserve.html" class="btn btn-gold header-cta" data-i18n="header.cta">Reserve a Table</a>
+    <div class="lang-toggle" id="langToggle" role="group" data-i18n-aria-label="lang.aria" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-lang="fr">FR</button>
+    </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -127,21 +131,21 @@
     <div class="hero-arch" aria-hidden="true"></div>
     <div class="photo-needed-badge" data-photo="hero-background">
       <svg class="icon"><use href="#icon-camera"/></svg>
-      Photo needed here — wide terrace/entrance shot
+      <span data-i18n="photo.hero">Photo needed here — wide terrace/entrance shot</span>
     </div>
     <div class="container hero-inner">
-      <p class="eyebrow eyebrow-light">Café · Bakery · Restaurant</p>
-      <h1>Warm mornings, <br>sweet everything.</h1>
-      <p class="hero-sub">A two-story hideaway in Targa, Marrakech — fresh bakery, generous breakfasts, and Moroccan &amp; international dishes served all day, indoors or on the terrace.</p>
+      <p class="eyebrow eyebrow-light" data-i18n="hero.eyebrow">Café · Bakery · Restaurant</p>
+      <h1 data-i18n="hero.title" data-i18n-html>Warm mornings, <br>sweet everything.</h1>
+      <p class="hero-sub" data-i18n="hero.sub">A two-story hideaway in Targa, Marrakech — fresh bakery, generous breakfasts, and Moroccan &amp; international dishes served all day, indoors or on the terrace.</p>
       <div class="hero-actions">
-        <a href="reserve.html" class="btn btn-primary">Reserve a Table</a>
-        <a href="menu.html" class="btn btn-ghost">View the Menu</a>
+        <a href="reserve.html" class="btn btn-primary" data-i18n="hero.reserve">Reserve a Table</a>
+        <a href="menu.html" class="btn btn-ghost" data-i18n="hero.viewMenu">View the Menu</a>
       </div>
-      <a href="location.html" class="hero-directions">Get Directions →</a>
+      <a href="location.html" class="hero-directions" data-i18n="hero.directions">Get Directions →</a>
       <div class="hero-stats">
-        <div><strong>2</strong><span>Floors + Terrace</span></div>
-        <div><strong>3</strong><span>Meals a Day</span></div>
-        <div><strong>100%</strong><span>Fresh Baked</span></div>
+        <div><strong>2</strong><span data-i18n="hero.stat1">Floors + Terrace</span></div>
+        <div><strong>3</strong><span data-i18n="hero.stat2">Meals a Day</span></div>
+        <div><strong>100%</strong><span data-i18n="hero.stat3">Fresh Baked</span></div>
       </div>
     </div>
   </section>
@@ -150,24 +154,24 @@
   <section class="about">
     <div class="container about-inner">
       <div class="about-text">
-        <p class="eyebrow">The Venue</p>
-        <h2>A hidden gem in the heart of Targa</h2>
+        <p class="eyebrow" data-i18n="home.about.eyebrow">The Venue</p>
+        <h2 data-i18n="home.about.title">A hidden gem in the heart of Targa</h2>
         <div class="divider divider-left" aria-hidden="true"></div>
-        <p>Caramelio is a spacious two-story café, bakery and restaurant offering cozy indoor seating alongside an open-air terrace — the kind of place that feels like a discovery. Fresh bread, pastries and celebration cakes are baked in-house daily, alongside a full breakfast, lunch and dinner menu.</p>
-        <a href="about.html" class="btn btn-outline">Read Our Story</a>
+        <p data-i18n="home.about.body">Caramelio is a spacious two-story café, bakery and restaurant offering cozy indoor seating alongside an open-air terrace — the kind of place that feels like a discovery. Fresh bread, pastries and celebration cakes are baked in-house daily, alongside a full breakfast, lunch and dinner menu.</p>
+        <a href="about.html" class="btn btn-outline" data-i18n="home.about.cta">Read Our Story</a>
       </div>
       <div class="about-visual">
         <div class="visual-card photo-slot arch" data-photo="about-dining-room">
-          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong>Photo needed</strong><span>Dining Room</span></div>
+          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong data-i18n="photo.needed">Photo needed</strong><span data-i18n="photo.diningRoom">Dining Room</span></div>
         </div>
         <div class="visual-card photo-slot" data-photo="about-terrace">
-          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong>Photo needed</strong><span>Terrace Seating</span></div>
+          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong data-i18n="photo.needed">Photo needed</strong><span data-i18n="photo.terrace">Terrace Seating</span></div>
         </div>
         <div class="visual-card photo-slot" data-photo="about-coffee-corner">
-          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong>Photo needed</strong><span>Coffee Corner</span></div>
+          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong data-i18n="photo.needed">Photo needed</strong><span data-i18n="photo.coffeeCorner">Coffee Corner</span></div>
         </div>
         <div class="visual-card photo-slot arch" data-photo="about-pastry-case">
-          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong>Photo needed</strong><span>Pastry Case</span></div>
+          <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><strong data-i18n="photo.needed">Photo needed</strong><span data-i18n="photo.pastryCase">Pastry Case</span></div>
         </div>
       </div>
     </div>
@@ -176,46 +180,46 @@
   <!-- HUB -->
   <section class="section-alt" id="explore">
     <div class="container">
-      <p class="eyebrow center">Explore Caramelio</p>
-      <h2 class="center">Everything in One Place</h2>
+      <p class="eyebrow center" data-i18n="hub.eyebrow">Explore Caramelio</p>
+      <h2 class="center" data-i18n="hub.title">Everything in One Place</h2>
       <div class="divider" aria-hidden="true"></div>
 
       <div class="hub-grid">
         <a href="menu.html" class="hub-card">
           <span class="hub-card-icon"><svg class="icon"><use href="#icon-utensils"/></svg></span>
-          <h3>Menu</h3>
-          <p>Breakfast combos, Moroccan classics, pasta, pizza and fresh juice.</p>
-          <span class="hub-card-link">View the Menu →</span>
+          <h3 data-i18n="hub.menu.title">Menu</h3>
+          <p data-i18n="hub.menu.desc">Breakfast combos, Moroccan classics, pasta, pizza and fresh juice.</p>
+          <span class="hub-card-link" data-i18n="hub.menu.link">View the Menu →</span>
         </a>
         <a href="gallery.html" class="hub-card">
           <span class="hub-card-icon"><svg class="icon"><use href="#icon-camera"/></svg></span>
-          <h3>Gallery</h3>
-          <p>A look at the terrace, the kitchen, and the food.</p>
-          <span class="hub-card-link">See Photos →</span>
+          <h3 data-i18n="hub.gallery.title">Gallery</h3>
+          <p data-i18n="hub.gallery.desc">A look at the terrace, the kitchen, and the food.</p>
+          <span class="hub-card-link" data-i18n="hub.gallery.link">See Photos →</span>
         </a>
         <a href="bakery.html" class="hub-card">
           <span class="hub-card-icon"><svg class="icon"><use href="#icon-cake"/></svg></span>
-          <h3>Bakery</h3>
-          <p>Custom celebration cakes, fresh bread and daily pastries.</p>
-          <span class="hub-card-link">Order a Cake →</span>
+          <h3 data-i18n="hub.bakery.title">Bakery</h3>
+          <p data-i18n="hub.bakery.desc">Custom celebration cakes, fresh bread and daily pastries.</p>
+          <span class="hub-card-link" data-i18n="hub.bakery.link">Order a Cake →</span>
         </a>
         <a href="reviews.html" class="hub-card">
           <span class="hub-card-icon"><svg class="icon"><use href="#icon-quote"/></svg></span>
-          <h3>Reviews</h3>
-          <p>Rated on Google, Tripadvisor &amp; Glovo.</p>
-          <span class="hub-card-link">Read Reviews →</span>
+          <h3 data-i18n="hub.reviews.title">Reviews</h3>
+          <p data-i18n="hub.reviews.desc">Rated on Google, Tripadvisor &amp; Glovo.</p>
+          <span class="hub-card-link" data-i18n="hub.reviews.link">Read Reviews →</span>
         </a>
         <a href="reserve.html" class="hub-card">
           <span class="hub-card-icon"><svg class="icon"><use href="#icon-calendar"/></svg></span>
-          <h3>Reserve</h3>
-          <p>Book a table for breakfast, lunch or dinner in seconds.</p>
-          <span class="hub-card-link">Reserve a Table →</span>
+          <h3 data-i18n="hub.reserve.title">Reserve</h3>
+          <p data-i18n="hub.reserve.desc">Book a table for breakfast, lunch or dinner in seconds.</p>
+          <span class="hub-card-link" data-i18n="hub.reserve.link">Reserve a Table →</span>
         </a>
         <a href="location.html" class="hub-card">
           <span class="hub-card-icon"><svg class="icon"><use href="#icon-pin"/></svg></span>
-          <h3>Location</h3>
-          <p>Find us in Targa, Marrakech, or order delivery.</p>
-          <span class="hub-card-link">Get Directions →</span>
+          <h3 data-i18n="hub.location.title">Location</h3>
+          <p data-i18n="hub.location.desc">Find us in Targa, Marrakech, or order delivery.</p>
+          <span class="hub-card-link" data-i18n="hub.location.link">Get Directions →</span>
         </a>
       </div>
     </div>
@@ -226,53 +230,54 @@
   <div class="container footer-grid">
     <div class="footer-col footer-brand-col">
       <div class="footer-brand">Caramelio<span class="logo-dot">.</span></div>
-      <p class="footer-tagline">Café, bakery &amp; restaurant in Targa, Marrakech — warm mornings and sweet everything, all day long.</p>
+      <p class="footer-tagline" data-i18n="footer.tagline">Café, bakery &amp; restaurant in Targa, Marrakech — warm mornings and sweet everything, all day long.</p>
       <div class="social-links footer-social">
         <a href="https://www.instagram.com/carameliotarga/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.facebook.com/carameliotarga/" target="_blank" rel="noopener">Facebook</a>
       </div>
     </div>
     <div class="footer-col">
-      <h4>Explore</h4>
-      <a href="reserve.html">Reserve a Table</a>
-      <a href="about.html">About</a>
-      <a href="menu.html">Menu</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="bakery.html">Bakery</a>
-      <a href="reviews.html">Reviews</a>
+      <h4 data-i18n="footer.explore">Explore</h4>
+      <a href="reserve.html" data-i18n="footer.reserve">Reserve a Table</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="menu.html" data-i18n="nav.menu">Menu</a>
+      <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+      <a href="bakery.html" data-i18n="nav.bakery">Bakery</a>
+      <a href="reviews.html" data-i18n="nav.reviews">Reviews</a>
     </div>
     <div class="footer-col">
-      <h4>Visit</h4>
+      <h4 data-i18n="footer.visit">Visit</h4>
       <a href="location.html">Targa, Marrakech</a>
       <a href="tel:+212524490595">+212 5244-90595</a>
       <a href="tel:+212665707049">+212 6657-07049</a>
-      <a href="location.html">Order Online</a>
+      <a href="location.html" data-i18n="footer.orderOnline">Order Online</a>
     </div>
   </div>
   <div class="container footer-bottom">
-    <p>© <span id="year"></span> Caramelio. All rights reserved.</p>
+    <p>© <span id="year"></span> Caramelio. <span data-i18n="footer.rights">All rights reserved.</span></p>
   </div>
 </footer>
 </div>
-<a href="https://wa.me/212665707049" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/212665707049" target="_blank" rel="noopener" class="whatsapp-float" data-i18n-aria-label="whatsapp.aria" aria-label="Chat on WhatsApp">
   <svg aria-hidden="true"><use href="#icon-whatsapp"/></svg>
 </a>
 
 <nav class="app-tabbar" id="appTabbar" aria-label="Quick actions">
   <a href="reserve.html" class="tab-item" data-page="reserve.html">
-    <svg class="icon"><use href="#icon-calendar"/></svg><span>Reserve</span>
+    <svg class="icon"><use href="#icon-calendar"/></svg><span data-i18n="tab.reserve">Reserve</span>
   </a>
   <a href="menu.html" class="tab-item" data-page="menu.html">
-    <svg class="icon"><use href="#icon-utensils"/></svg><span>Menu</span>
+    <svg class="icon"><use href="#icon-utensils"/></svg><span data-i18n="tab.menu">Menu</span>
   </a>
   <a href="https://wa.me/212665707049" target="_blank" rel="noopener" class="tab-item">
-    <svg class="icon"><use href="#icon-whatsapp"/></svg><span>Chat</span>
+    <svg class="icon"><use href="#icon-whatsapp"/></svg><span data-i18n="tab.chat">Chat</span>
   </a>
   <a href="location.html" class="tab-item" data-page="location.html">
-    <svg class="icon"><use href="#icon-pin"/></svg><span>Location</span>
+    <svg class="icon"><use href="#icon-pin"/></svg><span data-i18n="tab.location">Location</span>
   </a>
 </nav>
 
+<script src="js/i18n.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

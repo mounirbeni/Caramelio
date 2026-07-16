@@ -63,15 +63,19 @@
   <div class="container header-inner">
     <a href="index.html" class="logo">Caramelio<span class="logo-dot">.</span></a>
     <nav class="nav" id="nav">
-      <a href="reserve.html" class="nav-link-highlight">Reserve</a>
-      <a href="about.html">About</a>
-      <a href="menu.html" class="active">Menu</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="bakery.html">Bakery</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="location.html">Location</a>
+      <a href="reserve.html" class="nav-link-highlight" data-i18n="nav.reserve">Reserve</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="menu.html" class="active" data-i18n="nav.menu">Menu</a>
+      <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+      <a href="bakery.html" data-i18n="nav.bakery">Bakery</a>
+      <a href="reviews.html" data-i18n="nav.reviews">Reviews</a>
+      <a href="location.html" data-i18n="nav.location">Location</a>
     </nav>
-    <a href="reserve.html" class="btn btn-gold header-cta">Reserve a Table</a>
+    <a href="reserve.html" class="btn btn-gold header-cta" data-i18n="header.cta">Reserve a Table</a>
+    <div class="lang-toggle" id="langToggle" role="group" data-i18n-aria-label="lang.aria" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-lang="fr">FR</button>
+    </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -82,62 +86,62 @@
 <main>
 
   <div class="container page-header">
-    <p class="eyebrow center">Our Menu</p>
-    <h1>Breakfast, Lunch &amp; Dinner</h1>
+    <p class="eyebrow center" data-i18n="menu.eyebrow">Our Menu</p>
+    <h1 data-i18n="menu.title" data-i18n-html>Breakfast, Lunch &amp; Dinner</h1>
     <div class="divider" aria-hidden="true"></div>
-    <p>Signature breakfast combos, plus Moroccan and international dishes served all day.</p>
+    <p data-i18n="menu.sub">Signature breakfast combos, plus Moroccan and international dishes served all day.</p>
   </div>
 
   <!-- CATEGORY FILTERS -->
   <div class="container">
     <div class="menu-filters" id="menuFilters" role="tablist" aria-label="Filter the menu by category">
-      <button type="button" class="filter-chip active" data-filter="all" role="tab" aria-selected="true">All</button>
-      <button type="button" class="filter-chip" data-filter="breakfast" role="tab" aria-selected="false">Breakfast</button>
-      <button type="button" class="filter-chip" data-filter="lunch" role="tab" aria-selected="false">Lunch</button>
-      <button type="button" class="filter-chip" data-filter="snacks" role="tab" aria-selected="false">Snacks</button>
-      <button type="button" class="filter-chip" data-filter="drinks" role="tab" aria-selected="false">Drinks</button>
-      <button type="button" class="filter-chip" data-filter="extras" role="tab" aria-selected="false">Extras</button>
-      <button type="button" class="filter-chip" data-filter="dinner" role="tab" aria-selected="false">Dinner</button>
+      <button type="button" class="filter-chip active" data-filter="all" role="tab" aria-selected="true" data-i18n="filter.all">All</button>
+      <button type="button" class="filter-chip" data-filter="breakfast" role="tab" aria-selected="false" data-i18n="filter.breakfast">Breakfast</button>
+      <button type="button" class="filter-chip" data-filter="lunch" role="tab" aria-selected="false" data-i18n="filter.lunch">Lunch</button>
+      <button type="button" class="filter-chip" data-filter="snacks" role="tab" aria-selected="false" data-i18n="filter.snacks">Snacks</button>
+      <button type="button" class="filter-chip" data-filter="drinks" role="tab" aria-selected="false" data-i18n="filter.drinks">Drinks</button>
+      <button type="button" class="filter-chip" data-filter="extras" role="tab" aria-selected="false" data-i18n="filter.extras">Extras</button>
+      <button type="button" class="filter-chip" data-filter="dinner" role="tab" aria-selected="false" data-i18n="filter.dinner">Dinner</button>
     </div>
   </div>
 
   <!-- BREAKFAST -->
   <section class="section-alt" id="breakfast" data-filter-section data-theme="breakfast">
     <div class="container">
-      <p class="eyebrow center">Morning Menu</p>
-      <h2 class="center">Breakfast Selections</h2>
+      <p class="eyebrow center" data-i18n="menu.breakfast.eyebrow">Morning Menu</p>
+      <h2 class="center" data-i18n="menu.breakfast.title">Breakfast Selections</h2>
       <div class="divider" aria-hidden="true"></div>
-      <p class="section-sub center">Our signature combos — each served with a hot drink and fresh juice.</p>
+      <p class="section-sub center" data-i18n="menu.breakfast.sub">Our signature combos — each served with a hot drink and fresh juice.</p>
 
       <div class="menu-category-cover photo-slot" data-photo="menu-cover-breakfast" data-theme="breakfast">
-        <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Breakfast — Cover Photo</span></div>
+        <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.breakfast">Breakfast — Cover Photo</span></div>
         <div class="menu-category-overlay">
-          <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>Morning</span>
-          <h3 class="menu-category-overlay-title">Breakfast</h3>
+          <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.morning">Morning</span></span>
+          <h3 class="menu-category-overlay-title" data-i18n="cat.breakfast">Breakfast</h3>
           <span class="menu-category-count"></span>
         </div>
       </div>
 
       <ul class="dish-list">
         <li data-category="breakfast">
-          <span>Express Breakfast</span><em>62 MAD</em>
-          <p class="dish-desc">A variety basket of breads and viennoiseries, spread plate, corn flakes, hot drink, and orange or carrot juice.</p>
+          <span data-i18n="dish.expressBreakfast.name">Express Breakfast</span><em>62 MAD</em>
+          <p class="dish-desc" data-i18n="dish.expressBreakfast.desc">A variety basket of breads and viennoiseries, spread plate, corn flakes, hot drink, and orange or carrot juice.</p>
         </li>
         <li data-category="breakfast">
-          <span>Beldi Breakfast</span><em>76 MAD</em>
-          <p class="dish-desc">Traditional Msemen, Harcha &amp; Beghrir pancakes with a spread plate, hard-boiled egg, corn flakes, house yogurt, hot drink and juice.</p>
+          <span data-i18n="dish.beldiBreakfast.name">Beldi Breakfast</span><em>76 MAD</em>
+          <p class="dish-desc" data-i18n="dish.beldiBreakfast.desc">Traditional Msemen, Harcha &amp; Beghrir pancakes with a spread plate, hard-boiled egg, corn flakes, house yogurt, hot drink and juice.</p>
         </li>
         <li data-category="breakfast">
-          <span>Fassi Breakfast</span><em>86 MAD</em>
-          <p class="dish-desc">Traditional Khliâa egg tagine, two pieces of Msemen, spread plate, house yogurt, hot drink and juice.</p>
+          <span data-i18n="dish.fassiBreakfast.name">Fassi Breakfast</span><em>86 MAD</em>
+          <p class="dish-desc" data-i18n="dish.fassiBreakfast.desc">Traditional Khliâa egg tagine, two pieces of Msemen, spread plate, house yogurt, hot drink and juice.</p>
         </li>
         <li data-category="breakfast">
-          <span>Chamali Breakfast</span><em>93 MAD</em>
-          <p class="dish-desc">Omelet with a northern-style platter — avocado, Jben cheese, olives, cold cuts, red cheese, olive oil — plus hot drink, yogurt and juice.</p>
+          <span data-i18n="dish.chamaliBreakfast.name">Chamali Breakfast</span><em>93 MAD</em>
+          <p class="dish-desc" data-i18n="dish.chamaliBreakfast.desc">Omelet with a northern-style platter — avocado, Jben cheese, olives, cold cuts, red cheese, olive oil — plus hot drink, yogurt and juice.</p>
         </li>
         <li data-category="breakfast">
-          <span>English Breakfast <span class="dish-badge">Best Seller</span></span><em>105 MAD</em>
-          <p class="dish-desc">Fried eggs on toast, ham, cheese, tomato with Jben, merguez, potatoes, cucumber salad, olives, granola, hot drink and fresh juice.</p>
+          <span><span data-i18n="dish.englishBreakfast.name">English Breakfast</span> <span class="dish-badge" data-i18n="dish.englishBreakfast.badge">Best Seller</span></span><em>105 MAD</em>
+          <p class="dish-desc" data-i18n="dish.englishBreakfast.desc">Fried eggs on toast, ham, cheese, tomato with Jben, merguez, potatoes, cucumber salad, olives, granola, hot drink and fresh juice.</p>
         </li>
       </ul>
     </div>
@@ -146,146 +150,147 @@
   <!-- ALL DAY MENU -->
   <section id="all-day" data-filter-section>
     <div class="container">
-      <p class="eyebrow center">All-Day Dining</p>
-      <h2 class="center">Lunch, Snacks, Drinks &amp; Dinner</h2>
+      <p class="eyebrow center" data-i18n="menu.allday.eyebrow">All-Day Dining</p>
+      <h2 class="center" data-i18n="menu.allday.title" data-i18n-html>Lunch, Snacks, Drinks &amp; Dinner</h2>
       <div class="divider" aria-hidden="true"></div>
-      <p class="section-sub center">Browse by category — some dishes are available at more than one time of day.</p>
+      <p class="section-sub center" data-i18n="menu.allday.sub">Browse by category — some dishes are available at more than one time of day.</p>
 
       <div class="dish-columns">
         <div class="dish-col" data-filter-group data-theme="lunch">
           <div class="dish-col-photo photo-slot" data-photo="menu-cover-lunch" data-theme="lunch">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Lunch — Cover Photo</span></div>
+            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.lunch">Lunch — Cover Photo</span></div>
             <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>Midday</span>
-              <h3 class="menu-category-overlay-title">Lunch</h3>
+              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.midday">Midday</span></span>
+              <h3 class="menu-category-overlay-title" data-i18n="cat.lunch">Lunch</h3>
               <span class="menu-category-count"></span>
             </div>
           </div>
           <ul class="dish-list">
-            <li data-category="lunch"><span>Chicken Pasticcio</span><em>58 MAD</em></li>
-            <li data-category="lunch"><span>Ground Beef Pasticcio</span><em>65 MAD</em></li>
-            <li data-category="lunch"><span>Chicken Pastilla</span></li>
-            <li data-category="lunch"><span>Traditional Meat &amp; Vegetable Tagines</span></li>
-            <li data-category="lunch"><span>Salade Caramelio</span><em>~85 MAD</em></li>
-            <li data-category="lunch"><span>Wood-Fired Pizzas</span></li>
-            <li data-category="lunch"><span>Burgers &amp; Sandwiches</span><em>58–71 MAD</em></li>
+            <li data-category="lunch"><span data-i18n="dish.chickenPasticcio.name">Chicken Pasticcio</span><em>58 MAD</em></li>
+            <li data-category="lunch"><span data-i18n="dish.beefPasticcio.name">Ground Beef Pasticcio</span><em>65 MAD</em></li>
+            <li data-category="lunch"><span data-i18n="dish.chickenPastilla.name">Chicken Pastilla</span></li>
+            <li data-category="lunch"><span data-i18n="dish.tagines.name">Traditional Meat &amp; Vegetable Tagines</span></li>
+            <li data-category="lunch"><span data-i18n="dish.saladeCaramelio.name">Salade Caramelio</span><em>~85 MAD</em></li>
+            <li data-category="lunch"><span data-i18n="dish.pizzas.name">Wood-Fired Pizzas</span></li>
+            <li data-category="lunch"><span data-i18n="dish.burgers.name">Burgers &amp; Sandwiches</span><em>58–71 MAD</em></li>
           </ul>
         </div>
         <div class="dish-col" data-filter-group data-theme="snacks">
           <div class="dish-col-photo photo-slot" data-photo="menu-cover-snacks" data-theme="snacks">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Snacks — Cover Photo</span></div>
+            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.snacks">Snacks — Cover Photo</span></div>
             <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>All Day</span>
-              <h3 class="menu-category-overlay-title">Snacks</h3>
+              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.allday">All Day</span></span>
+              <h3 class="menu-category-overlay-title" data-i18n="cat.snacks">Snacks</h3>
               <span class="menu-category-count"></span>
             </div>
           </div>
           <ul class="dish-list">
-            <li data-category="snacks"><span>Salade Caramelio</span><em>~85 MAD</em></li>
-            <li data-category="snacks"><span>Burgers &amp; Sandwiches</span><em>58–71 MAD</em></li>
+            <li data-category="snacks"><span data-i18n="dish.saladeCaramelio.name">Salade Caramelio</span><em>~85 MAD</em></li>
+            <li data-category="snacks"><span data-i18n="dish.burgers.name">Burgers &amp; Sandwiches</span><em>58–71 MAD</em></li>
           </ul>
         </div>
         <div class="dish-col" data-filter-group data-theme="drinks">
           <div class="dish-col-photo photo-slot" data-photo="menu-cover-drinks" data-theme="drinks">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Drinks — Cover Photo</span></div>
+            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.drinks">Drinks — Cover Photo</span></div>
             <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>All Day</span>
-              <h3 class="menu-category-overlay-title">Drinks</h3>
+              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.allday">All Day</span></span>
+              <h3 class="menu-category-overlay-title" data-i18n="cat.drinks">Drinks</h3>
               <span class="menu-category-count"></span>
             </div>
           </div>
           <ul class="dish-list">
-            <li data-category="drinks"><span>Pineapple, Strawberry, Avocado, Mango, Orange</span><em>28–47 MAD</em></li>
+            <li data-category="drinks"><span data-i18n="dish.juices.name">Pineapple, Strawberry, Avocado, Mango, Orange</span><em>28–47 MAD</em></li>
           </ul>
         </div>
         <div class="dish-col" data-filter-group data-theme="extras">
           <div class="dish-col-photo photo-slot" data-photo="menu-cover-extras" data-theme="extras">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Extras — Cover Photo</span></div>
+            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.extras">Extras — Cover Photo</span></div>
             <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>All Day</span>
-              <h3 class="menu-category-overlay-title">Extras</h3>
+              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.allday">All Day</span></span>
+              <h3 class="menu-category-overlay-title" data-i18n="cat.extras">Extras</h3>
               <span class="menu-category-count"></span>
             </div>
           </div>
-          <p class="dish-col-empty" data-category="extras">More options coming soon.</p>
+          <p class="dish-col-empty" data-category="extras" data-i18n="dish.extrasComingSoon">More options coming soon.</p>
         </div>
         <div class="dish-col" data-filter-group data-theme="dinner">
           <div class="dish-col-photo photo-slot" data-photo="menu-cover-dinner" data-theme="dinner">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span>Dinner — Cover Photo</span></div>
+            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.dinner">Dinner — Cover Photo</span></div>
             <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg>Evening</span>
-              <h3 class="menu-category-overlay-title">Dinner</h3>
+              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.evening">Evening</span></span>
+              <h3 class="menu-category-overlay-title" data-i18n="cat.dinner">Dinner</h3>
               <span class="menu-category-count"></span>
             </div>
           </div>
           <ul class="dish-list">
-            <li data-category="dinner"><span>Chicken Pasticcio</span><em>58 MAD</em></li>
-            <li data-category="dinner"><span>Ground Beef Pasticcio</span><em>65 MAD</em></li>
-            <li data-category="dinner"><span>Pasticcio Caramelio <small>(chicken, cordon bleu &amp; beef)</small></span><em>85 MAD</em></li>
-            <li data-category="dinner"><span>Chicken Pastilla</span></li>
-            <li data-category="dinner"><span>Seafood Pastilla</span></li>
-            <li data-category="dinner"><span>Traditional Meat &amp; Vegetable Tagines</span></li>
-            <li data-category="dinner"><span>Wood-Fired Pizzas</span></li>
+            <li data-category="dinner"><span data-i18n="dish.chickenPasticcio.name">Chicken Pasticcio</span><em>58 MAD</em></li>
+            <li data-category="dinner"><span data-i18n="dish.beefPasticcio.name">Ground Beef Pasticcio</span><em>65 MAD</em></li>
+            <li data-category="dinner"><span><span data-i18n="dish.pasticcioCaramelio.name">Pasticcio Caramelio</span> <small data-i18n="dish.pasticcioCaramelio.note">(chicken, cordon bleu &amp; beef)</small></span><em>85 MAD</em></li>
+            <li data-category="dinner"><span data-i18n="dish.chickenPastilla.name">Chicken Pastilla</span></li>
+            <li data-category="dinner"><span data-i18n="dish.seafoodPastilla.name">Seafood Pastilla</span></li>
+            <li data-category="dinner"><span data-i18n="dish.tagines.name">Traditional Meat &amp; Vegetable Tagines</span></li>
+            <li data-category="dinner"><span data-i18n="dish.pizzas.name">Wood-Fired Pizzas</span></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <p class="container menu-empty-state" id="menuEmptyState" hidden>No dishes in this category yet — check back soon or ask our team.</p>
+  <p class="container menu-empty-state" id="menuEmptyState" hidden data-i18n="menu.emptyState">No dishes in this category yet — check back soon or ask our team.</p>
 
 </main>
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-col footer-brand-col">
       <div class="footer-brand">Caramelio<span class="logo-dot">.</span></div>
-      <p class="footer-tagline">Café, bakery &amp; restaurant in Targa, Marrakech — warm mornings and sweet everything, all day long.</p>
+      <p class="footer-tagline" data-i18n="footer.tagline">Café, bakery &amp; restaurant in Targa, Marrakech — warm mornings and sweet everything, all day long.</p>
       <div class="social-links footer-social">
         <a href="https://www.instagram.com/carameliotarga/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.facebook.com/carameliotarga/" target="_blank" rel="noopener">Facebook</a>
       </div>
     </div>
     <div class="footer-col">
-      <h4>Explore</h4>
-      <a href="reserve.html">Reserve a Table</a>
-      <a href="about.html">About</a>
-      <a href="menu.html">Menu</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="bakery.html">Bakery</a>
-      <a href="reviews.html">Reviews</a>
+      <h4 data-i18n="footer.explore">Explore</h4>
+      <a href="reserve.html" data-i18n="footer.reserve">Reserve a Table</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="menu.html" data-i18n="nav.menu">Menu</a>
+      <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+      <a href="bakery.html" data-i18n="nav.bakery">Bakery</a>
+      <a href="reviews.html" data-i18n="nav.reviews">Reviews</a>
     </div>
     <div class="footer-col">
-      <h4>Visit</h4>
+      <h4 data-i18n="footer.visit">Visit</h4>
       <a href="location.html">Targa, Marrakech</a>
       <a href="tel:+212524490595">+212 5244-90595</a>
       <a href="tel:+212665707049">+212 6657-07049</a>
-      <a href="location.html">Order Online</a>
+      <a href="location.html" data-i18n="footer.orderOnline">Order Online</a>
     </div>
   </div>
   <div class="container footer-bottom">
-    <p>© <span id="year"></span> Caramelio. All rights reserved.</p>
+    <p>© <span id="year"></span> Caramelio. <span data-i18n="footer.rights">All rights reserved.</span></p>
   </div>
 </footer>
 </div>
-<a href="https://wa.me/212665707049" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/212665707049" target="_blank" rel="noopener" class="whatsapp-float" data-i18n-aria-label="whatsapp.aria" aria-label="Chat on WhatsApp">
   <svg aria-hidden="true"><use href="#icon-whatsapp"/></svg>
 </a>
 
 <nav class="app-tabbar" id="appTabbar" aria-label="Quick actions">
   <a href="reserve.html" class="tab-item" data-page="reserve.html">
-    <svg class="icon"><use href="#icon-calendar"/></svg><span>Reserve</span>
+    <svg class="icon"><use href="#icon-calendar"/></svg><span data-i18n="tab.reserve">Reserve</span>
   </a>
   <a href="menu.html" class="tab-item" data-page="menu.html">
-    <svg class="icon"><use href="#icon-utensils"/></svg><span>Menu</span>
+    <svg class="icon"><use href="#icon-utensils"/></svg><span data-i18n="tab.menu">Menu</span>
   </a>
   <a href="https://wa.me/212665707049" target="_blank" rel="noopener" class="tab-item">
-    <svg class="icon"><use href="#icon-whatsapp"/></svg><span>Chat</span>
+    <svg class="icon"><use href="#icon-whatsapp"/></svg><span data-i18n="tab.chat">Chat</span>
   </a>
   <a href="location.html" class="tab-item" data-page="location.html">
-    <svg class="icon"><use href="#icon-pin"/></svg><span>Location</span>
+    <svg class="icon"><use href="#icon-pin"/></svg><span data-i18n="tab.location">Location</span>
   </a>
 </nav>
 
+<script src="js/i18n.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

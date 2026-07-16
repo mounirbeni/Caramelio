@@ -59,15 +59,19 @@
   <div class="container header-inner">
     <a href="index.html" class="logo">Caramelio<span class="logo-dot">.</span></a>
     <nav class="nav" id="nav">
-      <a href="reserve.html" class="nav-link-highlight active">Reserve</a>
-      <a href="about.html">About</a>
-      <a href="menu.html">Menu</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="bakery.html">Bakery</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="location.html">Location</a>
+      <a href="reserve.html" class="nav-link-highlight active" data-i18n="nav.reserve">Reserve</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="menu.html" data-i18n="nav.menu">Menu</a>
+      <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+      <a href="bakery.html" data-i18n="nav.bakery">Bakery</a>
+      <a href="reviews.html" data-i18n="nav.reviews">Reviews</a>
+      <a href="location.html" data-i18n="nav.location">Location</a>
     </nav>
-    <a href="reserve.html" class="btn btn-gold header-cta">Reserve a Table</a>
+    <a href="reserve.html" class="btn btn-gold header-cta" data-i18n="header.cta">Reserve a Table</a>
+    <div class="lang-toggle" id="langToggle" role="group" data-i18n-aria-label="lang.aria" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-lang="fr">FR</button>
+    </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -81,55 +85,55 @@
   <section class="reserve">
     <div class="container reserve-inner">
       <div class="reserve-info">
-        <p class="eyebrow eyebrow-gold">Reservations</p>
-        <h1>Reserve Your Table</h1>
+        <p class="eyebrow eyebrow-gold" data-i18n="reserve.eyebrow">Reservations</p>
+        <h1 data-i18n="reserve.title">Reserve Your Table</h1>
         <div class="divider divider-left divider-gold" aria-hidden="true"></div>
-        <p>Whether it's a quiet breakfast, a family lunch, or an evening on the terrace — tell us you're coming and we'll have your table ready.</p>
+        <p data-i18n="reserve.intro">Whether it's a quiet breakfast, a family lunch, or an evening on the terrace — tell us you're coming and we'll have your table ready.</p>
         <div class="reserve-meta">
           <div class="reserve-meta-row">
             <span class="reserve-meta-icon"><svg class="icon"><use href="#icon-clock"/></svg></span>
-            <div><strong>Hours</strong><br>6:45 AM – 11:00 PM, every day</div>
+            <div><strong data-i18n="reserve.hours.label">Hours</strong><br><span data-i18n="reserve.hours.value">6:45 AM – 11:00 PM, every day</span></div>
           </div>
           <div class="reserve-meta-row">
             <span class="reserve-meta-icon"><svg class="icon"><use href="#icon-phone"/></svg></span>
-            <div><strong>Prefer to call?</strong><br><a href="tel:+212665707049">+212 6657-07049</a></div>
+            <div><strong data-i18n="reserve.call.label">Prefer to call?</strong><br><a href="tel:+212665707049">+212 6657-07049</a></div>
           </div>
           <div class="reserve-meta-row">
             <span class="reserve-meta-icon"><svg class="icon"><use href="#icon-pin"/></svg></span>
-            <div><strong>Large groups</strong><br>For parties of 10 or more, please call ahead</div>
+            <div><strong data-i18n="reserve.groups.label">Large groups</strong><br><span data-i18n="reserve.groups.value">For parties of 10 or more, please call ahead</span></div>
           </div>
         </div>
       </div>
 
       <form class="reserve-card" id="reserveForm" novalidate>
         <div class="form-row">
-          <label for="rsv-name">Full Name
-            <input type="text" id="rsv-name" name="name" required placeholder="Your name" autocomplete="name">
+          <label for="rsv-name"><span data-i18n="reserve.form.name">Full Name</span>
+            <input type="text" id="rsv-name" name="name" required placeholder="Your name" data-i18n-placeholder="reserve.form.namePlaceholder" autocomplete="name">
           </label>
         </div>
         <div class="form-row two-col">
-          <label for="rsv-phone">Phone
+          <label for="rsv-phone"><span data-i18n="reserve.form.phone">Phone</span>
             <input type="tel" id="rsv-phone" name="phone" required placeholder="+212 6XX-XXXXXX" autocomplete="tel">
           </label>
-          <label for="rsv-guests">Guests
+          <label for="rsv-guests"><span data-i18n="reserve.form.guests">Guests</span>
             <input type="number" id="rsv-guests" name="guests" min="1" max="20" value="2" required>
           </label>
         </div>
         <div class="form-row two-col">
-          <label for="rsv-date">Date
+          <label for="rsv-date"><span data-i18n="reserve.form.date">Date</span>
             <input type="date" id="rsv-date" name="date" required>
           </label>
-          <label for="rsv-time">Time
+          <label for="rsv-time"><span data-i18n="reserve.form.time">Time</span>
             <input type="time" id="rsv-time" name="time" required>
           </label>
         </div>
         <div class="form-row">
-          <label for="rsv-notes">Special Requests <span class="optional">(optional)</span>
-            <textarea id="rsv-notes" name="notes" rows="2" placeholder="Terrace seating, allergies, celebration..."></textarea>
+          <label for="rsv-notes"><span data-i18n="reserve.form.notes">Special Requests</span> <span class="optional" data-i18n="reserve.form.optional">(optional)</span>
+            <textarea id="rsv-notes" name="notes" rows="2" placeholder="Terrace seating, allergies, celebration..." data-i18n-placeholder="reserve.form.notesPlaceholder"></textarea>
           </label>
         </div>
-        <button type="submit" class="btn btn-gold reserve-submit">Send Reservation Request</button>
-        <p class="reserve-hint">We'll confirm your reservation shortly.</p>
+        <button type="submit" class="btn btn-gold reserve-submit" data-i18n="reserve.form.submit">Send Reservation Request</button>
+        <p class="reserve-hint" data-i18n="reserve.form.hint">We'll confirm your reservation shortly.</p>
       </form>
     </div>
   </section>
@@ -139,53 +143,54 @@
   <div class="container footer-grid">
     <div class="footer-col footer-brand-col">
       <div class="footer-brand">Caramelio<span class="logo-dot">.</span></div>
-      <p class="footer-tagline">Café, bakery &amp; restaurant in Targa, Marrakech — warm mornings and sweet everything, all day long.</p>
+      <p class="footer-tagline" data-i18n="footer.tagline">Café, bakery &amp; restaurant in Targa, Marrakech — warm mornings and sweet everything, all day long.</p>
       <div class="social-links footer-social">
         <a href="https://www.instagram.com/carameliotarga/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.facebook.com/carameliotarga/" target="_blank" rel="noopener">Facebook</a>
       </div>
     </div>
     <div class="footer-col">
-      <h4>Explore</h4>
-      <a href="reserve.html">Reserve a Table</a>
-      <a href="about.html">About</a>
-      <a href="menu.html">Menu</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="bakery.html">Bakery</a>
-      <a href="reviews.html">Reviews</a>
+      <h4 data-i18n="footer.explore">Explore</h4>
+      <a href="reserve.html" data-i18n="footer.reserve">Reserve a Table</a>
+      <a href="about.html" data-i18n="nav.about">About</a>
+      <a href="menu.html" data-i18n="nav.menu">Menu</a>
+      <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+      <a href="bakery.html" data-i18n="nav.bakery">Bakery</a>
+      <a href="reviews.html" data-i18n="nav.reviews">Reviews</a>
     </div>
     <div class="footer-col">
-      <h4>Visit</h4>
+      <h4 data-i18n="footer.visit">Visit</h4>
       <a href="location.html">Targa, Marrakech</a>
       <a href="tel:+212524490595">+212 5244-90595</a>
       <a href="tel:+212665707049">+212 6657-07049</a>
-      <a href="location.html">Order Online</a>
+      <a href="location.html" data-i18n="footer.orderOnline">Order Online</a>
     </div>
   </div>
   <div class="container footer-bottom">
-    <p>© <span id="year"></span> Caramelio. All rights reserved.</p>
+    <p>© <span id="year"></span> Caramelio. <span data-i18n="footer.rights">All rights reserved.</span></p>
   </div>
 </footer>
 </div>
-<a href="https://wa.me/212665707049" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+<a href="https://wa.me/212665707049" target="_blank" rel="noopener" class="whatsapp-float" data-i18n-aria-label="whatsapp.aria" aria-label="Chat on WhatsApp">
   <svg aria-hidden="true"><use href="#icon-whatsapp"/></svg>
 </a>
 
 <nav class="app-tabbar" id="appTabbar" aria-label="Quick actions">
   <a href="reserve.html" class="tab-item" data-page="reserve.html">
-    <svg class="icon"><use href="#icon-calendar"/></svg><span>Reserve</span>
+    <svg class="icon"><use href="#icon-calendar"/></svg><span data-i18n="tab.reserve">Reserve</span>
   </a>
   <a href="menu.html" class="tab-item" data-page="menu.html">
-    <svg class="icon"><use href="#icon-utensils"/></svg><span>Menu</span>
+    <svg class="icon"><use href="#icon-utensils"/></svg><span data-i18n="tab.menu">Menu</span>
   </a>
   <a href="https://wa.me/212665707049" target="_blank" rel="noopener" class="tab-item">
-    <svg class="icon"><use href="#icon-whatsapp"/></svg><span>Chat</span>
+    <svg class="icon"><use href="#icon-whatsapp"/></svg><span data-i18n="tab.chat">Chat</span>
   </a>
   <a href="location.html" class="tab-item" data-page="location.html">
-    <svg class="icon"><use href="#icon-pin"/></svg><span>Location</span>
+    <svg class="icon"><use href="#icon-pin"/></svg><span data-i18n="tab.location">Location</span>
   </a>
 </nav>
 
+<script src="js/i18n.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

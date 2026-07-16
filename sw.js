@@ -1,4 +1,4 @@
-const CACHE_NAME = 'caramelio-shell-v4';
+const CACHE_NAME = 'caramelio-shell-v5';
 const SHELL_FILES = [
   './',
   './index.html',
@@ -12,6 +12,7 @@ const SHELL_FILES = [
   './dashboard.html',
   './css/style.css',
   './js/script.js',
+  './js/i18n.js',
   './manifest.json'
 ];
 
