@@ -819,11 +819,19 @@ section[data-theme="breakfast"] { background: #f8ecd7; }
    .reserve and .bakery) so these read as boutique menu cards rather than
    plain content tiles, with strong contrast against the light section. */
 .hub-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 26px;
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 4px 4px 14px;
+  margin: 0 -4px;
 }
+.hub-grid::-webkit-scrollbar { display: none; }
 .hub-card {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
   position: relative;
   display: block;
   background:
@@ -1280,6 +1288,9 @@ a[href^="tel:"] { white-space: nowrap; }
   }
   .gallery-grid::-webkit-scrollbar { display: none; }
   .gallery-item { flex: 0 0 78%; scroll-snap-align: start; aspect-ratio: 4 / 3; }
+
+  .hub-grid { gap: 16px; margin: 0 -24px; padding: 4px 24px 14px; }
+  .hub-card { flex: 0 0 82%; }
 }
 
 /* Reservations dashboard */
