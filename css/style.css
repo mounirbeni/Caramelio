@@ -805,6 +805,7 @@ section[data-theme="breakfast"] { background: #f8ecd7; }
 .dish-columns {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  align-items: start;
   gap: 40px;
 }
 .dish-list li {
