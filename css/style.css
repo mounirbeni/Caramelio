@@ -923,6 +923,67 @@ section[data-theme="breakfast"] { background: #f8ecd7; }
 }
 .hub-card:hover .hub-card-link { gap: 10px; color: var(--gold); }
 
+/* Home — menu highlights teaser */
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 12px;
+}
+.highlight-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.highlight-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.highlight-card-photo { position: relative; aspect-ratio: 4 / 3; }
+.highlight-card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, var(--gold), var(--caramel));
+  color: var(--white);
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.highlight-card-body {
+  padding: 16px 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.highlight-card-body h3 { font-size: 1rem; margin: 0; }
+.highlight-card-price { color: var(--caramel-dark); font-weight: 700; font-size: 0.85rem; white-space: nowrap; }
+.highlights-cta { text-align: center; margin-top: 40px; }
+
+/* Home — final reserve CTA banner, dark accent to match .reserve/.bakery */
+.home-cta { background: var(--choc); color: var(--cream); position: relative; overflow: hidden; text-align: center; }
+.home-cta-glow {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(198,154,62,0.14), transparent 70%);
+  top: -220px;
+  right: -160px;
+  pointer-events: none;
+}
+.home-cta-inner { position: relative; max-width: 640px; margin: 0 auto; }
+.home-cta h2 { color: var(--white); font-size: clamp(1.9rem, 3vw, 2.6rem); margin-top: 4px; }
+.home-cta-inner > p:not(.eyebrow) { color: rgba(253,246,236,0.78); margin: 16px auto 30px; max-width: 480px; }
+.home-cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
 /* Page header — compact intro banner used on every inner page */
 .page-header { padding: 64px 0 40px; text-align: center; }
 .page-header h1 { font-size: clamp(2rem, 4vw, 3rem); }
