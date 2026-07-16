@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // so a page left open from before an admin toggle self-corrects instead
     // of showing a stale closed/open state until the visitor manually reloads.
     const checkBookingStatus = () => {
-      fetch('/api/booking-status')
+      fetch(`/api/booking-status?t=${Date.now()}`, { cache: 'no-store' })
         .then(res => res.ok ? res.json() : null)
         .then(status => {
           if (status && status.disabled) lockReservationForm(status.reason);
