@@ -175,7 +175,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const closedBanner = document.getElementById('bookingClosedBanner');
     const closedReasonEl = document.getElementById('bookingClosedReason');
 
+    let isLocked = false;
     const lockReservationForm = (reason) => {
+      isLocked = true;
       if (closedBanner) {
         closedBanner.hidden = false;
         if (closedReasonEl && reason) closedReasonEl.textContent = reason;
@@ -183,11 +185,30 @@ document.addEventListener('DOMContentLoaded', () => {
       reserveForm.querySelectorAll('input, select, textarea').forEach(el => { el.disabled = true; });
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = i18n ? i18n.t('reserve.closed.submitBtn') : 'Reservations Closed'; }
     };
+    const unlockReservationForm = () => {
+      if (!isLocked) return;
+      isLocked = false;
+      if (closedBanner) closedBanner.hidden = true;
+      reserveForm.querySelectorAll('input, select, textarea').forEach(el => { el.disabled = false; });
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = i18n ? i18n.t('reserve.form.submit') : 'Send Reservation Request'; }
+    };
 
-    fetch('/api/booking-status')
-      .then(res => res.ok ? res.json() : null)
-      .then(status => { if (status && status.disabled) lockReservationForm(status.reason); })
-      .catch(() => {});
+    // Checked on load and again whenever the tab regains focus/visibility,
+    // so a page left open from before an admin toggle self-corrects instead
+    // of showing a stale closed/open state until the visitor manually reloads.
+    const checkBookingStatus = () => {
+      fetch('/api/booking-status')
+        .then(res => res.ok ? res.json() : null)
+        .then(status => {
+          if (status && status.disabled) lockReservationForm(status.reason);
+          else unlockReservationForm();
+        })
+        .catch(() => {});
+    };
+    checkBookingStatus();
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') checkBookingStatus();
+    });
 
     reserveForm.addEventListener('submit', async (e) => {
       e.preventDefault();

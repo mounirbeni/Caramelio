@@ -238,6 +238,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   bookingToggle.addEventListener('change', () => {
     const disabled = !bookingToggle.checked;
+    // Closing bookings hides the reservation form from every customer, so
+    // require an explicit confirmation — a stray tap on the switch should
+    // never take reservations offline by accident.
+    if (disabled && !confirm('Turn OFF reservations for all customers? They will see a "reservations closed" message and won\'t be able to submit requests until you turn this back on.')) {
+      bookingToggle.checked = true;
+      return;
+    }
     saveBookingStatus(disabled, reasonInput.value);
   });
   reasonSaveBtn.addEventListener('click', () => {
