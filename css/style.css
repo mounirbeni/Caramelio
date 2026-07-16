@@ -692,12 +692,12 @@ section { padding: 110px 0; }
   background: linear-gradient(155deg, #f4e6cd 0%, #e4c48e 50%, #b9803f 100%);
 }
 /* Each category gets its own color mood instead of one identical gradient everywhere */
-.menu-category-cover[data-theme="breakfast"], .dish-col-photo[data-theme="breakfast"] { background: linear-gradient(155deg, #f4e6cd 0%, #e4c48e 50%, #b9803f 100%); }
-.menu-category-cover[data-theme="lunch"], .dish-col-photo[data-theme="lunch"] { background: linear-gradient(155deg, #f6e3c3 0%, #e3a35f 50%, #a2551a 100%); }
-.menu-category-cover[data-theme="snacks"], .dish-col-photo[data-theme="snacks"] { background: linear-gradient(155deg, #f2ddc9 0%, #d98c62 50%, #9c4a2c 100%); }
-.menu-category-cover[data-theme="drinks"], .dish-col-photo[data-theme="drinks"] { background: linear-gradient(155deg, #f8f0d8 0%, #e8cf8e 50%, #c9a13f 100%); }
-.menu-category-cover[data-theme="extras"], .dish-col-photo[data-theme="extras"] { background: linear-gradient(155deg, #efe9dd 0%, #d3c6ab 50%, #a8967a 100%); }
-.menu-category-cover[data-theme="dinner"], .dish-col-photo[data-theme="dinner"] { background: linear-gradient(155deg, #e6cfb0 0%, #b07d45 50%, #5c3312 100%); }
+.menu-category-cover[data-theme="breakfast"], .dish-col-photo[data-theme="breakfast"], .highlight-card-photo[data-theme="breakfast"] { background: linear-gradient(155deg, #f4e6cd 0%, #e4c48e 50%, #b9803f 100%); }
+.menu-category-cover[data-theme="lunch"], .dish-col-photo[data-theme="lunch"], .highlight-card-photo[data-theme="lunch"] { background: linear-gradient(155deg, #f6e3c3 0%, #e3a35f 50%, #a2551a 100%); }
+.menu-category-cover[data-theme="snacks"], .dish-col-photo[data-theme="snacks"], .highlight-card-photo[data-theme="snacks"] { background: linear-gradient(155deg, #f2ddc9 0%, #d98c62 50%, #9c4a2c 100%); }
+.menu-category-cover[data-theme="drinks"], .dish-col-photo[data-theme="drinks"], .highlight-card-photo[data-theme="drinks"] { background: linear-gradient(155deg, #f8f0d8 0%, #e8cf8e 50%, #c9a13f 100%); }
+.menu-category-cover[data-theme="extras"], .dish-col-photo[data-theme="extras"], .highlight-card-photo[data-theme="extras"] { background: linear-gradient(155deg, #efe9dd 0%, #d3c6ab 50%, #a8967a 100%); }
+.menu-category-cover[data-theme="dinner"], .dish-col-photo[data-theme="dinner"], .highlight-card-photo[data-theme="dinner"] { background: linear-gradient(155deg, #e6cfb0 0%, #b07d45 50%, #5c3312 100%); }
 
 /* The list beneath each cover picks up a soft tint of the same category color */
 section[data-theme="breakfast"] { background: #f8ecd7; }
@@ -942,28 +942,8 @@ section[data-theme="breakfast"] { background: #f8ecd7; }
 }
 .highlight-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .highlight-card-photo { position: relative; aspect-ratio: 4 / 3; }
-.highlight-card-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: linear-gradient(135deg, var(--gold), var(--caramel));
-  color: var(--white);
-  font-size: 0.62rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 4px 10px;
-  border-radius: 999px;
-}
-.highlight-card-body {
-  padding: 16px 18px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-.highlight-card-body h3 { font-size: 1rem; margin: 0; }
-.highlight-card-price { color: var(--caramel-dark); font-weight: 700; font-size: 0.85rem; white-space: nowrap; }
+.highlight-card-body { padding: 16px 18px 20px; text-align: center; }
+.highlight-card-body h3 { font-size: 1.05rem; margin: 0; }
 .highlights-cta { text-align: center; margin-top: 40px; }
 
 /* Home — final reserve CTA banner, dark accent to match .reserve/.bakery */
