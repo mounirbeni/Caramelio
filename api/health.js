@@ -11,11 +11,18 @@ module.exports = async (req, res) => {
 
   const testKey = '__healthcheck__';
   try {
-    const marker = Date.now().toString();
+    const marker = `hc-${Date.now()}`;
     await redis.set(testKey, marker);
     const readBack = await redis.get(testKey);
     await redis.del(testKey);
-    res.status(200).json({ ok: true, redisConnected: true, roundTripMatched: readBack === marker });
+    res.status(200).json({
+      ok: true,
+      redisConnected: true,
+      roundTripMatched: readBack === marker,
+      wroteValue: marker,
+      readValue: readBack,
+      readValueType: typeof readBack,
+    });
   } catch (err) {
     res.status(500).json({ ok: false, redisConnected: false, error: err.message });
   }
