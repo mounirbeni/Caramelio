@@ -1,6 +1,7 @@
 const { Redis } = require('@upstash/redis');
 
 const LIST_KEY = 'reservations';
+const STATUS_KEY = 'booking:status';
 const MAX_RETURNED = 200;
 const redis = Redis.fromEnv();
 
@@ -29,6 +30,17 @@ module.exports = async (req, res) => {
     if (error) {
       res.status(400).json({ error });
       return;
+    }
+
+    try {
+      const raw = await redis.get(STATUS_KEY);
+      const status = raw ? (typeof raw === 'string' ? JSON.parse(raw) : raw) : null;
+      if (status && status.disabled) {
+        res.status(403).json({ error: 'reservations_closed', reason: (status.reason || '').trim() });
+        return;
+      }
+    } catch (err) {
+      // Fail open — don't block a real reservation if the status check itself fails.
     }
 
     const record = {

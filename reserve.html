@@ -94,6 +94,10 @@
       </div>
 
       <form class="reserve-card" id="reserveForm" novalidate>
+        <div class="booking-closed-banner" id="bookingClosedBanner" hidden>
+          <strong data-i18n="reserve.closed.title">Reservations Are Currently Closed</strong>
+          <span id="bookingClosedReason" data-i18n="reserve.closed.defaultReason">Please check back soon, or call us directly.</span>
+        </div>
         <div class="form-row">
           <label for="rsv-name"><span data-i18n="reserve.form.name">Full Name</span>
             <input type="text" id="rsv-name" name="name" required placeholder="Your name" data-i18n-placeholder="reserve.form.namePlaceholder" autocomplete="name">

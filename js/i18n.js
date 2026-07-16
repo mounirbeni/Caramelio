@@ -197,6 +197,9 @@
       'reserve.form.sent': 'Request Sent ✓',
       'reserve.form.successHint': "Thank you! We've received your request and will confirm shortly.",
       'reserve.form.errorDefault': 'Something went wrong. Please try again or call us.',
+      'reserve.closed.title': 'Reservations Are Currently Closed',
+      'reserve.closed.defaultReason': 'Please check back soon, or call us directly.',
+      'reserve.closed.submitBtn': 'Reservations Closed',
 
       'location.eyebrow': 'Visit or Order',
       'location.title': 'Find Us in Targa, Marrakech',
@@ -406,6 +409,9 @@
       'reserve.form.sent': 'Demande envoyée ✓',
       'reserve.form.successHint': 'Merci ! Nous avons bien reçu votre demande et la confirmerons sous peu.',
       'reserve.form.errorDefault': "Une erreur s'est produite. Veuillez réessayer ou nous appeler.",
+      'reserve.closed.title': 'Les réservations sont actuellement fermées',
+      'reserve.closed.defaultReason': 'Merci de revenir bientôt, ou appelez-nous directement.',
+      'reserve.closed.submitBtn': 'Réservations fermées',
 
       'location.eyebrow': 'Nous rendre visite ou commander',
       'location.title': 'Retrouvez-nous à Targa, Marrakech',

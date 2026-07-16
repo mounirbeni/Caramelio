@@ -172,6 +172,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const submitBtn = reserveForm.querySelector('.reserve-submit');
     const hintEl = reserveForm.querySelector('.reserve-hint');
+    const closedBanner = document.getElementById('bookingClosedBanner');
+    const closedReasonEl = document.getElementById('bookingClosedReason');
+
+    const lockReservationForm = (reason) => {
+      if (closedBanner) {
+        closedBanner.hidden = false;
+        if (closedReasonEl && reason) closedReasonEl.textContent = reason;
+      }
+      reserveForm.querySelectorAll('input, select, textarea').forEach(el => { el.disabled = true; });
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = i18n ? i18n.t('reserve.closed.submitBtn') : 'Reservations Closed'; }
+    };
+
+    fetch('/api/booking-status')
+      .then(res => res.ok ? res.json() : null)
+      .then(status => { if (status && status.disabled) lockReservationForm(status.reason); })
+      .catch(() => {});
 
     reserveForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -201,6 +217,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         if (!res.ok) {
           const body = await res.json().catch(() => ({}));
+          if (res.status === 403 && body.error === 'reservations_closed') {
+            lockReservationForm(body.reason);
+            if (hintEl) { hintEl.textContent = ''; }
+            return;
+          }
           throw new Error(body.error || (i18n ? i18n.t('reserve.form.errorDefault') : 'Something went wrong. Please try again or call us.'));
         }
 

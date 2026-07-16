@@ -8,7 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const listEl = document.getElementById('dashList');
   const statusEl = document.getElementById('dashStatus');
   const filterInput = document.getElementById('dashFilter');
+  const todayOnlyInput = document.getElementById('dashTodayOnly');
   const refreshBtn = document.getElementById('dashRefresh');
+  const todayCountEl = document.getElementById('dashTodayCount');
+  const todayGuestsEl = document.getElementById('dashTodayGuests');
+  const availabilityCard = document.getElementById('dashAvailability');
+  const bookingToggle = document.getElementById('dashBookingToggle');
+  const availabilityLabel = document.getElementById('dashAvailabilityLabel');
+  const availabilityHint = document.getElementById('dashAvailabilityHint');
+  const reasonRow = document.getElementById('dashReasonRow');
+  const reasonInput = document.getElementById('dashReasonInput');
+  const reasonSaveBtn = document.getElementById('dashReasonSave');
+  const availabilitySavedEl = document.getElementById('dashAvailabilitySaved');
 
   let reservations = [];
 
@@ -18,6 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
     floor2: 'Second floor',
     terrace: 'Terrace',
   };
+
+  function todayStr() {
+    const d = new Date();
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  }
 
   function showDashboard() {
     loginSection.hidden = true;
@@ -100,12 +119,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function updateTodayStats() {
+    const today = todayStr();
+    const todays = reservations.filter((r) => r.date === today);
+    const guestTotal = todays.reduce((sum, r) => sum + (Number(r.guests) || 0), 0);
+    todayCountEl.textContent = todays.length;
+    todayGuestsEl.textContent = guestTotal;
+  }
+
   function applyFilter() {
     const q = filterInput.value.trim().toLowerCase();
-    if (!q) { renderList(reservations); return; }
-    renderList(reservations.filter((r) =>
-      r.name.toLowerCase().includes(q) || r.phone.toLowerCase().includes(q)
-    ));
+    let items = reservations;
+    if (todayOnlyInput.checked) {
+      const today = todayStr();
+      items = items.filter((r) => r.date === today);
+    }
+    if (q) {
+      items = items.filter((r) => r.name.toLowerCase().includes(q) || r.phone.toLowerCase().includes(q));
+    }
+    renderList(items);
   }
 
   async function loadReservations(password) {
@@ -129,9 +161,61 @@ document.addEventListener('DOMContentLoaded', () => {
       reservations = data.reservations || [];
       showDashboard();
       statusEl.textContent = `${reservations.length} reservation${reservations.length === 1 ? '' : 's'}`;
+      updateTodayStats();
       applyFilter();
+      loadBookingStatus(password);
     } catch (err) {
       statusEl.textContent = 'Could not reach the server. Check your connection and try again.';
+    }
+  }
+
+  function renderAvailability(disabled, reason) {
+    bookingToggle.checked = !disabled;
+    availabilityCard.classList.toggle('is-closed', disabled);
+    reasonRow.hidden = !disabled;
+    if (disabled) {
+      availabilityLabel.textContent = 'Not Available for Booking';
+      availabilityHint.textContent = 'Customers see a "reservations closed" message and cannot submit requests.';
+      reasonInput.value = reason || '';
+    } else {
+      availabilityLabel.textContent = 'Accepting Reservations';
+      availabilityHint.textContent = 'Customers can submit new reservation requests.';
+    }
+  }
+
+  async function loadBookingStatus(password) {
+    try {
+      const res = await fetch('/api/booking-status');
+      if (!res.ok) return;
+      const data = await res.json();
+      renderAvailability(!!data.disabled, data.reason || '');
+    } catch (err) {
+      // Leave the toggle in its last known state if this fails.
+    }
+  }
+
+  async function saveBookingStatus(disabled, reason) {
+    const password = sessionStorage.getItem('dashPassword') || '';
+    availabilitySavedEl.textContent = 'Saving…';
+    try {
+      const res = await fetch('/api/booking-status', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${password}` },
+        body: JSON.stringify({ disabled, reason: reason || '' }),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        availabilitySavedEl.textContent = body.error || 'Could not save. Please try again.';
+        renderAvailability(!disabled, reason || '');
+        return;
+      }
+      const data = await res.json();
+      renderAvailability(data.disabled, data.reason || '');
+      availabilitySavedEl.textContent = 'Saved ✓';
+      setTimeout(() => { availabilitySavedEl.textContent = ''; }, 3000);
+    } catch (err) {
+      availabilitySavedEl.textContent = 'Could not reach the server.';
+      renderAvailability(!disabled, reason || '');
     }
   }
 
@@ -150,6 +234,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   refreshBtn.addEventListener('click', () => loadReservations(sessionStorage.getItem('dashPassword') || ''));
   filterInput.addEventListener('input', applyFilter);
+  todayOnlyInput.addEventListener('change', applyFilter);
+
+  bookingToggle.addEventListener('change', () => {
+    const disabled = !bookingToggle.checked;
+    saveBookingStatus(disabled, reasonInput.value);
+  });
+  reasonSaveBtn.addEventListener('click', () => {
+    saveBookingStatus(true, reasonInput.value);
+  });
 
   const savedPassword = sessionStorage.getItem('dashPassword');
   if (savedPassword) {

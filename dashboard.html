@@ -35,8 +35,39 @@
 
   <!-- DASHBOARD -->
   <section class="dash-content" id="dashContent" hidden>
+
+    <div class="dash-availability" id="dashAvailability">
+      <div class="dash-availability-row">
+        <label class="dash-toggle">
+          <input type="checkbox" id="dashBookingToggle" checked>
+          <span class="dash-toggle-track"><span class="dash-toggle-thumb"></span></span>
+        </label>
+        <div class="dash-availability-text">
+          <strong id="dashAvailabilityLabel">Accepting Reservations</strong>
+          <span id="dashAvailabilityHint">Customers can submit new reservation requests.</span>
+        </div>
+      </div>
+      <div class="dash-availability-reason" id="dashReasonRow" hidden>
+        <input type="text" id="dashReasonInput" placeholder="Reason shown to customers (e.g. Fully booked tonight)" maxlength="140">
+        <button type="button" class="btn btn-gold" id="dashReasonSave">Save Reason</button>
+      </div>
+      <p class="dash-availability-saved" id="dashAvailabilitySaved"></p>
+    </div>
+
+    <div class="dash-stats">
+      <div class="dash-stat-tile">
+        <span class="dash-stat-value" id="dashTodayCount">0</span>
+        <span class="dash-stat-label">Tables Today</span>
+      </div>
+      <div class="dash-stat-tile">
+        <span class="dash-stat-value" id="dashTodayGuests">0</span>
+        <span class="dash-stat-label">Guests Today</span>
+      </div>
+    </div>
+
     <div class="dash-toolbar">
       <input type="search" id="dashFilter" class="dash-filter" placeholder="Filter by name or phone…">
+      <label class="dash-today-toggle"><input type="checkbox" id="dashTodayOnly"> Today only</label>
       <button type="button" class="btn btn-outline" id="dashRefresh">Refresh</button>
     </div>
     <p class="dash-status" id="dashStatus"></p>

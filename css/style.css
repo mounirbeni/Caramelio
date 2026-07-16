@@ -505,7 +505,21 @@ section { padding: 110px 0; }
   padding-right: 40px;
   cursor: pointer;
 }
+.booking-closed-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: rgba(179,38,30,0.08);
+  border: 1.5px solid rgba(179,38,30,0.3);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  font-size: 0.88rem;
+}
+.booking-closed-banner strong { color: #b3261e; font-size: 0.92rem; }
+.booking-closed-banner span { color: var(--ink-soft); }
 .reserve-submit { width: 100%; text-align: center; margin-top: 4px; }
+.reserve-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 .reserve-hint { margin-top: 14px; font-size: 0.8rem; color: var(--ink-soft); text-align: center; }
 .reserve-hint-success { color: var(--caramel-dark); font-weight: 600; }
 .reserve-hint-error { color: #b3261e; font-weight: 600; }
@@ -1289,7 +1303,72 @@ a[href^="tel:"] { white-space: nowrap; }
 .dash-login-error { color: #b3261e; font-size: 0.85rem; margin-top: 14px; min-height: 1.2em; }
 
 .dash-content { max-width: 900px; margin: 0 auto; }
-.dash-toolbar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+
+/* Booking availability toggle */
+.dash-availability {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 22px;
+  margin-bottom: 20px;
+  border-left: 3px solid var(--caramel);
+  transition: border-color 0.2s ease;
+}
+.dash-availability.is-closed { border-left-color: #b3261e; }
+.dash-availability-row { display: flex; align-items: center; gap: 14px; }
+.dash-toggle { position: relative; flex-shrink: 0; cursor: pointer; }
+.dash-toggle input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.dash-toggle-track {
+  display: block;
+  width: 46px;
+  height: 26px;
+  border-radius: 999px;
+  background: #b3261e;
+  transition: background 0.2s ease;
+}
+.dash-toggle-thumb {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 3px;
+  border-radius: 50%;
+  background: var(--white);
+  transition: transform 0.2s ease;
+}
+.dash-toggle input:checked ~ .dash-toggle-track { background: #2e7d4f; }
+.dash-toggle input:checked ~ .dash-toggle-track .dash-toggle-thumb { transform: translateX(20px); }
+.dash-toggle input:focus-visible ~ .dash-toggle-track { box-shadow: 0 0 0 3px rgba(198,154,62,0.35); }
+.dash-availability-text { display: flex; flex-direction: column; gap: 2px; }
+.dash-availability-text strong { font-family: var(--font-head); font-size: 1.02rem; color: var(--choc); }
+.dash-availability-text span { font-size: 0.84rem; color: var(--ink-soft); }
+.dash-availability-reason { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.dash-availability-reason input {
+  flex: 1;
+  min-width: 200px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  padding: 10px 14px;
+  border: 1.5px solid rgba(42,28,18,0.14);
+  border-radius: 10px;
+}
+.dash-availability-reason input:focus { outline: none; border-color: var(--gold); }
+.dash-availability-saved { font-size: 0.78rem; color: var(--caramel-dark); font-weight: 600; margin-top: 8px; min-height: 1.1em; }
+
+/* Today's summary stat tiles */
+.dash-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 20px; }
+.dash-stat-tile {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 20px;
+  text-align: center;
+}
+.dash-stat-value { display: block; font-family: var(--font-head); font-size: 2rem; font-weight: 800; color: var(--caramel-dark); line-height: 1; }
+.dash-stat-label { display: block; margin-top: 6px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+
+.dash-toolbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.dash-today-toggle { display: flex; align-items: center; gap: 7px; font-size: 0.88rem; color: var(--ink-soft); cursor: pointer; white-space: nowrap; }
+.dash-today-toggle input { accent-color: var(--caramel); width: 16px; height: 16px; cursor: pointer; }
 .dash-filter {
   flex: 1;
   min-width: 200px;
