@@ -37,6 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('sw.js').catch(() => {});
     });
+    // A new service worker taking control normally only affects the *next*
+    // navigation, meaning a fix can silently need two manual reloads before
+    // a visitor actually sees it. Reloading once when control changes makes
+    // the newest version take effect immediately instead.
+    let refreshedForNewWorker = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (refreshedForNewWorker) return;
+      refreshedForNewWorker = true;
+      window.location.reload();
+    });
   }
 
   // Keep the fixed bottom tab bar pinned to the true visible screen on iOS Safari,
