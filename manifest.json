@@ -2,7 +2,7 @@
   "name": "Caramelio — Café, Bakery & Restaurant",
   "short_name": "Caramelio",
   "description": "Café, bakery and restaurant in Targa, Marrakech. Reserve a table, browse the menu, and find us.",
-  "start_url": "./index.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",

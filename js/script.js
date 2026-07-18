@@ -110,15 +110,22 @@ document.addEventListener('DOMContentLoaded', () => {
     revealTargets.forEach(el => el.classList.add('is-visible'));
   }
 
-  // Active nav link + bottom tab bar highlighting, based on the current page
-  const currentPage = location.pathname.split('/').pop() || 'index.html';
+  // Active nav link + bottom tab bar highlighting, based on the current page.
+  // Normalizes away .html and trailing slashes so it matches regardless of
+  // whether a href/data-page was written as "/about", "about.html" or "about".
+  const normalizePagePath = (p) => {
+    if (!p) return '/';
+    p = p.replace(/\.html$/, '').replace(/\/+$/, '');
+    return p === '' ? '/' : (p.startsWith('/') ? p : `/${p}`);
+  };
+  const currentPage = normalizePagePath(location.pathname);
 
   nav.querySelectorAll('a[href]').forEach(link => {
-    if (link.getAttribute('href') === currentPage) link.classList.add('active');
+    if (normalizePagePath(link.getAttribute('href')) === currentPage) link.classList.add('active');
   });
 
   document.querySelectorAll('.tab-item[data-page]').forEach(tab => {
-    if (tab.dataset.page === currentPage) tab.classList.add('active');
+    if (normalizePagePath(tab.dataset.page) === currentPage) tab.classList.add('active');
   });
 
   // Menu category cover photos — show how many dishes are in each category
