@@ -467,17 +467,24 @@ h2.center { text-align: center; margin-bottom: 0; }
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 .hero-directions:hover { color: var(--caramel); border-color: var(--caramel); }
+/* A fixed 3-column grid (not flex-wrap) so all three stats always stay on
+   one row — flex-wrap let the third item drop to its own line on narrow
+   screens while keeping its border-left (only :first-child had it removed),
+   leaving a stray divider floating next to "100%" with nothing beside it. */
 .hero-stats {
   margin-top: 58px;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
-  flex-wrap: wrap;
 }
 .hero-stats > div {
-  padding: 0 32px;
+  padding: 0 24px;
   border-left: 1px solid rgba(58,39,23,0.16);
 }
 .hero-stats > div:first-child { padding-left: 0; border-left: none; }
+@media (max-width: 480px) {
+  .hero-stats > div { padding: 0 10px; }
+}
 .hero-stats strong {
   display: block;
   font-family: var(--font-head);
