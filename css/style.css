@@ -648,13 +648,25 @@ section { padding: 110px 0; }
 }
 .photo-needed-badge .icon { width: 15px; height: 15px; margin: 0; vertical-align: 0; }
 
-/* Menu category filter chips */
+/* Menu category filter chips — the bar stays pinned under the header while
+   scrolling a long menu, so jumping between categories never needs a
+   scroll-back-to-top first. */
+.menu-filters-bar {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: var(--cream);
+  padding-top: 18px;
+  padding-bottom: 18px;
+  margin-bottom: 26px;
+  border-bottom: 1px solid rgba(58,39,23,0.08);
+}
 .menu-filters {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  margin: 0 0 44px;
+  margin: 0;
 }
 .filter-chip {
   flex: 0 0 auto;
@@ -709,20 +721,22 @@ section { padding: 110px 0; }
 .menu-category-cover[data-theme="dinner"], .dish-col-photo[data-theme="dinner"], .highlight-card-photo[data-theme="dinner"] { background: linear-gradient(155deg, #dccbb0 0%, #8a6a41 55%, #2d2011 100%); }
 .menu-category-cover[data-theme="desserts"], .dish-col-photo[data-theme="desserts"], .highlight-card-photo[data-theme="desserts"] { background: linear-gradient(155deg, #ecdcda 0%, #bb8d8d 55%, #63393f 100%); }
 
-/* The list beneath each cover picks up a soft tint of the same category color */
 section[data-theme="breakfast"] { background: #f4efe3; }
-.dish-col[data-theme="lunch"] { background: #f5efe1; }
-.dish-col[data-theme="snacks"] { background: #f5eee7; }
-.dish-col[data-theme="drinks"] { background: #f6f2e3; }
-.dish-col[data-theme="extras"] { background: #f2f0e9; }
-.dish-col[data-theme="dinner"] { background: #f1eadb; }
-.dish-col[data-theme="desserts"] { background: #f5eeed; }
+
+/* Each category is a distinct white "menu card" — the cover photo strip
+   carries the category color, the card body stays uniformly white so the
+   dish list itself reads cleanly regardless of how long the category is. */
+.menu-panel,
 .dish-col[data-theme] {
+  background: var(--white);
+  border: 1px solid rgba(58,39,23,0.08);
   border-radius: var(--radius);
-  padding: 0 16px 16px;
+  box-shadow: var(--shadow);
+  padding: 6px 22px 22px;
 }
+.menu-panel { padding: 22px; }
 .dish-col[data-theme] .dish-col-photo {
-  margin: 0 -16px 18px;
+  margin: 0 -22px 20px;
   border-radius: var(--radius) var(--radius) 0 0;
 }
 .menu-category-cover .photo-slot-label,
@@ -817,24 +831,47 @@ section[data-theme="breakfast"] { background: #f4efe3; }
   align-items: start;
   gap: 40px;
 }
+/* Fine-dining "leader dot" row: the dish name gets a dotted rule that runs
+   the rest of the line up to the price, exactly like a printed menu —
+   achieved purely with CSS (a border-bottom on the flexed name span), so no
+   markup changes were needed per dish. */
 .dish-list li {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: baseline;
-  gap: 4px 12px;
-  padding: 10px 0;
-  border-bottom: 1px dotted rgba(58,39,23,0.18);
+  gap: 4px 14px;
+  padding: 14px 2px;
+  border-radius: 4px;
+  transition: background 0.15s ease;
   font-size: 0.92rem;
   color: var(--ink);
 }
+.dish-list li:not(:last-child) { border-bottom: 1px solid rgba(58,39,23,0.06); }
+@media (hover: hover) {
+  .dish-list li:hover { background: rgba(169,133,58,0.05); }
+}
+.dish-list li > span:first-of-type {
+  flex: 1 1 auto;
+  min-width: 40px;
+  border-bottom: 1px dotted rgba(58,39,23,0.4);
+  padding-bottom: 5px;
+  font-family: var(--font-head);
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.dish-list em {
+  padding-bottom: 5px;
+}
 .dish-desc {
   flex-basis: 100%;
-  margin: 2px 0 0;
+  margin: 3px 0 0;
   font-size: 0.82rem;
+  font-style: italic;
   color: var(--ink-soft);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 .dish-subhead {
   font-family: var(--font-body);
@@ -1007,7 +1044,15 @@ section[data-theme="breakfast"] { background: #f4efe3; }
   border-radius: var(--radius);
 }
 .dish-list li small { color: var(--ink-soft); }
-.dish-list em { font-style: normal; color: #8a6a2c; font-weight: 500; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dish-list em {
+  font-style: normal;
+  font-family: var(--font-head);
+  color: var(--caramel-dark);
+  font-weight: 600;
+  font-size: 1.05rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
 
 /* Bakery */
 .bakery { background: var(--cream-2); color: var(--ink); position: relative; overflow: hidden; }
@@ -1334,14 +1379,15 @@ a[href^="tel:"] { white-space: nowrap; }
   .tab-item.active { color: var(--choc); background: rgba(169,133,58,0.12); }
 
   /* Swipeable card carousels, app-style */
+  .menu-filters-bar { padding-top: 14px; padding-bottom: 14px; margin-bottom: 20px; }
   .menu-filters {
     flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    margin: 0 -24px 32px;
-    padding: 0 24px 4px;
+    margin: 0 -24px;
+    padding: 0 24px;
   }
   .menu-filters::-webkit-scrollbar { display: none; }
 
