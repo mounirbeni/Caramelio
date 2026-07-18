@@ -1,4 +1,4 @@
-const CACHE_NAME = 'caramelio-shell-v30';
+const CACHE_NAME = 'caramelio-shell-v31';
 const SHELL_FILES = [
   './',
   './index.html',
