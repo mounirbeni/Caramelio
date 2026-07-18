@@ -1316,8 +1316,10 @@ a[href^="tel:"] { white-space: nowrap; }
   .nav-toggle { display: none; }
   .lang-toggle { margin-left: auto; }
 
-  /* Bottom tab bar replaces the floating WhatsApp button as the primary quick-action surface */
-  .whatsapp-float { display: none; }
+  /* The tab bar no longer includes a Chat item, so the floating WhatsApp
+     button stays as the mobile quick-action — just lifted clear of the
+     fixed tab bar instead of sitting behind it. */
+  .whatsapp-float { bottom: calc(62px + 14px + env(safe-area-inset-bottom)); }
   .app-tabbar {
     display: flex;
     position: fixed;
