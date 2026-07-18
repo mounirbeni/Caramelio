@@ -702,9 +702,10 @@ section { padding: 110px 0; }
   padding: 12px 24px 80px;
 }
 
-/* One cover photo per menu category — not one per dish */
-.menu-category-cover,
-.dish-col-photo {
+/* One cover photo per menu category — not one per dish. Every category now
+   gets the same full-width banner treatment (see below), so each section
+   has room to breathe instead of being squeezed into a narrow column. */
+.menu-category-cover {
   position: relative;
   overflow: hidden;
   align-items: flex-start;
@@ -713,34 +714,30 @@ section { padding: 110px 0; }
   background: linear-gradient(155deg, #ece2cc 0%, #c8a76b 55%, #85683a 100%);
 }
 /* Each category gets its own color mood instead of one identical gradient everywhere */
-.menu-category-cover[data-theme="breakfast"], .dish-col-photo[data-theme="breakfast"], .highlight-card-photo[data-theme="breakfast"] { background: linear-gradient(155deg, #ece2cc 0%, #c8a76b 55%, #85683a 100%); }
-.menu-category-cover[data-theme="lunch"], .dish-col-photo[data-theme="lunch"], .highlight-card-photo[data-theme="lunch"] { background: linear-gradient(155deg, #e9dcc4 0%, #bd8b55 55%, #74471f 100%); }
-.menu-category-cover[data-theme="snacks"], .dish-col-photo[data-theme="snacks"], .highlight-card-photo[data-theme="snacks"] { background: linear-gradient(155deg, #e8d9cd 0%, #b58165 55%, #6e4230 100%); }
-.menu-category-cover[data-theme="drinks"], .dish-col-photo[data-theme="drinks"], .highlight-card-photo[data-theme="drinks"] { background: linear-gradient(155deg, #eee7d2 0%, #ccb279 55%, #8f7434 100%); }
-.menu-category-cover[data-theme="extras"], .dish-col-photo[data-theme="extras"], .highlight-card-photo[data-theme="extras"] { background: linear-gradient(155deg, #e9e4d9 0%, #b3a78c 55%, #6c614d 100%); }
-.menu-category-cover[data-theme="dinner"], .dish-col-photo[data-theme="dinner"], .highlight-card-photo[data-theme="dinner"] { background: linear-gradient(155deg, #dccbb0 0%, #8a6a41 55%, #2d2011 100%); }
-.menu-category-cover[data-theme="desserts"], .dish-col-photo[data-theme="desserts"], .highlight-card-photo[data-theme="desserts"] { background: linear-gradient(155deg, #ecdcda 0%, #bb8d8d 55%, #63393f 100%); }
+.menu-category-cover[data-theme="breakfast"], .highlight-card-photo[data-theme="breakfast"] { background: linear-gradient(155deg, #ece2cc 0%, #c8a76b 55%, #85683a 100%); }
+.menu-category-cover[data-theme="lunch"], .highlight-card-photo[data-theme="lunch"] { background: linear-gradient(155deg, #e9dcc4 0%, #bd8b55 55%, #74471f 100%); }
+.menu-category-cover[data-theme="snacks"], .highlight-card-photo[data-theme="snacks"] { background: linear-gradient(155deg, #e8d9cd 0%, #b58165 55%, #6e4230 100%); }
+.menu-category-cover[data-theme="drinks"], .highlight-card-photo[data-theme="drinks"] { background: linear-gradient(155deg, #eee7d2 0%, #ccb279 55%, #8f7434 100%); }
+.menu-category-cover[data-theme="extras"], .highlight-card-photo[data-theme="extras"] { background: linear-gradient(155deg, #e9e4d9 0%, #b3a78c 55%, #6c614d 100%); }
+.menu-category-cover[data-theme="dinner"], .highlight-card-photo[data-theme="dinner"] { background: linear-gradient(155deg, #dccbb0 0%, #8a6a41 55%, #2d2011 100%); }
+.menu-category-cover[data-theme="desserts"], .highlight-card-photo[data-theme="desserts"] { background: linear-gradient(155deg, #ecdcda 0%, #bb8d8d 55%, #63393f 100%); }
 
 section[data-theme="breakfast"] { background: #f4efe3; }
 
-/* Each category is a distinct white "menu card" — the cover photo strip
-   carries the category color, the card body stays uniformly white so the
-   dish list itself reads cleanly regardless of how long the category is. */
-.menu-panel,
-.dish-col[data-theme] {
+/* Every category is its own full-width "menu card" — a white panel with a
+   hairline border and soft shadow, stacked one below another rather than
+   squeezed side by side, so a category with many items (Drinks, 64) never
+   feels cramped next to a short one (Snacks, 8). */
+.menu-panel {
+  max-width: 840px;
+  margin: 0 auto;
   background: var(--white);
   border: 1px solid rgba(58,39,23,0.08);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 6px 22px 22px;
+  padding: 22px 32px 32px;
 }
-.menu-panel { padding: 22px; }
-.dish-col[data-theme] .dish-col-photo {
-  margin: 0 -22px 20px;
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-.menu-category-cover .photo-slot-label,
-.dish-col-photo .photo-slot-label {
+.menu-category-cover .photo-slot-label {
   flex-direction: row;
   gap: 8px;
   background: rgba(250,243,230,0.6);
@@ -748,31 +745,21 @@ section[data-theme="breakfast"] { background: #f4efe3; }
   padding: 8px 16px;
   box-shadow: 0 2px 10px rgba(58,39,23,0.1);
 }
-.menu-category-cover .photo-slot-label .icon,
-.dish-col-photo .photo-slot-label .icon {
+.menu-category-cover .photo-slot-label .icon {
   width: 18px;
   height: 18px;
   opacity: 0.65;
 }
-.menu-category-cover .photo-slot-label span,
-.dish-col-photo .photo-slot-label span {
+.menu-category-cover .photo-slot-label span {
   font-size: 0.68rem;
 }
 .menu-category-cover {
   aspect-ratio: 21 / 6;
   border-radius: var(--radius);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 @media (max-width: 700px) {
   .menu-category-cover { aspect-ratio: 16 / 9; }
-}
-.dish-col-photo {
-  aspect-ratio: 1 / 1;
-  border-radius: var(--radius);
-  margin-bottom: 18px;
-}
-@media (max-width: 700px) {
-  .dish-col-photo { aspect-ratio: 16 / 9; }
 }
 
 /* Text overlay on each category cover: title, timing, dish count */
@@ -816,20 +803,6 @@ section[data-theme="breakfast"] { background: #f4efe3; }
 }
 @media (max-width: 700px) {
   .menu-category-overlay-title { font-size: 1.15rem; }
-}
-.dish-col-empty {
-  color: var(--ink-soft);
-  font-size: 0.9rem;
-  font-style: italic;
-  padding: 10px 0;
-}
-
-/* Dish columns — one unified list style for every menu category */
-.dish-columns {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  align-items: start;
-  gap: 40px;
 }
 /* Fine-dining "leader dot" row: the dish name gets a dotted rule that runs
    the rest of the line up to the price, exactly like a printed menu —

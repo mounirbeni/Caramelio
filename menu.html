@@ -151,24 +151,24 @@
     </div>
   </section>
 
-  <!-- ALL DAY MENU -->
-  <section id="all-day" data-filter-section>
+  <!-- LUNCH -->
+  <section id="lunch" data-filter-section data-theme="lunch">
     <div class="container">
-      <p class="eyebrow center" data-i18n="menu.allday.eyebrow">All-Day Dining</p>
-      <h2 class="center" data-i18n="menu.allday.title" data-i18n-html>Lunch, Snacks, Drinks &amp; Dinner</h2>
+      <p class="eyebrow center" data-i18n="menu.lunch.eyebrow">Midday Menu</p>
+      <h2 class="center" data-i18n="menu.lunch.title">Lunch Favorites</h2>
       <div class="divider" aria-hidden="true"></div>
-      <p class="section-sub center" data-i18n="menu.allday.sub">Browse by category — some dishes are available at more than one time of day.</p>
+      <p class="section-sub center" data-i18n="menu.lunch.sub">Salads, sandwiches, burgers, tacos, quesadillas and savory crêpes.</p>
 
-      <div class="dish-columns">
-        <div class="dish-col" id="lunch" data-filter-group data-theme="lunch">
-          <div class="dish-col-photo photo-slot" data-photo="menu-cover-lunch" data-theme="lunch">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.lunch">Lunch — Cover Photo</span></div>
-            <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.midday">Midday</span></span>
-              <h3 class="menu-category-overlay-title" data-i18n="cat.lunch">Lunch</h3>
-              <span class="menu-category-count"></span>
-            </div>
-          </div>
+      <div class="menu-category-cover photo-slot" data-photo="menu-cover-lunch" data-theme="lunch">
+        <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.lunch">Lunch — Cover Photo</span></div>
+        <div class="menu-category-overlay">
+          <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.midday">Midday</span></span>
+          <h3 class="menu-category-overlay-title" data-i18n="cat.lunch">Lunch</h3>
+          <span class="menu-category-count"></span>
+        </div>
+      </div>
+
+      <div class="menu-panel">
           <p class="dish-subhead" data-i18n="menu.subhead.salads">Salads</p>
           <ul class="dish-list">
             <li data-category="lunch">
@@ -245,16 +245,28 @@
             <li data-category="lunch"><span data-i18n="dish.crepeVH.name">Ground Beef</span><em>45 MAD</em></li>
             <li data-category="lunch"><span data-i18n="dish.crepeSaumon.name">Smoked Salmon</span><em>50 MAD</em></li>
           </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SNACKS -->
+  <section class="section-alt" id="snacks" data-filter-section data-theme="snacks">
+    <div class="container">
+      <p class="eyebrow center" data-i18n="menu.snacks.eyebrow">Quick Bites</p>
+      <h2 class="center" data-i18n="menu.snacks.title" data-i18n-html>Snacks &amp; Sweet Bites</h2>
+      <div class="divider" aria-hidden="true"></div>
+      <p class="section-sub center" data-i18n="menu.snacks.sub">Sweet crêpes and pancakes for a quick treat any time of day.</p>
+
+      <div class="menu-category-cover photo-slot" data-photo="menu-cover-snacks" data-theme="snacks">
+        <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.snacks">Snacks — Cover Photo</span></div>
+        <div class="menu-category-overlay">
+          <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.allday">All Day</span></span>
+          <h3 class="menu-category-overlay-title" data-i18n="cat.snacks">Snacks</h3>
+          <span class="menu-category-count"></span>
         </div>
-        <div class="dish-col" id="snacks" data-filter-group data-theme="snacks">
-          <div class="dish-col-photo photo-slot" data-photo="menu-cover-snacks" data-theme="snacks">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.snacks">Snacks — Cover Photo</span></div>
-            <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.allday">All Day</span></span>
-              <h3 class="menu-category-overlay-title" data-i18n="cat.snacks">Snacks</h3>
-              <span class="menu-category-count"></span>
-            </div>
-          </div>
+      </div>
+
+      <div class="menu-panel">
           <p class="dish-subhead" data-i18n="menu.subhead.sweetCrepes">Sweet Crêpes</p>
           <ul class="dish-list">
             <li data-category="snacks"><span data-i18n="dish.crepeNutella.name">Nutella</span><em>35 MAD</em></li>
@@ -272,16 +284,28 @@
             <li data-category="snacks"><span data-i18n="dish.pancakeBanane.name">Banana</span><em>38 MAD</em></li>
             <li data-category="snacks"><span data-i18n="dish.pancakeTropical.name">Tropical</span><em>40 MAD</em></li>
           </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRINKS -->
+  <section id="drinks" data-filter-section data-theme="drinks">
+    <div class="container">
+      <p class="eyebrow center" data-i18n="menu.drinks.eyebrow">Beverages</p>
+      <h2 class="center" data-i18n="menu.drinks.title">Our Drinks</h2>
+      <div class="divider" aria-hidden="true"></div>
+      <p class="section-sub center" data-i18n="menu.drinks.sub">Fresh juices, specialty coffee, mixology, smoothies, mocktails and more.</p>
+
+      <div class="menu-category-cover photo-slot" data-photo="menu-cover-drinks" data-theme="drinks">
+        <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.drinks">Drinks — Cover Photo</span></div>
+        <div class="menu-category-overlay">
+          <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.allday">All Day</span></span>
+          <h3 class="menu-category-overlay-title" data-i18n="cat.drinks">Drinks</h3>
+          <span class="menu-category-count"></span>
         </div>
-        <div class="dish-col" data-filter-group data-theme="drinks">
-          <div class="dish-col-photo photo-slot" data-photo="menu-cover-drinks" data-theme="drinks">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.drinks">Drinks — Cover Photo</span></div>
-            <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.allday">All Day</span></span>
-              <h3 class="menu-category-overlay-title" data-i18n="cat.drinks">Drinks</h3>
-              <span class="menu-category-count"></span>
-            </div>
-          </div>
+      </div>
+
+      <div class="menu-panel">
           <p class="dish-subhead" data-i18n="menu.subhead.freshJuices">Fresh Juices</p>
           <ul class="dish-list">
             <li data-category="drinks"><span data-i18n="dish.juiceOrange.name">Orange</span><em>25 MAD</em></li>
@@ -427,16 +451,28 @@
             <li data-category="drinks"><span data-i18n="dish.waterStill50.name">Still Water 50 cL</span><em>15 MAD</em></li>
             <li data-category="drinks"><span data-i18n="dish.waterStill75.name">Still Water 75 cL</span><em>22 MAD</em></li>
           </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXTRAS -->
+  <section class="section-alt" id="extras" data-filter-section data-theme="extras">
+    <div class="container">
+      <p class="eyebrow center" data-i18n="menu.extras.eyebrow">À La Carte</p>
+      <h2 class="center" data-i18n="menu.extras.title" data-i18n-html>Extras &amp; Sides</h2>
+      <div class="divider" aria-hidden="true"></div>
+      <p class="section-sub center" data-i18n="menu.extras.sub">Omelets à la carte and classic sides to round out any order.</p>
+
+      <div class="menu-category-cover photo-slot" data-photo="menu-cover-extras" data-theme="extras">
+        <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.extras">Extras — Cover Photo</span></div>
+        <div class="menu-category-overlay">
+          <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.allday">All Day</span></span>
+          <h3 class="menu-category-overlay-title" data-i18n="cat.extras">Extras</h3>
+          <span class="menu-category-count"></span>
         </div>
-        <div class="dish-col" data-filter-group data-theme="extras">
-          <div class="dish-col-photo photo-slot" data-photo="menu-cover-extras" data-theme="extras">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.extras">Extras — Cover Photo</span></div>
-            <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.allday">All Day</span></span>
-              <h3 class="menu-category-overlay-title" data-i18n="cat.extras">Extras</h3>
-              <span class="menu-category-count"></span>
-            </div>
-          </div>
+      </div>
+
+      <div class="menu-panel">
           <p class="dish-subhead" data-i18n="menu.subhead.omelettes">Omelets à la Carte</p>
           <ul class="dish-list">
             <li data-category="extras"><span data-i18n="dish.omeletteNature.name">Plain Omelet</span><em>20 MAD</em></li>
@@ -463,16 +499,28 @@
             <li data-category="extras"><span data-i18n="dish.suppAmlou.name">Amlou</span><em>13 MAD</em></li>
             <li data-category="extras"><span data-i18n="dish.suppArgan.name">Argan Oil</span><em>22 MAD</em></li>
           </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DINNER -->
+  <section id="dinner" data-filter-section data-theme="dinner">
+    <div class="container">
+      <p class="eyebrow center" data-i18n="menu.dinner.eyebrow">Evening Menu</p>
+      <h2 class="center" data-i18n="menu.dinner.title">Dinner Specialties</h2>
+      <div class="divider" aria-hidden="true"></div>
+      <p class="section-sub center" data-i18n="menu.dinner.sub">Chef's plates, pasta, tagines, pizza, couscous and our signature pasticcios.</p>
+
+      <div class="menu-category-cover photo-slot" data-photo="menu-cover-dinner" data-theme="dinner">
+        <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.dinner">Dinner — Cover Photo</span></div>
+        <div class="menu-category-overlay">
+          <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.evening">Evening</span></span>
+          <h3 class="menu-category-overlay-title" data-i18n="cat.dinner">Dinner</h3>
+          <span class="menu-category-count"></span>
         </div>
-        <div class="dish-col" id="dinner" data-filter-group data-theme="dinner">
-          <div class="dish-col-photo photo-slot" data-photo="menu-cover-dinner" data-theme="dinner">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.dinner">Dinner — Cover Photo</span></div>
-            <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.evening">Evening</span></span>
-              <h3 class="menu-category-overlay-title" data-i18n="cat.dinner">Dinner</h3>
-              <span class="menu-category-count"></span>
-            </div>
-          </div>
+      </div>
+
+      <div class="menu-panel">
           <p class="dish-subhead" data-i18n="menu.subhead.moroccanClassics">Moroccan Classics</p>
           <ul class="dish-list">
             <li data-category="dinner"><span data-i18n="dish.tajinePouletCitron.name">Chicken &amp; Lemon Tagine</span><em>55 MAD</em></li>
@@ -599,16 +647,28 @@
               <p class="dish-desc" data-i18n="dish.pizzaAlgerienne.desc">White sauce, Algerian sauce, onion, kefta.</p>
             </li>
           </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESSERTS -->
+  <section class="section-alt" id="desserts" data-filter-section data-theme="desserts">
+    <div class="container">
+      <p class="eyebrow center" data-i18n="menu.desserts.eyebrow">Sweet Finish</p>
+      <h2 class="center" data-i18n="menu.desserts.title">Desserts</h2>
+      <div class="divider" aria-hidden="true"></div>
+      <p class="section-sub center" data-i18n="menu.desserts.sub">Ice cream coupes, milkshakes and house-made sweets to finish.</p>
+
+      <div class="menu-category-cover photo-slot" data-photo="menu-cover-desserts" data-theme="desserts">
+        <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.desserts">Desserts — Cover Photo</span></div>
+        <div class="menu-category-overlay">
+          <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.allday">All Day</span></span>
+          <h3 class="menu-category-overlay-title" data-i18n="cat.desserts">Desserts</h3>
+          <span class="menu-category-count"></span>
         </div>
-        <div class="dish-col" data-filter-group data-theme="desserts">
-          <div class="dish-col-photo photo-slot" data-photo="menu-cover-desserts" data-theme="desserts">
-            <div class="photo-slot-label"><svg class="icon"><use href="#icon-camera"/></svg><span data-i18n="menu.cover.desserts">Desserts — Cover Photo</span></div>
-            <div class="menu-category-overlay">
-              <span class="menu-category-time"><svg class="icon icon-xs"><use href="#icon-clock"/></svg><span data-i18n="time.allday">All Day</span></span>
-              <h3 class="menu-category-overlay-title" data-i18n="cat.desserts">Desserts</h3>
-              <span class="menu-category-count"></span>
-            </div>
-          </div>
+      </div>
+
+      <div class="menu-panel">
           <p class="dish-subhead" data-i18n="menu.subhead.houseDesserts">House Desserts</p>
           <ul class="dish-list">
             <li data-category="desserts">
@@ -663,10 +723,10 @@
             <li data-category="desserts"><span data-i18n="dish.dessertDriedFruit.name">Dried Fruit</span><em>8 MAD</em></li>
             <li data-category="desserts"><span data-i18n="dish.dessertScoop.name">Extra Scoop, Your Choice</span><em>16 MAD</em></li>
           </ul>
-        </div>
       </div>
     </div>
   </section>
+
 
   <p class="container menu-empty-state" id="menuEmptyState" hidden data-i18n="menu.emptyState">No dishes in this category yet — check back soon or ask our team.</p>
 
