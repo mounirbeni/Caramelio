@@ -316,8 +316,9 @@ h2.center { text-align: center; margin-bottom: 0; }
   height: 2px;
   background: var(--ink);
   border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition: transform 0.25s ease, opacity 0.25s ease, background 0.15s ease;
 }
+.nav-toggle:hover span { background: var(--caramel); }
 .site-header.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .site-header.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
 .site-header.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -1400,6 +1401,7 @@ a[href^="tel:"] { white-space: nowrap; }
     transition: color 0.15s ease, background 0.15s ease;
   }
   .tab-item .icon { width: 21px; height: 21px; margin: 0; vertical-align: 0; }
+  .tab-item:not(.active):hover { color: var(--caramel); background: rgba(169,133,58,0.06); }
   .tab-item.active { color: var(--choc); background: rgba(169,133,58,0.12); }
 
   /* Swipeable card carousels, app-style */
