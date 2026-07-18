@@ -29,6 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Live open/closed badge in the hero — computed from the real daily
+  // hours (6:45 AM - 11:00 PM, see location.html) so it never needs a
+  // manual update and can't drift out of sync with what's printed there.
+  const heroStatus = document.getElementById('heroStatus');
+  if (heroStatus) {
+    const now = new Date();
+    const minutesNow = now.getHours() * 60 + now.getMinutes();
+    const isOpen = minutesNow >= 6 * 60 + 45 && minutesNow < 23 * 60;
+    heroStatus.classList.toggle('is-closed', !isOpen);
+  }
+
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 

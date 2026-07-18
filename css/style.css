@@ -24,6 +24,34 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Branded text selection and keyboard focus, replacing the browser
+   defaults (grey/blue) with the site's own caramel-gold accents. */
+::selection {
+  background: rgba(173, 99, 38, 0.22);
+  color: var(--choc);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Cross-document page transitions — a quiet crossfade between pages
+   instead of the default hard cut. Purely a progressive enhancement:
+   browsers without support simply keep the instant navigation they
+   already have. */
+@view-transition {
+  navigation: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
 .gold-rule {
   height: 2px;
   background: var(--gold);
@@ -69,7 +97,16 @@ body {
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: contain;
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(169,133,58,0.5) transparent;
 }
+.scroll-area::-webkit-scrollbar { width: 9px; }
+.scroll-area::-webkit-scrollbar-track { background: transparent; }
+.scroll-area::-webkit-scrollbar-thumb {
+  background: rgba(169,133,58,0.45);
+  border-radius: 999px;
+}
+.scroll-area::-webkit-scrollbar-thumb:hover { background: rgba(169,133,58,0.7); }
 @media (max-width: 760px) {
   .scroll-area { bottom: calc(62px + env(safe-area-inset-bottom)); }
 }
@@ -386,11 +423,17 @@ h2.center { text-align: center; margin-bottom: 0; }
 
 /* Trust chip — real, current rating (see reviews.html), linked straight
    through so the claim is a click away from being verified. */
+.hero-trust-row {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
 .hero-rating {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  margin-top: 24px;
   padding: 9px 18px;
   background: var(--white);
   border: 1px solid rgba(169,133,58,0.35);
@@ -403,6 +446,34 @@ h2.center { text-align: center; margin-bottom: 0; }
 .hero-rating-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 1px; }
 .hero-rating-text { font-size: 0.82rem; color: var(--ink); font-weight: 500; }
 .hero-rating-text strong { font-family: var(--font-head); font-weight: 700; color: var(--caramel-dark); font-size: 0.98rem; margin-right: 4px; }
+
+/* Live open/closed status, computed client-side from the real opening
+   hours (6:45 AM - 11:00 PM daily, see location.html) rather than
+   hardcoded, so it stays accurate on its own. */
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+}
+.hero-status-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #4a9b5e;
+  box-shadow: 0 0 0 3px rgba(74,155,94,0.18);
+}
+.hero-status.is-closed .hero-status-dot {
+  background: #b5482f;
+  box-shadow: 0 0 0 3px rgba(181,72,47,0.16);
+}
+.hero-status-text-closed { display: none; }
+.hero-status.is-closed .hero-status-text-open { display: none; }
+.hero-status.is-closed .hero-status-text-closed { display: inline; }
 
 /* Scroll cue — a quiet nudge to keep reading, hidden once the hero no longer fills the screen */
 .hero-scroll-cue {
