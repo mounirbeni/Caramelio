@@ -25,6 +25,12 @@
       'whatsapp.aria': 'Chat on WhatsApp',
       'photo.needed': 'Photo needed',
 
+      'notFound.eyebrow': 'Error 404',
+      'notFound.title': "This Table Isn't Set",
+      'notFound.sub': "The page you're looking for doesn't exist, may have moved, or the link was mistyped.",
+      'notFound.home': 'Back to Home',
+      'notFound.menu': 'View the Menu',
+
       'hero.eyebrow': 'Café · Bakery · Restaurant',
       'hero.title': 'Warm mornings, <br>sweet everything.',
       'hero.sub': 'A two-story hideaway in Targa, Marrakech — fresh bakery, generous breakfasts, and Moroccan & international dishes served all day, indoors or on the terrace.',
@@ -550,6 +556,12 @@
       'footer.rights': 'Tous droits réservés.',
       'whatsapp.aria': 'Discuter sur WhatsApp',
       'photo.needed': 'Photo à venir',
+
+      'notFound.eyebrow': 'Erreur 404',
+      'notFound.title': "Cette table n'est pas prête",
+      'notFound.sub': "La page que vous cherchez n'existe pas, a peut-être été déplacée, ou le lien comporte une erreur.",
+      'notFound.home': "Retour à l'accueil",
+      'notFound.menu': 'Voir le menu',
 
       'hero.eyebrow': 'Café · Pâtisserie · Restaurant',
       'hero.title': 'Des matins chaleureux, <br>et de la douceur en tout.',

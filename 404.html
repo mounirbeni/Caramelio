@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Page Not Found — Caramelio</title>
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23a2551a'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='56' font-weight='700' fill='%23fdf6ec' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="theme-color" content="#a2551a">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Caramelio">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<div class="gold-rule" aria-hidden="true"></div>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11.5 12 4l8 7.5"/><path d="M5.5 10v8.5a1 1 0 0 0 1 1H9.5v-5.5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5.5h3a1 1 0 0 0 1-1V10"/>
+  </symbol>
+  <symbol id="icon-utensils" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M7 3v5a2 2 0 1 1-4 0V3"/><path d="M5 8v13"/><path d="M17 3c-1.3 1-2 2.6-2 4.5 0 2 1 3.5 2 4.5v9"/>
+  </symbol>
+  <symbol id="icon-bread" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.5 13.5c0-4 3.8-7.5 8.5-7.5s8.5 3.5 8.5 7.5-3.8 4-8.5 4-8.5 0-8.5-4z"/><path d="M8 9.2l1.4 3.6M12 8.6l1.2 4M16 9.2l1.2 3.6"/>
+  </symbol>
+  <symbol id="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3.5" y="5" width="17" height="15.5" rx="2.2"/><path d="M3.5 9.5h17"/><path d="M8 3v4M16 3v4"/><path d="M8.5 13.2h2M13.5 13.2h2M8.5 16.6h2M13.5 16.6h2"/>
+  </symbol>
+  <symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2 22l5.28-1.39a9.9 9.9 0 0 0 4.76 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.35-.5.05-1.02.24-3.42-.71-2.89-1.15-4.75-4.06-4.9-4.25-.14-.19-1.17-1.56-1.17-2.98s.73-2.11 1-2.4c.24-.27.53-.34.71-.34.18 0 .36 0 .51.01.17.01.39-.06.6.46.24.58.8 2 .87 2.15.07.15.12.32.02.51-.1.19-.15.3-.29.46-.15.17-.31.37-.44.5-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.29.14.46.12.63-.07.17-.19.72-.83.91-1.12.19-.29.38-.24.63-.14.26.1 1.65.78 1.94.92.29.14.48.22.55.34.07.13.07.72-.17 1.4z"/>
+  </symbol>
+</svg>
+
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">Caramelio<span class="logo-dot">.</span></a>
+    <nav class="nav" id="nav">
+      <a href="/reserve" class="nav-link-highlight" data-i18n="nav.reserve">Reserve</a>
+      <a href="/about" data-i18n="nav.about">About</a>
+      <a href="/menu" data-i18n="nav.menu">Menu</a>
+      <a href="/gallery" data-i18n="nav.gallery">Gallery</a>
+      <a href="/bakery" data-i18n="nav.bakery">Bakery</a>
+      <a href="/reviews" data-i18n="nav.reviews">Reviews</a>
+      <a href="/location" data-i18n="nav.location">Location</a>
+    </nav>
+    <a href="/reserve" class="btn btn-gold header-cta" data-i18n="header.cta">Reserve a Table</a>
+    <div class="lang-toggle" id="langToggle" role="group" data-i18n-aria-label="lang.aria" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-lang="fr">FR</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="scroll-area" id="scrollArea">
+<main>
+
+  <div class="container page-header">
+    <p class="eyebrow center" data-i18n="notFound.eyebrow">Error 404</p>
+    <h1 data-i18n="notFound.title">This Table Isn't Set</h1>
+    <div class="divider" aria-hidden="true"></div>
+    <p data-i18n="notFound.sub">The page you're looking for doesn't exist, may have moved, or the link was mistyped.</p>
+    <div class="hero-actions" style="justify-content: center; margin-top: 28px;">
+      <a href="/" class="btn btn-primary" data-i18n="notFound.home">Back to Home</a>
+      <a href="/menu" class="btn btn-ghost" data-i18n="notFound.menu">View the Menu</a>
+    </div>
+  </div>
+
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col footer-brand-col">
+      <div class="footer-brand">Caramelio<span class="logo-dot">.</span></div>
+      <p class="footer-tagline" data-i18n="footer.tagline">Café, bakery &amp; restaurant in Targa, Marrakech — warm mornings and sweet everything, all day long.</p>
+      <div class="social-links footer-social">
+        <a href="https://www.instagram.com/carameliotarga/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/carameliotarga/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.explore">Explore</h4>
+      <a href="/reserve" data-i18n="footer.reserve">Reserve a Table</a>
+      <a href="/about" data-i18n="nav.about">About</a>
+      <a href="/menu" data-i18n="nav.menu">Menu</a>
+      <a href="/gallery" data-i18n="nav.gallery">Gallery</a>
+      <a href="/bakery" data-i18n="nav.bakery">Bakery</a>
+      <a href="/reviews" data-i18n="nav.reviews">Reviews</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.visit">Visit</h4>
+      <a href="/location">Targa, Marrakech</a>
+      <a href="tel:+212524490595">+212 5244-90595</a>
+      <a href="tel:+212665707049">+212 6657-07049</a>
+      <a href="/location" data-i18n="footer.orderOnline">Order Online</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© <span id="year"></span> Caramelio. <span data-i18n="footer.rights">All rights reserved.</span></p>
+  </div>
+</footer>
+</div>
+<a href="https://wa.me/212665707049" target="_blank" rel="noopener" class="whatsapp-float" data-i18n-aria-label="whatsapp.aria" aria-label="Chat on WhatsApp">
+  <svg aria-hidden="true"><use href="#icon-whatsapp"/></svg>
+</a>
+
+<nav class="app-tabbar" id="appTabbar" aria-label="Quick actions">
+  <a href="/" class="tab-item" data-page="/">
+    <svg class="icon"><use href="#icon-home"/></svg><span data-i18n="tab.home">Home</span>
+  </a>
+  <a href="/menu" class="tab-item" data-page="/menu">
+    <svg class="icon"><use href="#icon-utensils"/></svg><span data-i18n="tab.menu">Menu</span>
+  </a>
+  <a href="/bakery" class="tab-item" data-page="/bakery">
+    <svg class="icon"><use href="#icon-bread"/></svg><span data-i18n="tab.bakery">Bakery</span>
+  </a>
+  <a href="/reserve" class="tab-item" data-page="/reserve">
+    <svg class="icon"><use href="#icon-calendar"/></svg><span data-i18n="tab.reserve">Reserve</span>
+  </a>
+</nav>
+
+<script src="js/i18n.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
